@@ -1,0 +1,11 @@
+# Fase 8 — Referências: Decisão & Sizing
+- **Livro 18** (Paleologo): conviction scoring multi-fator
+- **Livro 03** (Bernstein): Kelly Criterion. f* = (p×b − q) / b. Half/Quarter-Kelly.
+- **Livro 89** (Antifrágil): convexidade no sizing; Skin in the Game
+- **Livro 27** (Tetlock, Cap. 8): Dragonfly Eye
+- **Livro 83** (Success Equation): skill vs. luck
+- **Livro 61** (Axiomas de Zurique)
+- **P07** (Probabilities): expected value
+- **P02** (Other Side): quem está do outro lado
+- **P43** (Dispersion): dispersão como oportunidade
+- **P53** (QMJ): quality factor no scoring

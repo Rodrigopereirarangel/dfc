@@ -1,0 +1,46 @@
+{
+    "mcpServers": {
+        "yahoo-finance": {
+            "type": "api",
+            "description": "Cotações live, histórico de preços, volume, beta, short interest via yfinance",
+            "priority": "market-data",
+            "usage": [
+                "Preço atual do ticker (Fase 0, 6, 8)",
+                "Histórico de retornos para cálculo de Beta (Fase 4)",
+                "Short interest e volume anômalo para sentimento (Fase 0, 7)",
+                "Dados de opções para Open Interest (Fase 7)"
+            ]
+        },
+        "cvm-itr": {
+            "type": "document",
+            "description": "ITR (Informações Trimestrais) e DFP oficiais — PRIORIDADE MÁXIMA para dados fundamentais",
+            "priority": "primary-fundamentals",
+            "usage": [
+                "DRE, Balanço Patrimonial e DFC oficiais (Fase 1, 3)",
+                "Notas Explicativas para capex, leases, SBC (Fase 1, 2)",
+                "Segmentação de receita por UEN (Fase 3)",
+                "Dados de minoritários e estrutura societária (Fase 6)"
+            ]
+        },
+        "statusinvest": {
+            "type": "api",
+            "description": "Agregador secundário — histórico longo e múltiplos de mercado",
+            "priority": "secondary",
+            "usage": [
+                "Histórico >10 anos de indicadores (Fase 1, 2)",
+                "Múltiplos de peers para comparáveis (Fase 7)",
+                "Dados de dividendos e buybacks históricos (Fase 2.5)"
+            ]
+        },
+        "damodaran": {
+            "type": "data",
+            "description": "Dados de Aswath Damodaran — ERP, betas setoriais, base rates",
+            "priority": "reference",
+            "usage": [
+                "Equity Risk Premium forward-looking (Fase 4)",
+                "Betas unlevered por setor (Fase 4)",
+                "Country Risk Premium Brasil (Fase 4)"
+            ]
+        }
+    }
+}

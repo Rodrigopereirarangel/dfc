@@ -1,0 +1,7 @@
+# Requirements — DCF Pipeline v3 Scripts
+# Python >= 3.10
+
+yfinance>=0.2.0
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0

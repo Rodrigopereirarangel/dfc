@@ -1,0 +1,46 @@
+{
+    "assertions": {
+        "dcf": {
+            "has_wacc": true,
+            "has_terminal_value": true,
+            "has_conviction_score": true,
+            "has_fair_value": true,
+            "has_auditoria_360_pass": true,
+            "has_penman_test": true,
+            "has_sensitivity_table": true,
+            "has_bibliographic_reference": true
+        },
+        "reverse_dcf": {
+            "has_meroi": true,
+            "has_base_rates": true,
+            "has_erp_implicito": true,
+            "has_diagnostic": true
+        },
+        "management_check": {
+            "has_score_1_5": true,
+            "has_haircut": true,
+            "has_guidance_table": true,
+            "has_capital_allocation": true
+        },
+        "auditoria360": {
+            "has_chain_check": true,
+            "has_reconciliation": true,
+            "has_wacc_loop": true,
+            "has_capex_integrity": true,
+            "has_verdict": true
+        },
+        "stress_test": {
+            "has_via_negativa_short": true,
+            "has_via_negativa_medium": true,
+            "has_via_negativa_long": true,
+            "has_triangulation": true,
+            "has_qmj": true,
+            "has_bias_audit": true
+        },
+        "global": {
+            "penman_rule_applied": "when g > inflation + 1%",
+            "bibliographic_reference_present": true,
+            "data_hierarchy_respected": "ITR/DFP > Aggregators > APIs"
+        }
+    }
+}

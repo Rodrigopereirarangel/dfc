@@ -1,0 +1,11 @@
+# Fase 4 — Referências: WACC
+- **P22** (Cost of Capital): Rf → ERP → β → Size → CRP → Ke. ERP por método.
+- **Livro 19** (Ang): Cap. 6-10 — factor decomposition. Ke = Rf + β_mkt×ERP + β_smb×SMB + ...
+- **Livro 21** (Ilmanen): Cap. 3 — ERP = dividend yield + growth − Rf
+- **Livro 01** (Penman): "+1% growth → +1% required return"
+- **Livro 06/84** (Mauboussin): Cap. 8 — Market-Implied
+- **Livro 86** (Lundholm/Sloan): Cap. 9, Pg. 190 — cost of capital
+- **Livro 87** (McKinsey): Cap. 8 — Cost of Capital prático
+- **Livro 59** (Renda Fixa Brasil): NTN-B como risk-free
+- **P13** (Cost of Capital): WACC em regimes easy money
+- **P39** (WACC and Vol): real options benefício

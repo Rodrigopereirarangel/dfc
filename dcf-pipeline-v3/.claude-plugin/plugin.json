@@ -1,0 +1,36 @@
+{
+  "name": "dcf-pipeline-v3",
+  "version": "3.0.0",
+  "description": "DCF Pipeline Institucional v3 — Valuation fundamentalista com 9 fases, 92 livros e 53 papers. Orquestra análise completa de Equity Research.",
+  "author": "Equity Research Analyst",
+  "dependencies": {
+    "python": ">=3.10",
+    "yfinance": ">=0.2.0",
+    "numpy": ">=1.24",
+    "scipy": ">=1.10",
+    "pandas": ">=2.0"
+  },
+  "commands": [
+    "/dcf",
+    "/reverse-dcf",
+    "/auditoria360",
+    "/stress-test",
+    "/management-check",
+    "/comps",
+    "/monitor",
+    "/update-skill"
+  ],
+  "skills": [
+    "skills/fase0-estrategia/SKILL.md",
+    "skills/fase1-auditoria-contabil/SKILL.md",
+    "skills/fase2-value-drivers/SKILL.md",
+    "skills/fase25-management/SKILL.md",
+    "skills/fase3-projecao-fcff/SKILL.md",
+    "skills/fase4-wacc/SKILL.md",
+    "skills/fase5a-auditoria360/SKILL.md",
+    "skills/fase5-terminal-value/SKILL.md",
+    "skills/fase6-agregacao/SKILL.md",
+    "skills/fase7-stress-test/SKILL.md",
+    "skills/fase8-decisao/SKILL.md"
+  ]
+}

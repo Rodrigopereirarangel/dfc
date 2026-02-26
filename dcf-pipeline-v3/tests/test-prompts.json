@@ -1,0 +1,82 @@
+{
+    "test_prompts": [
+        {
+            "command": "/dcf KLBN11",
+            "description": "DCF completo de Klabin — papel de Celulose/Papel com projetos em andamento",
+            "expected_sections": [
+                "FASE 0",
+                "FASE 1",
+                "FASE 2",
+                "FASE 2.5",
+                "FASE 3",
+                "FASE 4",
+                "FASE 5A",
+                "FASE 5",
+                "FASE 6",
+                "FASE 7",
+                "FASE 8"
+            ]
+        },
+        {
+            "command": "/reverse-dcf WEGE3",
+            "description": "Reverse DCF de WEG — tech industrial com múltiplo alto",
+            "expected_sections": [
+                "Premissas Implícitas",
+                "MEROI",
+                "Base Rates",
+                "Diagnóstico"
+            ]
+        },
+        {
+            "command": "/management-check ITUB4",
+            "description": "Análise de gestão de Itaú — banco com longo histórico",
+            "expected_sections": [
+                "Score Credibilidade",
+                "Haircut",
+                "Capital Allocation",
+                "Projetos"
+            ]
+        },
+        {
+            "command": "/auditoria360",
+            "description": "Auditoria 360° sobre modelo já construído",
+            "expected_sections": [
+                "Chain Check",
+                "Reconciliação",
+                "WACC Loop",
+                "Capex Integrity",
+                "Penman"
+            ]
+        },
+        {
+            "command": "/stress-test SUZB3",
+            "description": "Stress test de Suzano — commodity cíclica",
+            "expected_sections": [
+                "Via Negativa",
+                "Fat Tails",
+                "Triangulação",
+                "QMJ",
+                "Vieses"
+            ]
+        },
+        {
+            "command": "/comps RENT3",
+            "description": "Comparáveis de Localiza — setor de aluguel de veículos",
+            "expected_sections": [
+                "Peers",
+                "Múltiplos",
+                "Posicionamento",
+                "Implied Value"
+            ]
+        },
+        {
+            "command": "/update-skill",
+            "description": "Comando de feedback e auto-melhoria",
+            "expected_sections": [
+                "Análise",
+                "Proposta",
+                "Diff"
+            ]
+        }
+    ]
+}

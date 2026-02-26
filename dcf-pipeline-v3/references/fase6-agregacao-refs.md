@@ -1,0 +1,11 @@
+# Fase 6 — Referências: Agregação & Bridge
+- **Livro 13** (Damodaran): bridge EV → Equity
+- **Livro 87** (McKinsey, Cap. 10): From Enterprise to Equity
+- **Livro 86** (Lundholm/Sloan, Cap. 10): bridge contábil
+- **Livro 12** (Marks): margin of safety framework
+- **Livro 08** (Measure Anything): decision MC
+- **Livro 27** (Superprevisões): calibração de cenários
+- **P07** (Probabilities): ponderação de cenários
+- **P20** (SBC): diluição futura
+- **P21** (Confidence): separar prob × confiança
+- **P34** (Everything Is DCF): traduzir múltiplo em premissa
