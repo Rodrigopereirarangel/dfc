@@ -9,12 +9,9 @@ description: |
 
 > **GATE OBRIGATÓRIO. Não prosseguir para o Terminal Value sem passar por esta fase.**
 > **Se ≥ 1 ❗ → Reabrir bloco correspondente para correção.**
->
-> **Entradas:** Todos os outputs das Fases 1-4. Especificamente:
-> - FCFF projetado da Fase 3 (`skills/fase3-projecao-fcff/SKILL.md`)
-> - WACC da Fase 4 (`skills/fase4-wacc/SKILL.md`)
-> - Capex breakdown da Fase 2 (`skills/fase2-value-drivers/SKILL.md`)
-> - Script de validação: `scripts/validate_model.py`
+> **Regra Global:** Cada passo DEVE entregar os 5 Blocos Institucionais + Síntese §1–§5 + JSON Payload.
+
+---
 
 ## Passo 5A.1 — Teste de Coerência & Integração Total
 
@@ -27,62 +24,82 @@ description: |
 
 **2. Reconciliação Segmento ⇄ Consolidado**
 - Σ(Receita segmentos) = Receita consolidada.
-- Σ(NOPAT segmentos) = NOPAT consolidado.
-- Spread ROIC−WACC consolidado = média ponderada segmentos.
 - **Alerta 🟠 se Δ > 0,1 pp (ROIC) ou R$ 1 mi (absoluto).**
 
 **3. Cash-Flow Loop Circular**
-- FCFF → Amortização dívida = Cash-sweep − Dividendos.
-- Nova D/E → β_levered = β_unlevered × (1 + (1−IR) × D/E).
-- Novo WACC.
+- FCFF → Amortização dívida; Nova D/E → β_levered → Novo WACC.
 - **Alerta ❗ se ΔWACC > ±10 bps entre iterações.** Máximo 5 iterações.
 
-**4. CAPEX Manutenção vs. Expansão Integrity**
+**4. CAPEX Integrity**
 - CAPEX_total = CAPEX_manutenção + CAPEX_expansão (todos anos).
-- Verificar: CAPEX_manutenção ≥ D&A ajustada por inflação?
 - **Alerta 🟠 se sobreposição > 0,1% Receita.**
 
 **5. Teste Penman: Growth → Risk**
 - Se g projetado > inflação + 1%, perguntar: "O WACC deveria ser maior?"
 
+**BLOCO 1 — Painel de Alertas do GATE:**
+
+| Check | Status | Detalhe | Ação requerida |
+|---|---|---|---|
+| Chain Check Receita→NOPAT→FCFF | ✅/❗ | Δ = R$X | [nenhuma / corrigir] |
+| Reconciliação Segmento↔Consolidado | ✅/🟠 | Δ = X pp | |
+| Loop Circular WACC (max 5 iter.) | ✅/❗ | Convergiu em X iter. | |
+| Capex Integrity (man+exp=total) | ✅/🟠 | Δ = X% receita | |
+| Penman Test | ✅/🟠 | g=X% vs X% threshold | |
+| ROE vs BV consistency | ✅/❗ | g_BV = X% vs X% projetado | |
+| **VEREDITO DO GATE** | **✅ APROVADO / ❗ REPROVADO** | | |
+
+**BLOCO 2 — Para Cada Alerta: Análise de Impacto:**
+Se algum check falhou: qual o impacto quantitativo no fair value? É material (>3%)? Como corrigir?
+
+**BLOCO 3 — Desvios do Cenário Base vs. Base Rates + DataViz:**
+
+| Premissa | Nossa Estimativa | Base Rate Setorial | Desvio | Justificativa |
+|---|---|---|---|---|
+| ROE projetado | X% | X–X% | +Xpp | [justificativa] |
+| g terminal | X% | X% PIB nominal | Xpp | |
+| CAP utilizado | X anos | X–X anos | Xpp | |
+
+> **📊 Instrução DataViz — Semáforo de Checks GATE:**
+> Tabela visual com codificação de cores tipo "dashboard":
+> - Cada linha = um check. Coluna de Status com célula colorida: Verde (#27AE60), Laranja (#F39C12), Vermelho (#C0392B).
+> - Badge final com APROVADO (Verde) ou REPROVADO (Vermelho).
+
+**BLOCO 4 — Stress-check Relâmpago:**
++50bps WACC, −5% receita mais sensível, +2pp Capex Manutenção → qual o impacto no Terminal Value?
+Se algum Δ > 15% → investigar antes de prosseguir.
+
+**BLOCO 5 — Analogia de Erro de Modelo:**
+Caso documentado onde erro de modelagem (chain check, WACC circular) gerou valuation distorcido.
+
+```
+╔══════════════════════════════════════════════════════════════════╗
+║  📌 SÍNTESE INSTITUCIONAL — Fase 5A Completa (GATE)             ║
+╚══════════════════════════════════════════════════════════════════╝
+§1 O modelo está íntegro e consistente entre todas as fases?
+§2 Existem erros materiais que afetam o fair value?
+§3 Quais premissas desviam mais das base rates e por quê?
+§4 Prosseguir (✅) ou reabrir alguma fase (↩️)?
+§5 A auditoria revelou alguma assimetria de informação?
+```
+
 **Referências:**
 - **Livro 01** (Penman): growth → risk.
 - **Livro 87** (McKinsey): testes de integridade.
-- **Livro 86** (Lundholm/Sloan): reconciliação DRE↔Balanço.
 - **P52** (Common Errors in DCF): checklist de erros.
 
----
-
-## Passo 5A.2 — Desvios Ocultos do Cenário Base
-
-**Ação:**
-Construir tabela comparativa de cada premissa-chave vs. base rate empírica:
-
-| Variável | Valor no Modelo | Base Rate Empírica | Δ (%) | Gravidade | Comentário |
-|---|---|---|---|---|---|
-
-- Incluir APENAS variáveis com Gravidade = 🟠 ou ❗.
-- Comparar com base rates de Mauboussin (P01, P35, P19).
-
----
-
-## Passo 5A.3 — Stress-Checks Relâmpago
-
-**Ação:**
-- +50 bps WACC → Δ% no Terminal Value.
-- −5% na variável de receita mais sensível → Δ% FCFF último ano.
-- +2 pp CAPEX Manutenção → Δ Spread ROIC−WACC Terminal.
-- **Se algum Δ > 15% no valor → investigar antes de prosseguir.**
-
----
-
-## Passo 5A.4 — Diagnóstico Estratégico Express
-
-**Ação:**
-- Avaliar robustez do capital allocation.
-- Comparar fade ROIC projetado com pares maduros (>10 anos).
-- Identificar **2 KPIs críticos** + nível de confiança.
-- **Se ≥ 1 ❗ ou Gravidade Alta → "↩️ Reabrir Bloco para correção".**
-- **Se tudo OK → prosseguir para Fase 5 (Terminal Value).**
-
-**Output:** Relatório de Veredito: ✅ APROVADO ou ↩️ REABRIR BLOCO X. Lista de alertas.
+**JSON Payload ao final da Fase 5A:**
+```json
+<!-- JSON_PAYLOAD
+{
+  "fase": "F5A_GATE",
+  "gate_aprovado": true,
+  "alertas_graves": [],
+  "alertas_atencao": [],
+  "desvios_base_rate": [
+    {"premissa": "ROE projetado", "modelo": 0.0, "base_rate": 0.0, "desvio": 0.0},
+    {"premissa": "g terminal", "modelo": 0.0, "base_rate": 0.0, "desvio": 0.0}
+  ]
+}
+-->
+```

@@ -7,31 +7,68 @@ description: |
 
 # FASE 6 — AGREGAÇÃO, CENÁRIOS & BRIDGE PARA EQUITY
 
-> **Entradas:** Terminal Value da Fase 5 (`skills/fase5-terminal-value/SKILL.md`). WACC da Fase 4. FCFF da Fase 3.
+> **Entradas:** Terminal Value (Fase 5), WACC (Fase 4), FCFF (Fase 3).
 > **Calcular com:** `scripts/sensitivity_table.py` para tabela 7×7.
-> **Saídas:** Fair Value → Fases 7 e 8.
+> **Regra Global:** Cada passo DEVE entregar os 5 Blocos Institucionais + Síntese §1–§5 + JSON Payload.
+
+---
 
 ## Passo 6.1 — Cenários Ponderados + Árvore de Cenários
 
 **Ação:**
-1. Definir 3-5 cenários com premissas explícitas:
-   - **Distress** (5-10%): perda de moat, restructuring.
-   - **Bear** (20-25%): ramp-ups falham, ROIC decai rápido.
-   - **Base** (40-50%): ramp-ups parciais, fade gradual.
-   - **Bull** (20-25%): projetos excedem, moat fortalece.
+1. Definir 3-5 cenários com premissas explícitas: Distress (5-10%), Bear (20-25%), Base (40-50%), Bull (20-25%).
 2. EV e equity value por cenário.
 3. Expected Value = Σ(Prob × Valor).
-4. Upside/Downside ratio.
-5. **Árvore de cenários visual**: cada nó = premissa-chave.
-6. **Para cada cenário, extrair e registrar:**
-   - ERP Implícito.
-   - Custo de Capital Implícito.
-   - Custo de Capital Acima da Inflação (Real Return implícito).
+4. Para cada cenário, extrair: ERP implícito, Custo de Capital Real implícito.
+
+**BLOCO 1 — Tabela de Cenários:**
+
+| Cenário | Prob | Fair Value | Upside | Driver Principal | Macro | Execução |
+|---|---|---|---|---|---|---|
+| Distress | X% | R$X | X% | [driver] | [Selic, PIB] | [execução] |
+| Bear | X% | R$X | X% | [driver] | | |
+| Base | X% | R$X | X% | [driver] | | |
+| Bull | X% | R$X | X% | [driver] | | |
+| **Expected Value** | 100% | **R$X** | **X%** | | | |
+
+**BLOCO 2 — Narrativa de Cada Cenário como Mundo Completo:**
+Para cada cenário com prob ≥ 20%, parágrafo narrativo: como está a macro brasileira, a empresa em termos competitivos, o management entregou, o sentimento do mercado?
+
+**BLOCO 3 — Expected Value e Assimetria + DataViz:**
+
+| Métrica | Resultado | Interpretação |
+|---|---|---|
+| Expected Value | R$X | |
+| Upside máximo (Bull) | +X% | |
+| Downside máximo (Distress) | −X% | |
+| Razão Upside/Downside | X× | >2× ideal; <1× → não investir |
+| Kelly Implícito | X% | Negativo → não abrir posição |
+
+> **📊 Instrução DataViz — Distribuição de Cenários (Bar Chart com Dispersão):**
+> Gráfico de barras horizontais por cenário:
+> - **Eixo X:** R$/ação de Fair Value (mínimo=Distress, máximo=Bull).
+> - **Barra horizontal** por cenário com largura proporcional à probabilidade.
+> - **Diamante âmbar (#CBA052) sobreposto:** Expected Value ponderado.
+> - **Linha vertical cinza:** Preço atual de mercado (para mostrar upside/downside visualmente).
+> - Rótulos: R$/ação + % de upside/downside.
+
+💡 A razão Upside/Downside de X× é o indicador primário de assimetria. Kelly negativo = não investir a este preço.
+
+**BLOCO 4 — O que Precisa ser Verdade para o Bull Case:**
+Liste 5 premissas que precisam se materializar para o PT bull. Probabilidade individual e conjunta.
+
+**BLOCO 5 — Analogia de Cenários:**
+Ativo onde o cenário base se revelou otimista e o bear se materializou. Quais eram os sinais antecedentes?
+
+```
+╔══════════════════════════════════════════════════════════════════╗
+║  📌 SÍNTESE INSTITUCIONAL — Passo 6.1                           ║
+╚══════════════════════════════════════════════════════════════════╝
+```
 
 **Referências:**
 - **P07** (Probabilities and Payoffs).
 - **P21** (Confidence): separar probabilidade × confiança.
-- **Livro 08** (How to Measure Anything).
 - **Livro 27** (Superprevisões).
 
 ---
@@ -40,45 +77,112 @@ description: |
 
 **Ação:**
 1. Identificar opções reais: expansion, abandonment, switching, timing.
-2. Valuar via framework ou B-S adaptado.
+2. Valuar via framework qualitativo ou B-S adaptado.
 3. EV = DCF Base + Σ(Real Options).
 
 **Referências:**
 - **Livro 34** (Real Options, Trigeorgis).
-- **P39** (WACC and Vol): real options benefício.
 
 ---
 
-## Passo 6.3 — Bridge para Equity Value
+## Passo 6.3 — Bridge EV → Equity Value + Sensibilidade 7×7
 
 **Ação:**
 1. Equity Value = EV − Dívida Líquida − Minority Interests − Preferred + Associates + Excess Cash.
-2. **Detalhar ajuste de minoritários.**
-3. Fair Value / Ação = Equity Value / Shares Outstanding.
-4. **Ajustar shares por SBC dilution futura + stock splits + bonificações.**
-5. Banda de valor: Fair Value ± margem de segurança.
-6. **Calcular ERP implícito no Fair Value** e comparar com ERP de mercado (Damodaran).
-7. **Calcular Net Payout Yield**: (Buybacks + Dividendos − Emissões) / Market Cap.
-8. **Tabela de sensibilidade NTN-B × premissa-chave 7×7.**
-9. **Apresentar a expectativa integrada do ERP e Custo de Capital Real do modelo consolidado.**
+2. Ajustar shares por SBC dilution futura + bonificações.
+3. Tabela de sensibilidade NTN-B × premissa-chave 7×7.
+4. Calcular ERP implícito no Fair Value e comparar com Damodaran.
+5. Net Payout Yield: (Buybacks + Dividendos − Emissões) / Market Cap.
 
-**Referências:**
-- **Livro 13** (Damodaran): bridge EV → Equity.
-- **Livro 87** (McKinsey, Cap. 10): From Enterprise to Equity.
-- **Livro 86** (Lundholm/Sloan, Cap. 10): bridge contábil.
-- **Livro 12** (Marks): margin of safety.
-- **P20** (SBC): diluição futura.
+**BLOCO 1 — Bridge EV → Equity:**
+
+| Item | Valor |
+|---|---|
+| Enterprise Value (EV) | R$X bi |
+| (−) Dívida Bruta | −R$X bi |
+| (+) Caixa e Equivalentes | +R$X bi |
+| (−) Minority Interests | −R$X bi |
+| Equity Value | **R$X bi** |
+| Shares Outstanding (diluted) | X mi ações |
+| **Fair Value por Ação** | **R$X** |
+
+**BLOCO 2 — ERP Implícito no Fair Value:**
+O ERP implícito no nosso fair value é X%. Compare com ERP histórico de ativos similares.
+
+**BLOCO 3 — Heatmap de Sensibilidade 7×7 + DataViz:**
+Tabela 7×7 cruzando COE (ou NTN-B) × g terminal (ou outra premissa-chave):
+
+```
+🟢 COMPRA FORTE  → Fair Value > preço atual + 20%
+🟡 NEUTRO/MANTER → Fair Value entre −10% e +20% do preço atual  
+🔴 VENDER/EVITAR → Fair Value < preço atual − 10%
+```
+
+> **📊 Instrução DataViz — Heatmap Térmico 7×7:**
+> Matriz de calor 7×7:
+> - **Eixo X:** COE (ou NTN-B) em 7 valores (ex: 12% a 18%, em steps de 1pp).
+> - **Eixo Y:** g terminal em 7 valores (ex: 2% a 8%, em steps de 1pp).
+> - **Célula:** R$/ação de Fair Value.
+> - **Gradiente de cor:** Paleta divergente — Verde (#27AE60) quando FV > preço + 20%, Amarelo (#F1C40F) para zona neutra, Vermelho (#C0392B) quando FV < preço − 10%.
+> - **Círculo âmbar na célula Base Case** (nosso cenário central).
+> - Rótulos R$/ação em cada célula. Fonte monospaced.
+
+**BLOCO 4 — Zona de Segurança:**
+Qual região do heatmap oferece margem de segurança adequada independentemente de flutuações razoáveis? Qual seria o preço de entrada ideal?
+
+**BLOCO 5 — Analogia de Sensibilidade:**
+Ativo onde a tabela teria revelado zona de risco elevado. O que aconteceu?
 
 ---
 
 ## Passo 6.4 — Comparação Institucional (Sell-Side / Consenso)
 
 **Ação:**
-1. Buscar target prices e projeções-chave de múltiplas casas de análise e Equity Research institucionais.
-2. Comparar o Fair Value final e as projeções de crescimento e margens do nosso modelo contra o consenso.
-3. Avaliar explicitamente:
-   - **Similaridades**: Onde concordamos com o mercado.
-   - **Divergências**: O que o mercado está precificando errado segundo nosso framework.
-4. Documentar se a divergência é uma oportunidade de alfa ou se há informação que estamos ignorando.
+1. Buscar target prices e projeções-chave de múltiplas casas.
+2. Comparar fair value e projeções do nosso modelo vs. consenso.
+3. Avaliar onde concordamos (para não agir) e onde divergimos (oportunidade de alpha).
 
-**Output:** Fair Value por Ação. Tabela Bridge Equity. Tabela Sensibilidade 7×7. Expected Value por cenário. ERP e Custo de Capital implícitos. Tabela de Comparação Institucional.
+**Referências:**
+- **Livro 13** (Damodaran): bridge EV → Equity.
+- **Livro 87** (McKinsey, Cap. 10): From Enterprise to Equity.
+- **P20** (SBC): diluição futura.
+
+```
+╔══════════════════════════════════════════════════════════════════╗
+║  📌 SÍNTESE INSTITUCIONAL — Fase 6 Completa                     ║
+╚══════════════════════════════════════════════════════════════════╝
+§1 Qual o Expected Value e a assimetria de risco/retorno?
+§2 A margem de segurança é adequada ao moat identificado na Fase 0?
+§3 Alta / Moderada / Baixa confiança no range de fair value?
+§4 Qual região do heatmap monitorar nos próximos trimestres?
+§5 A diferença entre nosso EV e o consenso é oportunidade ou sinal de alerta?
+```
+
+**JSON Payload ao final da Fase 6:**
+```json
+<!-- JSON_PAYLOAD
+{
+  "fase": "F6_COMPLETA",
+  "ev_base": 0.0,
+  "equity_value": 0.0,
+  "fair_value_acao": 0.0,
+  "preco_atual": 0.0,
+  "upside_pct": 0.0,
+  "expected_value_acao": 0.0,
+  "razao_upside_downside": 0.0,
+  "kelly_implicito": 0.0,
+  "erp_implicito": 0.0,
+  "cenarios": [
+    {"nome": "Distress", "prob": 0, "fv": 0.0},
+    {"nome": "Bear", "prob": 0, "fv": 0.0},
+    {"nome": "Base", "prob": 0, "fv": 0.0},
+    {"nome": "Bull", "prob": 0, "fv": 0.0}
+  ],
+  "heatmap_7x7": {
+    "eixo_x_coe": [0,0,0,0,0,0,0],
+    "eixo_y_g": [0,0,0,0,0,0,0],
+    "valores": []
+  }
+}
+-->
+```

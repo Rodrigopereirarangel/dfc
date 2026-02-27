@@ -7,50 +7,88 @@ description: |
 
 # FASE 5 — VALOR TERMINAL
 
-## Passo 5.1 — Gordon Growth com ROIC Fade
+> **Regra Global:** Cada passo DEVE entregar os 5 Blocos Institucionais + Síntese §1–§5 + JSON Payload.
+
+---
+
+## Passo 5.1 — Gordon Growth / McKinsey Continuing Value
 
 **Ação:**
 1. g terminal ≤ GDP nominal de longo prazo.
 2. g = RONIC × Reinvestment Rate (não arbitrar).
-3. Se ROIC convergiu para WACC no terminal → growth irrelevante (NPV novos investimentos = 0).
-4. Se ROIC > WACC (moat duradouro) → fade residual modelado.
-5. **Convexidade de buyback como payout tampão.**
-6. TV = NOPAT(t+1) × (1 − g/RONIC) / (WACC − g) ← **McKinsey Continuing Value** (superior a Gordon simples).
-7. **⚠️ Regra Penman**: se g terminal alto → WACC terminal não deveria ser maior?
+3. Se ROIC convergiu para WACC: growth irrelevante (NPV novos investimentos = 0).
+4. TV = NOPAT(t+1) × (1 − g/RONIC) / (WACC − g) ← **McKinsey Continuing Value**.
+5. **⚠️ Regra Penman**: se g terminal alto → WACC terminal não deveria ser maior?
+
+**BLOCO 1 — Painel do Terminal Value:**
+
+| Método | g terminal | ROE/ROIC terminal | COE/WACC | TV por ação | TV/EV total |
+|---|---|---|---|---|---|
+| McKinsey CV | X% | X% | X% | R$X | X% |
+| Gordon Growth | X% | — | X% | R$X | X% |
+| P/VP model | X% | X% | X% | R$X | X% |
+| EPV (floor) | 0% | — | X% | R$X | X% |
+
+**BLOCO 2 — O Paradoxo do Crescimento Terminal:**
+"Se o ROIC no terminal convergir para o COE, qualquer investimento novo vale exatamente zero — crescimento sem rentabilidade acima do custo de capital é o equivalente corporativo de girar em falso."
+
+Desdobrar para o caso específico: o g terminal de X% é justificado dado o ROE terminal de X% e o COE de X%?
+
+**BLOCO 3 — Sanity Check do TV + DataViz:**
+
+| Check | Resultado | Status |
+|---|---|---|
+| TV/EV total | X% | ✅ se <75% |
+| g terminal vs PIB nominal BR LT | g=X% vs PIBn=X% | ✅/🟠 |
+| ROIC terminal vs COE | ROIC=X% vs COE=X%, spread=Xpp | ✅/🟠 |
+| P/VP terminal vs histórico | X× vs histórico X–X× | ✅/🟠 |
+| EPV como floor | R$X vs preço atual R$X | ✅/❗ |
+
+> **📊 Instrução DataViz — Comparação de Métodos de Terminal Value (Bar Chart):**
+> Gráfico de barras horizontais lado a lado:
+> - **Eixo X:** R$/ação de Terminal Value.
+> - **Cada barra:** um método (McKinsey CV, Gordon, P/VP, EPV).
+> - **Cores:** azul marinho (método principal), cinzas degradê (alternativos), vermelho (EPV como floor mínimo).
+> - **Linha vertical âmbar:** EV atual como referência.
+> - Rótulo com R$/ação no extremo de cada barra. Ordenar do maior para o menor.
+
+**BLOCO 4 — Comparação P/VP Terminal com Histórico:**
+A empresa negociou com que P/VP em: (a) auge de ciclo, (b) normalização, (c) crise. O P/VP terminal de X× é historicamente sustentável?
+
+**BLOCO 5 — Analogia de Terminal Value Absurdo:**
+Caso onde TV > 80% do EV e o ativo decepcionou. O sanity check teria revelado?
+
+```
+╔══════════════════════════════════════════════════════════════════╗
+║  📌 SÍNTESE INSTITUCIONAL — Fase 5 Completa                     ║
+╚══════════════════════════════════════════════════════════════════╝
+§1 Qual o Terminal Value e sua participação no EV total?
+§2 Os métodos convergem ou divergem? O que a divergência revela?
+§3 O g terminal aprovado no Penman Test?
+§4 Quais sanity checks passaram ou falharam?
+§5 TV/EV elevado cria assimetria de risco não precificada?
+```
 
 **Referências:**
-- **Livro 87** (McKinsey): Cap. 9 e 11 — DCF e Estimating Continuing Value.
-- **Livro 06/84** (Expectations Investing): CAP.
+- **Livro 87** (McKinsey): Cap. 9 e 11 — Estimating Continuing Value.
+- **Livro 09** (Greenwald): Cap. 4 — EPV; Cap. 7-8 — Franchise Value.
 - **Livro 01** (Penman): growth → risk test.
 - **P19** (ROIC and Investment Process).
-- **P41** (Math of Value and Growth).
 
----
-
-## Passo 5.2 — Crosschecks do Terminal Value
-
-**Ação:**
-1. Exit Multiple: EV/EBITDA terminal calibrado por peers e ciclo.
-2. EPV: NOPAT normalizado / WACC (floor do valor).
-3. **Reproduction Value** (Greenwald): quanto custaria replicar os ativos da empresa do zero? Se EV < Reproduction Value → margem de segurança física.
-4. Real Options overlay (se opcionalidade significativa).
-5. **Accounting for Value crosscheck**: Forward Earnings via Penman → coerência EV.
-
-**Referências:**
-- **Livro 09** (Greenwald): Cap. 4 — EPV; Cap. 7-8 — Franchise Value.
-- **Livro 01** (Penman): Cap. 6 — Forward Earnings.
-- **Livro 34** (Real Options).
-- **P12** (Valuation Multiples): exit multiple calibração.
-- **P48** (EV/EBITDA).
-
----
-
-## Passo 5.3 — Sanity Check
-
-**Ação:**
-1. TV como % do EV total. **Se > 75% → extender período explícito.**
-2. Implied growth rate do TV — faz sentido vs. GDP?
-3. Implied ROIC do TV — faz sentido vs. WACC?
-4. Comparar TV pelas 3+ abordagens — se divergem muito, investigar.
-
-**Output:** TV calculado via McKinsey CV. EPV estático. Exit Multiple implícito. Tabela Sanity Check (TV/EV %).
+**JSON Payload ao final da Fase 5:**
+```json
+<!-- JSON_PAYLOAD
+{
+  "fase": "F5_COMPLETA",
+  "tv_mckinsey_por_acao": 0.0,
+  "tv_gordon_por_acao": 0.0,
+  "tv_pvp_por_acao": 0.0,
+  "epv_por_acao": 0.0,
+  "tv_ev_pct": 0.0,
+  "g_terminal": 0.0,
+  "roic_terminal": 0.0,
+  "wacc_terminal": 0.0,
+  "pvp_terminal_implicito": 0.0
+}
+-->
+```

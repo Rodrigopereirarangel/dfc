@@ -7,35 +7,63 @@ description: |
 
 # FASE 3 — PROJEÇÃO DOS FLUXOS DE CAIXA
 
-> **Entradas obrigatórias desta fase:**
-> - Modelo 3-Statement da Fase 1 (`skills/fase1-auditoria-contabil/SKILL.md`)
-> - Capex Red Queen e ROIC fade da Fase 2 (`skills/fase2-value-drivers/SKILL.md`)
-> - Haircut de management e projetos da Fase 2.5 (`skills/fase25-management/SKILL.md`)
-> - Base rates em `references/base-rates.md`
+> **Entradas obrigatórias:** Modelo 3-Statement (Fase 1), Capex Red Queen e ROIC fade (Fase 2), Haircut de management e projetos (Fase 2.5), Base rates em `references/base-rates.md`.
+> **Regra Global:** Cada passo DEVE entregar os 5 Blocos Institucionais + Síntese §1–§5 + JSON Payload.
 
-> **Saídas consumidas por:**
-> - Fase 4 (WACC) → Fase 5A (Auditoria 360°) → Fase 5 (Terminal Value)
+---
 
-> **Primariamente fundamentalista. Probabilístico apenas para validação.**
-> **Fonte primária: ITR/DFP oficial — métricas operacionais nas Notas Explicativas.**
-
-## Passo 3.1 — Projeção da Receita (Bottom-Up)
+## Passo 3.1 — Projeção de Receita (Bottom-Up)
 
 **Ação:**
-1. Decompor receita por segmento/produto/geografia.
-2. Para cada segmento, projetar via drivers operacionais:
-   - Volume × Preço | Clientes × ARPU × Retention | Lojas × Vendas/Loja | TAM × Share × Penetração.
-3. Incorporar ramp-ups (Passo 2.5.3) com haircut do management.
-4. Outside view: comparar com base rates do setor.
-5. **NUNCA macro-crescimento flat.** Projetar período de ramp-up e término explicitamente.
+1. Decompor receita por segmento: Volume × Preço | Clientes × ARPU × Retention | TAM × Share × Penetração.
+2. Incorporar ramp-ups (Passo 2.5.3) com haircut do management.
+3. Outside view: comparar com base rates do setor.
+4. **NUNCA macro-crescimento flat.** Projetar período de ramp-up e término explicitamente.
+
+**BLOCO 1 — Matriz de Premissas de Crescimento:**
+
+| Vertical | Base Rate Setorial | Guidance Management | Haircut Aplicado | Nossa Projeção | Justificativa do Desvio |
+|---|---|---|---|---|---|
+| [V1] | X% | X% | X% | X% | [acima/abaixo da base rate porque...] |
+| [V2] | X% | X% | X% | X% | |
+
+🎯 **Premissa mais crítica:** [Vertical X] — cada +1pp = +R$Xmi no lucro e +R$X/ação no fair value.
+
+**BLOCO 2 — Decomposição dos Drivers por Vertical:**
+Para cada vertical: qual componente está crescendo (volume ou preço)? É sustentável? O mercado está saturando ou em penetração inicial?
+
+**BLOCO 3 — Cenários de Crescimento + DataViz:**
+
+| Cenário | CAGR Receita 2026–2030 | Lucro 2028E | Fair Value |
+|---|---|---|---|
+| Bear | X% | R$X bi | R$X/ação |
+| Base | X% | R$X bi | R$X/ação |
+| Bull | X% | R$X bi | R$X/ação |
+
+> **📊 Instrução DataViz — Gráfico de Área Receita e Margem (estilo Goldman Sachs):**
+> Gráfico combinado linha + área por ano:
+> - **Barras empilhadas (Azul Marinho + variações):** Receita por vertical em R$bi — eixo esquerdo.
+> - **Linha âmbar (#CBA052):** Margem EBIT % — eixo direito.
+> - **Separador visual na linha do tempo:** área sólida = Histórico (2019-2025A); área hachurada (listras diagonais) = Projetado (2026E-2030E).
+> - **Cenário Bear vs. Bull:** sombra cinza ao redor da linha base representando o range de incerteza.
+> - Etiquetas explícitas "A" (actual) e "E" (estimated) nos anos.
+
+**BLOCO 4 — A Premissa de Crescimento que mais Divide o Mercado:**
+Qual vertical bulls e bears mais discordam? Qual dado nos próximos 2 trimestres resolverá o debate?
+
+**BLOCO 5 — Analogia de Trajetória de Receita:**
+Empresa que projetou crescimento similar. Entregou ou decepcionou? O dado ex-ante teria revelado o risco?
+
+```
+╔══════════════════════════════════════════════════════════════════╗
+║  📌 SÍNTESE INSTITUCIONAL — Passo 3.1                           ║
+╚══════════════════════════════════════════════════════════════════╝
+```
 
 **Referências:**
 - **Livro 87** (McKinsey): Cap. 12 — Forecasting Performance por UEN.
-- **Livro 86** (Lundholm/Sloan): Pg. 153, 165+168 — projeção DRE e EPS.
 - **P46** (TAM): top-down vs bottom-up TAM.
-- **P35** (Base Rates por Intangíveis).
 - **P01** (Bayes): prior + evidência → posterior.
-- **P36** (Customer Economics): LTV/CAC para projeção receita.
 
 ---
 
@@ -45,48 +73,123 @@ description: |
 1. Custo variável como % receita por segmento.
 2. Custos fixos nominais + inflação + step functions.
 3. Margem incremental projetada: consistente com histórica?
-4. SGA: investment vs. maintenance.
-5. Margem EBITDA e EBIT projetadas explicitamente.
-6. Validar com peers e posição no ciclo.
+4. Separar componentes cíclicos vs. estruturais de margem.
 
-**Referências:**
-- **Livro 06/84** (Expectations Investing): Cap. 4.
-- **Livro 86** (Lundholm/Sloan): Pg. 153.
-- **P09** (Measuring the Moat): margens por indústria.
+**BLOCO 1 — Decomposição de Margem:**
+
+| Componente | 2023A | 2024A | 2025A | 2026E | Tendência | Natureza |
+|---|---|---|---|---|---|---|
+| Receita | | | | | | |
+| Sinistros / COGS | | | | | | Variável |
+| Despesas operacionais | | | | | | Semi-fixo |
+| Resultado financeiro | | | | | | Cíclico |
+| Margem Líquida | | | | | ↗️/↘️ | |
+
+**BLOCO 2 — Separação Estrutural vs. Cíclico:**
+- Componentes cíclicos (revertem com ciclo de juros, sinistros, câmbio): quanto representam do lucro atual?
+- Componentes estruturais (persistem independente do ciclo): qual é o ROE "limpo"?
+- Alavancagem operacional: se receita cair 10%, o lucro cai quanto?
+
+**BLOCO 3 — Normalização de Margem Longo Prazo + DataViz:**
+
+| Horizonte | Margem Projetada | Premissa Principal | Risco de Erro |
+|---|---|---|---|
+| 2026E | X% | [premissa] | 🔴/🟠/✅ |
+| 2028E | X% | [premissa] | |
+| Terminal | X% | [premissa] | |
+
+> **📊 Instrução DataViz — Waterfall de Expansão/Contração de Margem:**
+> Gráfico de cascata de Margem EBIT ao longo dos anos, mostrando os drivers:
+> - **Incrementos positivos (Cinza #4A4A4A):** Alavancagem operacional, melhoria de mix.
+> - **Incrementos negativos (Vermelho #8B0000):** Inflação de custos, queda de componente financeiro.
+> - **Barra final (Azul Marinho):** Margem 2028E projetada.
+
+**BLOCO 4 — O Componente de Margem que Pode Surpreender:**
+Existe algum custo que pode melhorar ou piorar materialmente vs. o projetado?
+
+**BLOCO 5 — Analogia de Compressão/Expansão de Margem:**
+Empresa que passou por trajetória similar. Quanto tempo para estabilizar?
+
+```
+╔══════════════════════════════════════════════════════════════════╗
+║  📌 SÍNTESE INSTITUCIONAL — Passo 3.2                           ║
+╚══════════════════════════════════════════════════════════════════╝
+```
 
 ---
 
-## Passo 3.3 — Projeção do FCFF
+## Passo 3.3 — Projeção do FCFF e Lucro Recorrente
 
 **Ação:**
 1. FCFF = NOPAT + D&A − ΔCapital de Giro − Capex Total.
-2. Capex: mapeamento individual (Passo 2.5.3) + manutenção normalizada (Passo 2.2).
-3. ΔWC: DSO, DIO, DPO modelados separadamente.
-4. SBC ajustado (financing, não operating).
-5. Projetar **10-15 anos explícitos** (capturar ramp-ups).
-6. **Check fundamental: g = ROIIC × Taxa de Reinvestimento. Se não bate → ❗ erro lógico.**
-7. Projetar EPS = NOPAT ajustado / shares outstanding.
+2. Projetar **10-15 anos explícitos** (capturar ramp-ups).
+3. **Check fundamental: g = ROIIC × Taxa de Reinvestimento. Se não bate → ❗ erro lógico.**
+4. Projetar EPS = NOPAT ajustado / shares outstanding.
+
+**BLOCO 1 — Reconciliação Lucro → Caixa:**
+
+| Item | 2025A | 2026E | 2027E | 2028E |
+|---|---|---|---|---|
+| Lucro Líquido Recorrente | R$X | R$X | R$X | R$X |
+| (−) Reinvestimento necessário | −R$X | −R$X | −R$X | −R$X |
+| FCFF / Lucro Disponível | R$X | R$X | R$X | R$X |
+| g = ROIIC × Reinv. Rate (check) | X% | X% | X% | X% |
+| g projetado | X% | X% | X% | X% |
+| Consistência | ✅/❗ | | | |
+
+**BLOCO 2 — Para Seguradoras/Financeiras — por que Lucro Recorrente ≠ FCFF:**
+O float de prêmios inflaciona o caixa operacional. Explicar o mecanismo e por que o lucro recorrente normalizado é o proxy correto.
+
+**BLOCO 3 — Sensibilidade do FCFF + DataViz:**
+
+| Se [premissa] variar X pp | Impacto no FCFF 2026E | Impacto no Fair Value |
+|---|---|---|
+| Sinistralidade +1pp | −R$Xmi | −R$X/ação |
+| Selic −100bps | −R$Xmi | −R$X/ação |
+
+> **📊 Instrução DataViz — Gráfico de Barras FCFF Projetado vs LPA:**
+> Gráfico de barras duplas por ano (2025A-2030E):
+> - **Barra esquerda (Azul Marinho):** FCFF (R$mi).
+> - **Barra direita (Âmbar #CBA052):** Lucro Recorrente (R$mi).
+> - **Gap entre as barras** = reinvestimento necessário. Anotar % no topo.
+> - Hachura nos anos projetados.
+
+**BLOCO 4 — Consistência Interna das Projeções:**
+O crescimento do lucro é consistente com o crescimento do BV? `g = ROE × (1 − payout)`.
+
+**BLOCO 5 — Analogia de Projeção de Fluxo:**
+Empresa cujas projeções de FCFF foram sistematicamente otimistas. O que o dado ex-ante revelaria?
+
+```
+╔══════════════════════════════════════════════════════════════════╗
+║  📌 SÍNTESE INSTITUCIONAL — Fase 3 Completa                     ║
+╚══════════════════════════════════════════════════════════════════╝
+§1 Quais são os FCFF projetados e sua qualidade analítica?
+§2 Impacto de cada premissa-chave no fair value?
+§3 Alta / Moderada / Baixa confiança nas projeções?
+§4 Que KPIs trimestrais confirmarão ou refutarão as projeções?
+§5 O mercado está embutindo premissas de crescimento realistas?
+```
 
 **Referências:**
 - **Livro 87** (McKinsey): Cap. 9 — DCF.
 - **P24** (ROIC): cálculo detalhado.
-- **P31** (Red Queen): manutenção.
+- **Livro 90** (McLeish): path-by-path FCFF.
 
-**Output:** DREs projetados 10-15 anos. Tabela FCFF consolidada. EPS projetado.
-
----
-
-## Passo 3.4 — Validação Probabilística (Monte Carlo)
-
-**Ação:**
-1. Definir distribuição para os 2-3 drivers mais sensíveis.
-2. Monte Carlo (5.000-10.000 iterações) via `scripts/monte_carlo.py` → distribuição de valores.
-3. Verificar: o valor fundamentalista está em qual percentil?
-4. Resultado = intervalo de confiança, **não substituto**.
-
-**Referências:**
-- **Livro 90** (McLeish): Cap. 2 — path-by-path FCFF.
-- **Livro 48** (Benninga): Monte Carlo.
-- **P07** (Probabilities and Payoffs).
-
-**Output:** Gráficos em percentil. Intervalo de confiança.
+**JSON Payload ao final da Fase 3:**
+```json
+<!-- JSON_PAYLOAD
+{
+  "fase": "F3_COMPLETA",
+  "fcff_projetado": [
+    {"ano": 2026, "fcff": 0, "lucro_recorrente": 0, "lpa": 0.0},
+    {"ano": 2027, "fcff": 0, "lucro_recorrente": 0, "lpa": 0.0},
+    {"ano": 2028, "fcff": 0, "lucro_recorrente": 0, "lpa": 0.0},
+    {"ano": 2029, "fcff": 0, "lucro_recorrente": 0, "lpa": 0.0},
+    {"ano": 2030, "fcff": 0, "lucro_recorrente": 0, "lpa": 0.0}
+  ],
+  "cagr_receita_2026_2030": 0.0,
+  "margem_ebit_terminal_e": 0.0
+}
+-->
+```

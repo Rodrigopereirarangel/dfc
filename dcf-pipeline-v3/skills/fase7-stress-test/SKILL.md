@@ -7,80 +7,196 @@ description: |
 
 # FASE 7 — STRESS TEST & VALIDAÇÃO CRUZADA
 
-> **Ponteiros de entrada:** Usar outputs das Fases 3 (`skills/fase3-projecao-fcff/SKILL.md`), 5 (`skills/fase5-terminal-value/SKILL.md`) e 6 (`skills/fase6-agregacao/SKILL.md`).
+> **Ponteiros de entrada:** Fases 3, 5 e 6.
+> **Regra Global:** Cada passo DEVE entregar os 5 Blocos Institucionais + Síntese §1–§5 + JSON Payload.
+
+---
 
 ## Passo 7.1 — Fat Tails e Via Negativa (Curto, Médio e Longo Prazo)
 
 **Ação:**
-1. Monte Carlo: verificar se distribuição tem fat tails (usar `scripts/monte_carlo.py`).
+1. Monte Carlo (`scripts/monte_carlo.py`): distribuição tem fat tails?
 2. Cenário 3+ σ: a empresa sobrevive?
-3. Perda completa de pricing power.
-4. Rate shock: WACC +300bps.
-5. **Via Negativa (Antifrágil)**: O que NÃO deveria acontecer para a tese funcionar?
-   - **Curto prazo (trimestre)**: Que eventos trimestrais invalidariam imediatamente?
-   - **Médio prazo (1-3 anos)**: Que mudanças estruturais de mercado ou produto destroem o moat?
-   - **Longo prazo (5+ anos)**: Que disruptions tecnológicas, regulatórias ou competitivas tornam o negócio obsoleto?
-6. Isso é mais informativo do que o que deveria acontecer.
-7. **Aleatoriedade e ilusão de causalidade**: não confundir luck com skill na narrativa (L.56, L.58).
+3. **Via Negativa:** O que NÃO deveria acontecer para a tese funcionar?
+   - **Curto prazo (trimestre):** Que eventos invalidariam imediatamente?
+   - **Médio prazo (1-3 anos):** Que mudanças estruturais destroem o moat?
+   - **Longo prazo (5+ anos):** Que disruptions tornam o negócio obsoleto?
 
-**Referências:**
-- **Livro 89** (Antifrágil, Taleb): Livro IV — Via Negativa; Livro VII — Skin in the Game.
-- **Livro 90** (McLeish): path-by-path FCFF fat tails.
-- **Livro 51** (Fat Tails): distribuições Paretian.
-- **Livro 56** (Iludidos pelo Acaso, Taleb): survivorship bias, confundir sorte com habilidade.
-- **Livro 31** (Safe Haven, Spitznagel): hedging e proteção em tail events.
-- **Livro 46** (Deep Simplicity, Gribbin): complexidade e emergência em sistemas econômicos.
-- **Livro 58** (O Andar do Bêbado, Mlodinow): aleatoriedade e falsa causalidade.
-- **P05** (Drawdowns): base rates de drawdowns e recuperação.
+**BLOCO 1 — Mapa de Condições de Invalidação:**
 
-**Output:** Lista de condições de invalidação (curto/médio/longo prazo). Resultado do teste 3+σ.
+| Condição | Timeline | Prob. | Severidade | Velocidade de queda | Preço no pior momento |
+|---|---|---|---|---|---|
+| [Condição 1] | Q1/Q2 2026 | X% | 🔴 | Abrupta/Gradual | R$X |
+| [Condição 2] | 2027-2028 | X% | 🟠 | Gradual | R$X |
+| [Condição 3] | 2029+ | X% | 🟡 | Lenta | R$X |
+
+**BLOCO 2 — Narrativa de Materialização por Condição Crítica:**
+Para cada condição 🔴 ou 🟠 — sequência completa:
+- T+1: primeiro dado que sinaliza.
+- T+2–4: confirmação e início de reprecificação.
+- T+5–8: plena precificação.
+- Velocidade: abrupta (>15% em 1 pregão) ou gradual (4-6 trimestres)?
+
+**BLOCO 3 — "O que precisaria ser verdade para eu estar errado" + DataViz:**
+
+| Se verdadeiro → análise conservadora demais | Probabilidade |
+|---|---|
+| [Afirmação bull 1] | X% |
+| [Afirmação bull 2] | X% |
+
+| Se verdadeiro → análise otimista demais | Probabilidade |
+|---|---|
+| [Afirmação bear 1] | X% |
+| [Afirmação bear 2] | X% |
+
+> **📊 Instrução DataViz — Distribuição Monte Carlo (KDE Plot):**
+> Curva de densidade de probabilidade (KDE — Kernel Density Estimate) do Fair Value simulado:
+> - **Eixo X:** R$/ação (de Distress ao Bull extremo).
+> - **Eixo Y:** Densidade de probabilidade.
+> - **Área sob a curva à esquerda do preço atual:** colorida em Vermelho (probabilidade de perda).
+> - **Área à direita do preço atual:** colorida em Azul Marinho (probabilidade de ganho).
+> - **Linha vertical âmbar:** Expected Value. **Linha tracejada cinza:** Preço atual.
+> - Percentis P5, P25, P50, P75, P95 annotados acima da curva.
+
+**BLOCO 4 — Tail Risk não Modelável:**
+Existe risco que não pode ser modelado mas que destruiria a tese? (fraude não detectada, disruption regulatória, evento sistêmico.) Como se posicionar?
+
+**BLOCO 5 — Analogia de Materialização de Tail Risk:**
+Empresa onde o tail risk se materializou. Quanto tempo o mercado levou para perceber plenamente?
+
+```
+╔══════════════════════════════════════════════════════════════════╗
+║  📌 SÍNTESE INSTITUCIONAL — Passo 7.1                           ║
+╚══════════════════════════════════════════════════════════════════╝
+```
 
 ---
 
 ## Passo 7.2 — Vieses Cognitivos e Sentimento de Mercado
 
 **Ação:**
-1. Anchoring: target ancorado no preço atual?
-2. Overconfidence: intervalos calibrados?
-3. Confirmation bias: buscou evidências contra?
-4. Narrative fallacy: narrativa distorcendo números?
-5. Sunk cost: persistindo sem suporte dos dados?
-6. **Feedback loop**: a qualidade das decisões anteriores está acoplada ao resultado? Separar processo de outcome (P30).
-7. **Sentimento de Mercado vs Modelo**: O sentimento de mercado (API yFinance Short Ratios, Opções, P/E Histórico) aponta Dispersão Altíssima? É uma alfa-oportunidade real descasada dos fundamentos ou o mercado sabe algo que não sabemos?
+1. Checklist de vieses: Anchoring, Overconfidence, Confirmation Bias, Narrative Fallacy, Recência.
+2. Sentimento de mercado via yfinance: Short Ratios, Opções, P/E Histórico.
+3. Dispersão alta de analistas = oportunidade de alpha ou armadilha?
 
-**Referências:**
-- **Livro 62** (Kahneman, Rápido e Devagar): anchoring, overconfidence.
-- **Livro 82** (Think Twice, Mauboussin): erros mentais.
-- **Livro 27** (Tetlock, Superprevisões).
-- **P15** (Pattern Recognition): quando padrões funcionam.
-- **P44** (BIN There, Done That): superforecasting aplicado.
-- **P43** (Dispersion and Alpha): dispersão como oportunidade.
-- **P30** (Feedback): qualidade de feedback como proxy de qualidade de processo.
-- **P42** (Myth Busting, Popular Delusions): 4 mitos de mercado desmontados.
+**BLOCO 1 — Painel de Vieses Identificados:**
+
+| Viés | Presente? | Como se manifestou | Como mitigamos |
+|---|---|---|---|
+| Anchoring (ao preço atual) | ✅/🟠 | [descrição] | [ação] |
+| Narrative Fallacy | ✅/🟠 | [descrição] | |
+| Recência | ✅/🟠 | [descrição] | |
+| Confirmation Bias | ✅/🟠 | [descrição] | |
+| Overconfidence | ✅/🟠 | [descrição] | |
+
+**BLOCO 2 — O Viés Mais Perigoso Nesta Análise:**
+Qual viés tem maior risco de ter distorcido nossa análise? Por quê este ativo/setor/momento é propenso a ele?
+
+**BLOCO 3 — Sentimento de Mercado vs. Modelo + DataViz:**
+
+> **📊 Instrução DataViz — Short Interest + P/E vs Histórico:**
+> Gráfico duplo eixo por período (3-5 anos):
+> - **Linha Azul Marinho:** P/E atual da empresa.
+> - **Banda cinza opaca:** ±1σ do P/E histórico.
+> - **Linha Âmbar eixo direito:** Short interest % do float.
+
+**BLOCO 4 — Feedback Loop: Processo vs. Outcome:**
+Esta análise foi feita com bom processo? O que garantiria que este é um bom processo independentemente do outcome?
+
+**BLOCO 5 — Analogia de Viés Coletivo:**
+Caso onde o sell-side inteiro compartilhou o mesmo viés. Quando e como o mercado se corrigiu?
+
+```
+╔══════════════════════════════════════════════════════════════════╗
+║  📌 SÍNTESE INSTITUCIONAL — Passo 7.2                           ║
+╚══════════════════════════════════════════════════════════════════╝
+```
 
 ---
 
-## Passo 7.3 — Validação Cruzada — Triangulação
+## Passo 7.3 — Validação Cruzada — Triangulação + QMJ
 
 **Ação:**
-1. **Reverse DCF final**: premissas implícitas no Fair Value são razoáveis?
-2. **EPV vs. DCF**: se EPV > DCF → mercado precifica destruição via growth.
-3. **Residual Income Model** (Penman).
-4. **P/VP = 1 teste Penman**: se pago book value, o valor vem 100% do excess return.
-5. **Múltiplos implícitos**: Fair Value implica P/E e EV/EBITDA de quanto? (P47, P48)
-6. **Quality Minus Junk score (QMJ)**: a empresa é "quality" ou "junk"?
-7. **Management credibility discount**: se score baixo (Passo 2.5.1 — vide `skills/fase25-management/SKILL.md`), discount adicional.
-8. **Tabela de sensibilidade 3 cenários × preço atual 7×7** (usar `scripts/sensitivity_table.py`).
+1. Reverse DCF final: premissas implícitas no Fair Value são razoáveis?
+2. EPV vs. DCF: se EPV > DCF → mercado precifica destruição via growth.
+3. Residual Income Model (Penman).
+4. P/VP=1 teste Penman.
+5. Múltiplos implícitos: Fair Value implica P/E e EV/EBITDA de quanto?
+6. Quality Minus Junk score (QMJ).
+
+**BLOCO 1 — Tabela de Triangulação Completa:**
+
+| Método | Fair Value | Pressuposto Central | Limitação |
+|---|---|---|---|
+| P/VP × ROE (principal) | R$X | ROE X%, g X%, COE X% | ROE terminal |
+| DDM Gordon | R$X | Ke X%, g X%, DPA X% | Crescimento retido |
+| EPV Greenwald | R$X | Zero growth perpétuo | Floor conservador |
+| P/L peers hist. | R$X | X× LPA 2026E | Assume rerating |
+| Reverse DCF (implied) | R$X | Premissas atuais mkt | O que mkt paga |
+| Residual Income | R$X | ROE X%, BV X% | Contábil |
+
+**BLOCO 2 — Convergência e Divergência:**
+3+ métodos convergem em torno de R$X–X. Métodos divergentes: por quê? O que revela sobre sensibilidade do ativo?
+
+**BLOCO 3 — QMJ Score + DataViz:**
+
+| Dimensão QMJ | Score | Evidência |
+|---|---|---|
+| Rentabilidade (ROE, ROIC, margem) | X/10 | [dado] |
+| Crescimento (CAGR receita, lucro) | X/10 | [dado] |
+| Segurança (leverage, cobertura) | X/10 | [dado] |
+| Payout (DY, payout ratio) | X/10 | [dado] |
+| **QMJ Total** | **X/10** | |
+
+> **📊 Instrução DataViz — Football Field Valuation (Barras Horizontais Rigorosas):**
+> Gráfico de barras horizontais sobrepostas (padrão sell-side internacional):
+> - **Eixo X:** R$/ação (range: Distress ao Bull extremo).
+> - **Cada barra horizontal** = um método de valuation (DCF Base, Múltiplos Históricos, EPV, Sell-Side Consenso).
+> - **Largura da barra** = range min-max do método.
+> - **Traço central** = estimativa pontual de cada método.
+> - **Linha vertical âmbar (#CBA052):** nosso Expected Value.
+> - **Linha vertical cinza tracejada:** preço atual de mercado.
+> - Cores: azul escuro (DCF), cinza médio (múltiplos), vermelho suave (EPV floor), verde suave (Bull range).
+
+**BLOCO 4 — Convergência Final: Nossa Convicção de Preço:**
+Dado tudo o que vimos: qual é nossa melhor estimativa de fair value? Em qual range nos sentimos confortáveis?
+
+**BLOCO 5 — Analogia de Triangulação:**
+Caso onde múltiplos métodos convergiam para preço-alvo que se provou correto (ou errado). O que revelou?
+
+```
+╔══════════════════════════════════════════════════════════════════╗
+║  📌 SÍNTESE INSTITUCIONAL — Fase 7 Completa                     ║
+╚══════════════════════════════════════════════════════════════════╝
+§1 O stress test confirmou ou refutou a tese?
+§2 Quão robusto é o fair value frente a vieses e tail risks?
+§3 Os múltiplos métodos convergem? Em qual range?
+§4 Qual KPI monitorar para o pior cenário?
+§5 O mercado está ciente dos fat tails desta empresa?
+```
 
 **Referências:**
-- **Livro 06/84** (Expectations Investing): Reverse DCF.
-- **Livro 09** (Greenwald): EPV, triangulação.
-- **Livro 01** (Penman): residual income, P/B=1 test.
-- **Livro 86** (Lundholm/Sloan).
+- **Livro 89** (Antifrágil, Taleb): Via Negativa.
 - **P53** (QMJ, Asness Frazzini): quality factor scoring.
 - **P52** (Common Errors in DCF): checklist final.
-- **P12** (Valuation Multiples).
-- **P47** (P/E): decomposição do múltiplo.
-- **P48** (EV/EBITDA): decomposição.
+- **Livro 09** (Greenwald): EPV, triangulação.
+- **Livro 62** (Kahneman): anchoring, overconfidence.
 
-**Output:** Tabela de Triangulação (Reverse DCF × DCF × EPV × Residual Income × Múltiplo). Via Negativa lista. QMJ Score. Diagnóstico Sentimento vs Modelo.
+**JSON Payload ao final da Fase 7:**
+```json
+<!-- JSON_PAYLOAD
+{
+  "fase": "F7_COMPLETA",
+  "qmj_score": 0.0,
+  "triangulacao": [
+    {"metodo": "DCF Base", "fv_min": 0.0, "fv_ponto": 0.0, "fv_max": 0.0},
+    {"metodo": "EPV", "fv_min": 0.0, "fv_ponto": 0.0, "fv_max": 0.0},
+    {"metodo": "Multiplos Historicos", "fv_min": 0.0, "fv_ponto": 0.0, "fv_max": 0.0}
+  ],
+  "vieses_identificados": [],
+  "condicoes_invalidacao": [
+    {"descricao": "", "probabilidade": 0.0, "severidade": ""}
+  ]
+}
+-->
+```
