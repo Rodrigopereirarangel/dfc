@@ -109,21 +109,24 @@ PALETA = {
 
 ## Passo 9.4 — Execução do Script
 
-**Comando:**
+**Comando (via Playwright / motor HTML):**
 ```bash
+# 1. Salve o output compilado das fases 0-8 em arquivo Markdown (ex: output_payloads/XXXX3_report.md)
+# 2. Rode o script:
+
 python scripts/generate_pdf.py \
     --ticker XXXX3 \
-    --output "XXXX3_Initiation_Coverage_2026.pdf" \
-    --payload-dir ./output_payloads/
+    --report "output_payloads/XXXX3_report.md" \
+    --output "XXXX3_Initiation_Coverage_2026.pdf"
 ```
 
-**Fallback (se o ambiente não suporta exportação nativa):**
-O script `generate_pdf.py` pode ser copiado e executado localmente via:
+**Fallback (se o ambiente não tiver Playwright instalado):**
+Certifique-se que executou o bootstrap:
 ```bash
-pip install reportlab matplotlib seaborn numpy pandas
-python generate_pdf.py --ticker XXXX3 --demo
+python scripts/bootstrap.py
+python scripts/generate_pdf.py --ticker XXXX3 --demo
 ```
-O modo `--demo` gera o PDF com dados de exemplo para validar a formatação.
+O modo `--demo` gera um HTML corporativo com dados de exemplo.
 
 ---
 

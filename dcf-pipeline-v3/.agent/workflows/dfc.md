@@ -19,6 +19,13 @@ Executa o DCF Pipeline v4.0 em sequência completa para o ticker informado, do e
 
 ## Passos
 
+### 0. Bootstrap Automático (AÇÃO DO AGENTE)
+**ANTES DE QUALQUER COISA**, assim que receber o comando `/dfc`, VOCÊ (Claude/Agente) deve abrir o terminal (Computer Use) e rodar autonomamente:
+```bash
+python scripts/bootstrap.py
+```
+Aguarde a execução terminar para garantir que Python, Playwright, Markdown e YFinance estejam corretos antes de fazer o Passo 1. O usuário NÃO precisa e NÃO deve rodar isso, é sua obrigação.
+
 ### 1. Extrair o ticker do comando
 
 Identificar o ticker fornecido após `/dfc`. Se ausente → solicitar: _"Informe o ticker. Ex: `/dfc PSSA3`"_
@@ -139,17 +146,18 @@ Seguir `skills/fase8-decisao/SKILL.md`:
 
 Seguir `skills/fase9-pdf-institucional/SKILL.md`.
 
-Apresentar o comando de geração do PDF ao usuário:
+**Como o PDF Institucional V4 usa Playwright renderizando Markdown Rico:**
+A análise que você estruturou até a Fase 8 DEVE SER salva em um arquivo de Markdown consolidado primeiro: `output_payloads/[TICKER]_report.md`.
+Use o `output-dcf-completo.md` preenchido como base desse arquivo salvo.
+Depois, execute:
 
 ```bash
-pip install reportlab matplotlib seaborn numpy pandas
-
-# Com payload real (após coletar os JSON_PAYLOADs)
 python scripts/generate_pdf.py \
     --ticker [TICKER] \
+    --report "output_payloads/[TICKER]_report.md" \
     --output "[TICKER]_Initiation_Coverage_2026.pdf"
 
-# Modo demo (validar formatação)
+# Modo demo (validar motor HTML/Chromium)
 python scripts/generate_pdf.py --ticker [TICKER] --demo
 ```
 

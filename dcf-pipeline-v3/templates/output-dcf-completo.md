@@ -256,13 +256,16 @@
 
 ## 📄 FASE 9 — Geração do PDF Institucional
 
+**ATENÇÃO AGENTE:** Salve OBRIGATORIAMENTE este template preenchido na pasta `output_payloads/` com o formato `[TICKER]_report.md`. Em seguida execute o comando abaixo com a nova arquitetura Playwright:
+
 ```bash
 python scripts/generate_pdf.py \
     --ticker [TICKER] \
+    --report "output_payloads/[TICKER]_report.md" \
     --output "[TICKER]_Initiation_Coverage_[DATA].pdf"
 ```
 
-Para validar a formatação com dados de exemplo:
+Para testar/validar o PDF engine caso necessário:
 ```bash
 python scripts/generate_pdf.py --ticker [TICKER] --demo
 ```
