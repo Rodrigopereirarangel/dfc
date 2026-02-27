@@ -70,6 +70,7 @@ Empresa: [nome real] | Mercado: [país/setor] | Período: [anos] | Resultado: [d
 ╔══════════════════════════════════════════════════════════════════╗
 ║  📌 SÍNTESE INSTITUCIONAL — [Passo X.Y]                         ║
 ╚══════════════════════════════════════════════════════════════════╝
+*(ATENÇÃO UX: PROIBIDO muralha de texto. Use listas, bolding e máx 7-8 linhas por parágrafo)*
 §1 O que este passo revelou sobre a empresa?
 §2 Impacto no fair value (R$/ação): [valor quantificado ou bounded]?
 §3 Nível de confiança: [FATO / INFERÊNCIA / HIPÓTESE] — justificativa?
