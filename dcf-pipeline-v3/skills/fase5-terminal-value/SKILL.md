@@ -92,3 +92,22 @@ Caso onde TV > 80% do EV e o ativo decepcionou. O sanity check teria revelado?
 }
 -->
 ```
+
+---
+
+## ✅ CHECKLIST DE COMPLIANCE — VALIDAÇÃO OBRIGATÓRIA ANTES DE AVANÇAR
+
+Antes de passar para a próxima fase, o Agente AI DEVE verificar e imprimir este checklist PREENCHIDO com (V) ou (F) em sua resposta:
+
+```text
+[CHECKLIST DE COMPLIANCE DO AGENTE]
+[?] Eu abri e li integralmente este arquivo SKILL.md usando a minha ferramenta de leitura de arquivos.
+[?] Eu executei TODOS os sub-passos desta fase (não pulei nenhum).
+[?] Eu entreguei os 5 Blocos (Diagnóstico / Narrativa / DataViz / Trade-off / Analogia) em CADA sub-passo.
+[?] Eu incluí a instrução DataViz específica (tipo de gráfico + paleta + eixos) no BLOCO 3 de cada passo.
+[?] Eu apresentei a Síntese Institucional (§1 a §5) ao final desta fase.
+[?] Eu fechei a resposta gerando o bloco <!-- JSON_PAYLOAD --> com a taxonomia exata desta fase.
+```
+
+**Se qualquer item for (F):** PARE. Não avance. Corrija a sua resposta e reentregue antes de prosseguir para a próxima fase.
+

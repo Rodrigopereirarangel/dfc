@@ -53,7 +53,11 @@ Registrar data e fonte de cada dado capturado.
 
 ### 4. Executar FASE 0 — Inteligência Competitiva
 
-Seguir `skills/fase0-estrategia/SKILL.md` completo:
+> 🛑 **AÇÃO BLOQUEANTE PARA O AGENTE AI:**
+> VOCÊ É OBRIGADO a acionar a tool de leitura de arquivos (`view_file`/`read`) para ler o arquivo `skills/fase0-estrategia/SKILL.md` INTEGRALMENTE agora mesmo. NUNCA inicie a fase baseando-se apenas num resumo. Omitir a leitura constitui falha crítica.
+> Após a confirmação da leitura, execute a fase seguindo o formato de 5 Blocos Institucionais e feche imprimindo o seu ✅ CHECKLIST DE COMPLIANCE.
+
+**Resumo (Não substitui a leitura):**
 - Passo 0.1: 5 Forças Porter + Nota de Durabilidade do Moat
 - Passo 0.2: Reverse DCF + MEROI + Diagnóstico de Mercado
 - Passo 0.3: Sentimento de Mercado (short interest, dispersão sell-side)
@@ -62,7 +66,11 @@ Seguir `skills/fase0-estrategia/SKILL.md` completo:
 
 ### 5. Executar FASE 1 — Auditoria Contábil Forense
 
-Seguir `skills/fase1-auditoria-contabil/SKILL.md`:
+> 🛑 **AÇÃO BLOQUEANTE PARA O AGENTE AI:**
+> VOCÊ É OBRIGADO a acionar a tool de leitura de arquivos (`view_file`/`read`) para ler o arquivo `skills/fase1-auditoria-contabil/SKILL.md` INTEGRALMENTE agora mesmo. NUNCA inicie a fase baseando-se apenas num resumo. Omitir a leitura constitui falha crítica.
+> Após a confirmação da leitura, execute a fase seguindo o formato de 5 Blocos Institucionais e feche imprimindo o seu ✅ CHECKLIST DE COMPLIANCE.
+
+**Resumo (Não substitui a leitura):**
 - Passo 1.1: Beneish M-Score + Qualidade do Lucro
 - Passo 1.2: Normalização + ROE DuPont 5 níveis
 - Passo 1.3: 3-Statement Model + Tabelas históricas
@@ -70,7 +78,11 @@ Seguir `skills/fase1-auditoria-contabil/SKILL.md`:
 
 ### 6. Executar FASE 2 — Value Drivers
 
-Seguir `skills/fase2-value-drivers/SKILL.md`:
+> 🛑 **AÇÃO BLOQUEANTE PARA O AGENTE AI:**
+> VOCÊ É OBRIGADO a acionar a tool de leitura de arquivos (`view_file`/`read`) para ler o arquivo `skills/fase2-value-drivers/SKILL.md` INTEGRALMENTE agora mesmo. NUNCA inicie a fase baseando-se apenas num resumo. Omitir a leitura constitui falha crítica.
+> Após a confirmação da leitura, execute a fase seguindo o formato de 5 Blocos Institucionais e feche imprimindo o seu ✅ CHECKLIST DE COMPLIANCE.
+
+**Resumo (Não substitui a leitura):**
 - Passo 2.1: ROIC, Fade Rate, CAP implícito
 - Passo 2.2: Capex Red Queen (manutenção vs. crescimento)
 - Passo 2.3: Unit Economics por vertical
@@ -79,7 +91,11 @@ Seguir `skills/fase2-value-drivers/SKILL.md`:
 
 ### 7. Executar FASE 2.5 — Análise da Gestão
 
-Seguir `skills/fase25-management/SKILL.md`:
+> 🛑 **AÇÃO BLOQUEANTE PARA O AGENTE AI:**
+> VOCÊ É OBRIGADO a acionar a tool de leitura de arquivos (`view_file`/`read`) para ler o arquivo `skills/fase25-management/SKILL.md` INTEGRALMENTE agora mesmo. NUNCA inicie a fase baseando-se apenas num resumo. Omitir a leitura constitui falha crítica.
+> Após a confirmação da leitura, execute a fase seguindo o formato de 5 Blocos Institucionais e feche imprimindo o seu ✅ CHECKLIST DE COMPLIANCE.
+
+**Resumo (Não substitui a leitura):**
 - Passo 2.5.1: Track Record de Assertividade → haircut calculado
 - Passo 2.5.2: Capital Allocation 10 anos
 - Passo 2.5.3: Projetos em Ramp-up (S-curves)
@@ -87,7 +103,11 @@ Seguir `skills/fase25-management/SKILL.md`:
 
 ### 8. Executar FASE 3 — Projeção dos Fluxos de Caixa
 
-Seguir `skills/fase3-projecao-fcff/SKILL.md`:
+> 🛑 **AÇÃO BLOQUEANTE PARA O AGENTE AI:**
+> VOCÊ É OBRIGADO a acionar a tool de leitura de arquivos (`view_file`/`read`) para ler o arquivo `skills/fase3-projecao-fcff/SKILL.md` INTEGRALMENTE agora mesmo. NUNCA inicie a fase baseando-se apenas num resumo. Omitir a leitura constitui falha crítica.
+> Após a confirmação da leitura, execute a fase seguindo o formato de 5 Blocos Institucionais e feche imprimindo o seu ✅ CHECKLIST DE COMPLIANCE.
+
+**Resumo (Não substitui a leitura):**
 - Passo 3.1: Projeção de Receita Bottom-Up
 - Passo 3.2: Margens e Custos
 - Passo 3.3: FCFF Projetado (10 anos) + Check g = ROIIC × Reinv.Rate
@@ -95,14 +115,22 @@ Seguir `skills/fase3-projecao-fcff/SKILL.md`:
 
 ### 9. Executar FASE 4 — Taxa de Desconto (WACC)
 
-Seguir `skills/fase4-wacc/SKILL.md`:
+> 🛑 **AÇÃO BLOQUEANTE PARA O AGENTE AI:**
+> VOCÊ É OBRIGADO a acionar a tool de leitura de arquivos (`view_file`/`read`) para ler o arquivo `skills/fase4-wacc/SKILL.md` INTEGRALMENTE agora mesmo. NUNCA inicie a fase baseando-se apenas num resumo. Omitir a leitura constitui falha crítica.
+> Após a confirmação da leitura, execute a fase seguindo o formato de 5 Blocos Institucionais e feche imprimindo o seu ✅ CHECKLIST DE COMPLIANCE.
+
+**Resumo (Não substitui a leitura):**
 - Passo 4.1: COE via CAPM + Regra Penman
 - Passo 4.2: WACC term structure + Penman test
 - **Exportar JSON_PAYLOAD F4_COMPLETA**
 
 ### 10. Executar FASE 5A — GATE (Auditoria 360°)
 
-Seguir `skills/fase5a-auditoria360/SKILL.md`.
+> 🛑 **AÇÃO BLOQUEANTE PARA O AGENTE AI:**
+> VOCÊ É OBRIGADO a acionar a tool de leitura de arquivos (`view_file`/`read`) para ler o arquivo `skills/fase5a-auditoria360/SKILL.md` INTEGRALMENTE agora mesmo. NUNCA inicie a fase baseando-se apenas num resumo. Omitir a leitura constitui falha crítica.
+> Após a confirmação da leitura, execute a fase seguindo o formato de 5 Blocos Institucionais e feche imprimindo o seu ✅ CHECKLIST DE COMPLIANCE.
+
+**Resumo (Não substitui a leitura):**
 
 > ⚠️ **PARADA OBRIGATÓRIA:**  
 > Se **GATE = ❗ REPROVADO** → NÃO prosseguir. Reportar o bloco com erro e aguardar correção antes de continuar.  
@@ -112,14 +140,22 @@ Seguir `skills/fase5a-auditoria360/SKILL.md`.
 
 ### 11. Executar FASE 5 — Valor Terminal
 
-Seguir `skills/fase5-terminal-value/SKILL.md`:
+> 🛑 **AÇÃO BLOQUEANTE PARA O AGENTE AI:**
+> VOCÊ É OBRIGADO a acionar a tool de leitura de arquivos (`view_file`/`read`) para ler o arquivo `skills/fase5-terminal-value/SKILL.md` INTEGRALMENTE agora mesmo. NUNCA inicie a fase baseando-se apenas num resumo. Omitir a leitura constitui falha crítica.
+> Após a confirmação da leitura, execute a fase seguindo o formato de 5 Blocos Institucionais e feche imprimindo o seu ✅ CHECKLIST DE COMPLIANCE.
+
+**Resumo (Não substitui a leitura):**
 - McKinsey Continuing Value + crosschecks (EPV, Exit Multiple, Penman)
 - Sanity checks (TV/EV%, g vs GDP, ROIC terminal)
 - **Exportar JSON_PAYLOAD F5_COMPLETA**
 
 ### 12. Executar FASE 6 — Agregação & Fair Value
 
-Seguir `skills/fase6-agregacao/SKILL.md`:
+> 🛑 **AÇÃO BLOQUEANTE PARA O AGENTE AI:**
+> VOCÊ É OBRIGADO a acionar a tool de leitura de arquivos (`view_file`/`read`) para ler o arquivo `skills/fase6-agregacao/SKILL.md` INTEGRALMENTE agora mesmo. NUNCA inicie a fase baseando-se apenas num resumo. Omitir a leitura constitui falha crítica.
+> Após a confirmação da leitura, execute a fase seguindo o formato de 5 Blocos Institucionais e feche imprimindo o seu ✅ CHECKLIST DE COMPLIANCE.
+
+**Resumo (Não substitui a leitura):**
 - Cenários ponderados (Distress/Bear/Base/Bull) + Expected Value
 - Bridge EV → Equity Value → Fair Value/Ação
 - Tabela de sensibilidade 7×7 + ERP implícito
@@ -128,7 +164,11 @@ Seguir `skills/fase6-agregacao/SKILL.md`:
 
 ### 13. Executar FASE 7 — Stress Test & Triangulação
 
-Seguir `skills/fase7-stress-test/SKILL.md`:
+> 🛑 **AÇÃO BLOQUEANTE PARA O AGENTE AI:**
+> VOCÊ É OBRIGADO a acionar a tool de leitura de arquivos (`view_file`/`read`) para ler o arquivo `skills/fase7-stress-test/SKILL.md` INTEGRALMENTE agora mesmo. NUNCA inicie a fase baseando-se apenas num resumo. Omitir a leitura constitui falha crítica.
+> Após a confirmação da leitura, execute a fase seguindo o formato de 5 Blocos Institucionais e feche imprimindo o seu ✅ CHECKLIST DE COMPLIANCE.
+
+**Resumo (Não substitui a leitura):**
 - Via Negativa (curto/médio/longo prazo)
 - Auditoria de vieses cognitivos
 - Football Field Valuation (triangulação ≥ 3 métodos) + QMJ Score
@@ -136,7 +176,11 @@ Seguir `skills/fase7-stress-test/SKILL.md`:
 
 ### 14. Executar FASE 8 — Decisão: Conviction & Sizing
 
-Seguir `skills/fase8-decisao/SKILL.md`:
+> 🛑 **AÇÃO BLOQUEANTE PARA O AGENTE AI:**
+> VOCÊ É OBRIGADO a acionar a tool de leitura de arquivos (`view_file`/`read`) para ler o arquivo `skills/fase8-decisao/SKILL.md` INTEGRALMENTE agora mesmo. NUNCA inicie a fase baseando-se apenas num resumo. Omitir a leitura constitui falha crítica.
+> Após a confirmação da leitura, execute a fase seguindo o formato de 5 Blocos Institucionais e feche imprimindo o seu ✅ CHECKLIST DE COMPLIANCE.
+
+**Resumo (Não substitui a leitura):**
 - Conviction Score composto (6 dimensões ponderadas)
 - Position Sizing via Kelly (Half-Kelly recomendado)
 - Watchlist de catalisadores + condições de stop-loss
@@ -144,7 +188,11 @@ Seguir `skills/fase8-decisao/SKILL.md`:
 
 ### 15. Executar FASE 9 — Geração do PDF Institucional
 
-Seguir `skills/fase9-pdf-institucional/SKILL.md`.
+> 🛑 **AÇÃO BLOQUEANTE PARA O AGENTE AI:**
+> VOCÊ É OBRIGADO a acionar a tool de leitura de arquivos (`view_file`/`read`) para ler o arquivo `skills/fase9-pdf-institucional/SKILL.md` INTEGRALMENTE agora mesmo. NUNCA inicie a fase baseando-se apenas num resumo. Omitir a leitura constitui falha crítica.
+> Após a confirmação da leitura, execute a fase seguindo o formato de 5 Blocos Institucionais e feche imprimindo o seu ✅ CHECKLIST DE COMPLIANCE.
+
+**Resumo (Não substitui a leitura):**
 
 **Como o PDF Institucional V4 usa Playwright renderizando Markdown Rico:**
 A análise que você estruturou até a Fase 8 DEVE SER salva em um arquivo de Markdown consolidado primeiro: `output_payloads/[TICKER]_report.md`.

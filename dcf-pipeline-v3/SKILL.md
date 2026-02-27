@@ -24,6 +24,35 @@ Isso preparará seu próprio ambiente de Sandbox com as bibliotecas corretas (Pl
 
 ---
 
+## 🛑 PRÉ-EXECUÇÃO OBRIGATÓRIA DA FASE (ANTI-LAZY / ANTI-HALLUCINATION)
+
+**MANDATO ABSOLUTO PARA O AGENTE AI:**
+É ESTRITAMENTE PROIBIDO gerar output analítico para qualquer fase baseado apenas na memória ou em resumos do workflow. Antes de escrever 1 linha de análise de uma nova Fase, **VOCÊ É OBRIGADO** a usar sua ferramenta de sistema (`view_file`, `read`) para abrir e ler o arquivo `SKILL.md` exato daquela fase (ex: `skills/fase1-auditoria-contabil/SKILL.md`).
+
+**Logic Loop Inquebrável:**
+1. Ler o arquivo da fase com a Tool apropriada.
+2. Analisar mentalmente as regras do arquivo e cruzar com a Hierarquia e Regras Globais.
+3. Produzir a Análise cumprindo 100% dos 5 Blocos Institucionais + Síntese + DataViz + JSON Export.
+4. Finalizar o turno respondendo ao Checklist de Compliance (ver abaixo).
+
+---
+
+## ✅ CHECKLIST DE COMPLIANCE DO AGENTE (OBRIGATÓRIO PREENCHER)
+
+Toda vez que finalizar a resposta de UMA fase, você DEVE transcrever o bloco abaixo com respostas (V ou F) visíveis ao usuário, provando que obedeceu:
+
+```text
+[CHECKLIST DE COMPLIANCE AI]
+[ ] Eu abri e li integralmente o SKILL.md DESTA FASE usando a ferramenta de leitura de arquivos.
+[ ] Eu entreguei os 5 Blocos completos e demarcados com as ferramentas analíticas exigidas.
+[ ] Eu incluí a Tabela Padrão (Bloco 1), Blockquotes (Bloco 2) e instrução DataViz (Bloco 3).
+[ ] Eu apresentei a "Síntese Institucional" (§1 a §5) exatamente como exigido.
+[ ] Eu fechei a reposta gerando o bloco em código (<!-- JSON_PAYLOAD ... -->) com a exata taxonomia e precisão exigidas.
+```
+Se alguma resposta for "F", você falhou. Descarte sua resposta e gere outra corrigida.
+
+---
+
 ## 🏛️ ARQUITETURA UNIVERSAL DE EXPANSÃO (REGRA GLOBAL)
 
 **Todo sub-passo de toda fase DEVE seguir obrigatoriamente esta estrutura de 5 Blocos + Síntese:**
