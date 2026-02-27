@@ -108,17 +108,18 @@ Caso documentado onde erro de modelagem (chain check, WACC circular) gerou valua
 
 ## ✅ CHECKLIST DE COMPLIANCE — VALIDAÇÃO OBRIGATÓRIA ANTES DE AVANÇAR
 
-Antes de passar para a próxima fase, o Agente AI DEVE verificar e imprimir este checklist PREENCHIDO com (V) ou (F) em sua resposta:
+Antes de passar para a próxima fase, o Agente AI DEVE verificar e imprimir este checklist PREENCHIDO com **[V]** (Verdadeiro) ou **[F]** (Falso) em sua resposta:
 
 ```text
-[CHECKLIST DE COMPLIANCE DO AGENTE]
-[?] Eu abri e li integralmente este arquivo SKILL.md usando a minha ferramenta de leitura de arquivos.
-[?] Eu executei TODOS os sub-passos desta fase (não pulei nenhum).
-[?] Eu entreguei os 5 Blocos (Diagnóstico / Narrativa / DataViz / Trade-off / Analogia) em CADA sub-passo.
-[?] Eu incluí a instrução DataViz específica (tipo de gráfico + paleta + eixos) no BLOCO 3 de cada passo.
-[?] Eu apresentei a Síntese Institucional (§1 a §5) ao final desta fase.
-[?] Eu fechei a resposta gerando o bloco <!-- JSON_PAYLOAD --> com a taxonomia exata desta fase.
+[CHECKLIST DE COMPLIANCE DO AGENTE — FASE F5A]
+[V/F] Eu abri e li integralmente este arquivo SKILL.md usando a minha ferramenta de leitura de arquivos.
+[V/F] Eu executei TODOS os sub-passos desta fase (não pulei nenhum).
+[V/F] Eu entreguei os 5 Blocos (Diagnóstico / Narrativa / DataViz / Trade-off / Analogia) em CADA sub-passo.
+[V/F] Eu incluí a instrução DataViz específica (tipo de gráfico + paleta + eixos) no BLOCO 3 de cada passo.
+[V/F] Eu apresentei a Síntese Institucional (§1 a §5) ao final desta fase.
+[V/F] Eu fechei a resposta gerando o bloco <!-- JSON_PAYLOAD --> com a taxonomia exata desta fase.
 ```
 
 **Se qualquer item for (F):** PARE. Não avance. Corrija a sua resposta e reentregue antes de prosseguir para a próxima fase.
 
+Validação automática: `python scripts/validate_compliance.py --clipboard --fase F5A`

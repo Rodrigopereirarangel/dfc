@@ -136,6 +136,11 @@ Ativo similar que exibia premissas implícitas análogas. O que aconteceu quando
 ╔══════════════════════════════════════════════════════════════════╗
 ║  📌 SÍNTESE INSTITUCIONAL — Passo 0.2                           ║
 ╚══════════════════════════════════════════════════════════════════╝
+§1 Qual g e ROIC implícitos no preço atual vs. base rates do setor?
+§2 Impacto no fair value se premissa mais errada for corrigida (R$/ação)?
+§3 Nível de confiança: [FATO / INFERÊNCIA / HIPÓTESE]?
+§4 Qual premissa implícita singular mais acionável para as próximas fases?
+§5 O mercado está subestimando risco ou superestimando crescimento?
 ```
 
 **Referências:**
@@ -200,6 +205,11 @@ Ativo similar onde divergência foi resolvida. Quem estava certo? Que dado trime
 ╔══════════════════════════════════════════════════════════════════╗
 ║  📌 SÍNTESE INSTITUCIONAL — Passo 0.3                           ║
 ╚══════════════════════════════════════════════════════════════════╝
+§1 Qual a leitura do mercado (bull/bear) e o driver de divergência central?
+§2 A dispersão de analistas cria oportunidade mensurável (R$/ação)?
+§3 Nível de confiança nas fontes de sentimento utilizadas?
+§4 Que dado trimestral pode resolver o debate e em que prazo?
+§5 Existe assimetria na dispersão (mais bulls ou mais bears) que o preço ignora?
 ```
 
 **Referências:**
@@ -281,17 +291,19 @@ Empresa que falhou pela razão mais provável de falha desta. O que o pre-mortem
 
 ## ✅ CHECKLIST DE COMPLIANCE — VALIDAÇÃO OBRIGATÓRIA ANTES DE AVANÇAR
 
-Antes de passar para a próxima fase, o Agente AI DEVE verificar e imprimir este checklist PREENCHIDO com (V) ou (F) em sua resposta:
+Antes de passar para a próxima fase, o Agente AI DEVE verificar e imprimir este checklist PREENCHIDO com **[V]** (Verdadeiro) ou **[F]** (Falso) em sua resposta:
 
 ```text
-[CHECKLIST DE COMPLIANCE DO AGENTE]
-[?] Eu abri e li integralmente este arquivo SKILL.md usando a minha ferramenta de leitura de arquivos.
-[?] Eu executei TODOS os sub-passos desta fase (não pulei nenhum).
-[?] Eu entreguei os 5 Blocos (Diagnóstico / Narrativa / DataViz / Trade-off / Analogia) em CADA sub-passo.
-[?] Eu incluí a instrução DataViz específica (tipo de gráfico + paleta + eixos) no BLOCO 3 de cada passo.
-[?] Eu apresentei a Síntese Institucional (§1 a §5) ao final desta fase.
-[?] Eu fechei a resposta gerando o bloco <!-- JSON_PAYLOAD --> com a taxonomia exata desta fase.
+[CHECKLIST DE COMPLIANCE DO AGENTE — FASE 0]
+[ ] Preencha [V] se Verdadeiro, [F] se Falso:
+[V/F] Eu executei TODOS os 4 sub-passos desta fase (0.1, 0.2, 0.3, 0.4).
+[V/F] Eu entreguei os 5 Blocos (Diagnóstico / Narrativa / DataViz / Trade-off / Analogia) em CADA sub-passo.
+[V/F] Eu incluí a instrução DataViz específica (tipo de gráfico + paleta + eixos) no BLOCO 3 de cada passo.
+[V/F] Eu apresentei a Síntese Institucional (§1 a §5) PREENCHIDA em cada box.
+[V/F] Eu fechei a resposta gerando o bloco <!-- JSON_PAYLOAD --> com campos numéricos preenchidos.
 ```
 
-**Se qualquer item for (F):** PARE. Não avance. Corrija a sua resposta e reentregue antes de prosseguir para a próxima fase.
+**Se qualquer item for [F]:** PARE. Não avance. Corrija a sua resposta e reentregue antes de prosseguir.
+
+Validação automática: `python scripts/validate_compliance.py --clipboard --fase F0`
 

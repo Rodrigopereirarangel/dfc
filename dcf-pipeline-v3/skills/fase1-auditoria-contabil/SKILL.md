@@ -154,6 +154,11 @@ Empresa mal avaliada por o mercado não normalizar corretamente. O que foi ignor
 ╔══════════════════════════════════════════════════════════════════╗
 ║  📌 SÍNTESE INSTITUCIONAL — Passo 1.2                           ║
 ╚══════════════════════════════════════════════════════════════════╝
+§1 O DuPont revelou qual componente explica o ROE atual da empresa?
+§2 O spread ROIC-COE é positivo e sustentável? Impacto no fair value?
+§3 Nível de confiança nos ajustes de normalização aplicados?
+§4 Qual ajuste contábil (SBC, IFRS16, intangível) mais impacta o LPA para a Fase 3?
+§5 O mercado precifica o ROE reportado ou o normalizado? Existe discrepância explorável?
 ```
 
 **Referências:**
@@ -259,17 +264,19 @@ Empresa com padrão histórico similar. A análise do histórico teria sido pred
 
 ## ✅ CHECKLIST DE COMPLIANCE — VALIDAÇÃO OBRIGATÓRIA ANTES DE AVANÇAR
 
-Antes de passar para a próxima fase, o Agente AI DEVE verificar e imprimir este checklist PREENCHIDO com (V) ou (F) em sua resposta:
+Antes de passar para a próxima fase, o Agente AI DEVE verificar e imprimir este checklist PREENCHIDO com **[V]** (Verdadeiro) ou **[F]** (Falso) em sua resposta:
 
 ```text
-[CHECKLIST DE COMPLIANCE DO AGENTE]
-[?] Eu abri e li integralmente este arquivo SKILL.md usando a minha ferramenta de leitura de arquivos.
-[?] Eu executei TODOS os sub-passos desta fase (não pulei nenhum).
-[?] Eu entreguei os 5 Blocos (Diagnóstico / Narrativa / DataViz / Trade-off / Analogia) em CADA sub-passo.
-[?] Eu incluí a instrução DataViz específica (tipo de gráfico + paleta + eixos) no BLOCO 3 de cada passo.
-[?] Eu apresentei a Síntese Institucional (§1 a §5) ao final desta fase.
-[?] Eu fechei a resposta gerando o bloco <!-- JSON_PAYLOAD --> com a taxonomia exata desta fase.
+[CHECKLIST DE COMPLIANCE DO AGENTE — FASE 1]
+[ ] Preencha [V] se Verdadeiro, [F] se Falso:
+[V/F] Eu executei TODOS os 3 sub-passos desta fase (1.1, 1.2, 1.3).
+[V/F] Eu entreguei os 5 Blocos (Diagnóstico / Narrativa / DataViz / Trade-off / Analogia) em CADA sub-passo.
+[V/F] Eu incluí a instrução DataViz específica (tipo de gráfico + paleta + eixos) no BLOCO 3 de cada passo.
+[V/F] Eu apresentei a Síntese Institucional (§1 a §5) PREENCHIDA em cada box.
+[V/F] Eu fechei a resposta gerando o bloco <!-- JSON_PAYLOAD --> com campos numéricos preenchidos.
 ```
 
-**Se qualquer item for (F):** PARE. Não avance. Corrija a sua resposta e reentregue antes de prosseguir para a próxima fase.
+**Se qualquer item for [F]:** PARE. Não avance. Corrija a sua resposta e reentregue antes de prosseguir.
+
+Validação automática: `python scripts/validate_compliance.py --clipboard --fase F1`
 
