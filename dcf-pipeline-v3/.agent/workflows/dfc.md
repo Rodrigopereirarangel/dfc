@@ -42,27 +42,35 @@ Exibir banner:
 ╚══════════════════════════════════════════════════════════════════╝
 ```
 
-### 3. Buscar dados de mercado
+### 3. Declarar Template Ativo (PRIMEIRA SAÍDA OBRIGATÓRIA)
 
-Via `yfinance` / fontes públicas:
-- Preço atual, market cap, volume, short interest, beta
-- Histórico de preços (5 anos)
-- Dividendos pagos
+**Sua PRIMEIRA linha de resposta ao receber `/dfc [TICKER]` DEVE ser:**
 
-Registrar data e fonte de cada dado capturado.
+```
+╔══════════════════════════════════════════════════════════════════╗
+║  📋 DCF Pipeline v3 — [TICKER] | Template ativo                 ║
+║  Estrutura: 5 Blocos × N passos × Síntese §1-§5 × JSON Payload  ║
+║  Fallback: validate → repair → re-validate antes de avançar      ║
+╚══════════════════════════════════════════════════════════════════╝
+```
+
+NUNCA escreva análise antes deste banner. NUNCA comprima fases numa única resposta.
 
 ### 4. Executar FASE 0 — Inteligência Competitiva
 
-> 🛑 **AÇÃO BLOQUEANTE PARA O AGENTE AI:**
-> VOCÊ É OBRIGADO a acionar a tool de leitura de arquivos (`view_file`/`read`) para ler o arquivo `skills/fase0-estrategia/SKILL.md` INTEGRALMENTE agora mesmo. NUNCA inicie a fase baseando-se apenas num resumo. Omitir a leitura constitui falha crítica.
-> Após a confirmação da leitura, execute a fase seguindo o formato de 5 Blocos Institucionais e feche imprimindo o seu ✅ CHECKLIST DE COMPLIANCE.
+> 🛑 **SEQUÊNCIA OBRIGATÓRIA PARA O AGENTE AI:**
+> 1. Preencha o template de 5 Blocos célula a célula (ver SKILL.md raiz — seção TEMPLATE OBRIGATÓRIO)
+> 2. Após cada Bloco, execute o auto-check da tabela de critérios mínimos (FALLBACK Nível 1)
+> 3. Ao fechar a fase, rode: `python scripts/fallback_repair.py --clipboard --fase F0`
+> 4. Se Exit 1 → aplique reparos listados e re-valide. Se Exit 0 → escreva `▶️ Fase 0 concluída.`
 
-**Resumo (Não substitui a leitura):**
+**Passos desta fase:**
 - Passo 0.1: 5 Forças Porter + Nota de Durabilidade do Moat
 - Passo 0.2: Reverse DCF + MEROI + Diagnóstico de Mercado
 - Passo 0.3: Sentimento de Mercado (short interest, dispersão sell-side)
 - Passo 0.4: Narrativa → Números + Pre-mortem (inversão)
 - **Exportar JSON_PAYLOAD F0_COMPLETA**
+
 
 ### 5. Executar FASE 1 — Auditoria Contábil Forense
 
