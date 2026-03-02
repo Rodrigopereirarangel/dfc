@@ -213,8 +213,8 @@ Execute em sequência. **Fase 5A é GATE obrigatório** — em modo autônomo, e
 
 ## 📋 JSON PAYLOAD — FORMATO MÍNIMO POR FASE
 
-Ao final de cada fase, exportar na taxonomia correspondente:
-```json
+Ao final de cada fase, exportar na taxonomia correspondente e ESTRITAMENTE sem envolver em blocos de código markdown (`` ` ``). Exporte **apenas o comentário HTML puro**:
+
 <!-- JSON_PAYLOAD
 {
   "fase": "FX_COMPLETA",
@@ -224,7 +224,6 @@ Ao final de cada fase, exportar na taxonomia correspondente:
   "nota": "observação relevante"
 }
 -->
-```
 
 ---
 
