@@ -57,6 +57,12 @@ Todo sub-passo do pipeline deve ser expandido seguindo obrigatoriamente esta arq
 ╔══════════════════════════════════════════════════════════╗
 ║  📌 SÍNTESE INSTITUCIONAL — §1 a §5                     ║
 ╚══════════════════════════════════════════════════════════╝
+
+> 🔗 **REGRA DE CONTINUIDADE E COESÃO (CRÍTICO):**  
+> Ao gerar cada bloco e fase, você **não está escrevendo documentos isolados**, mas sim os **capítulos de um único Relatório Integrado**.
+> - **NÃO REPITA** informações introdutórias gerais nas Fases 1 a 8 que já foram ditas na Fase 0 (ex: o que a empresa faz, quantos anos de mercado tem).
+> - **FAÇA PONTES** com as fases anteriores usando frases de ligação (ex: *"Como vimos no MEROI da Fase 0, a precificação já exige crescimento, e a análise de capex confirma que..."* ou *"Ao contrário do otimismo notado na Fase 2, os dados históricos de margem mostram..."*).
+> - Se houver conflitos entre suas percepções (ex: mercado otimista vs. fundamento ruim), descreva explicitamente o dilema para construir a tese e não simplesmente apagar a contradição.
 ```
 
 ---
@@ -137,8 +143,9 @@ Com **3 a 5 parágrafos** respondendo sequencialmente:
 | Negrito para claims principais e termos core | Negrito decorativo |
 | Tipografia profissional de fundos de Private Equity | Emojis decorativos exagerados no documento final |
 
-**Sistema de marcadores (Para Markdown Intermediário):**
-`✅` aprovado | `🟠` atenção | `❗` grave | `💡` insight | `⚖️` trade-off | `🔭` hipótese LT | `📊` dado a verificar | `🔒` red flag ausente | `🎯` driver crítico | `⏱️` timing | `🔁` analogia histórica
+**Sistema de marcadores (Para Markdown Intermediário / Final):**
+- Use esses emojis para criar uma estrutura rítmica e de fácil escaneabilidade no PDF final. O leitor institucional varre páginas inteiras buscando esses retornos visuais.
+`✅ Oportunidade/Aprovado` | `🟠 Ponto de Atenção` | `❗ Risco Grave/Red Flag` | `💡 Insight Contraintuitivo` | `⚖️ Trade-off` | `🔭 Hipótese LT` | `📊 Dado Relevante` | `🔒 Defesa de Moat` | `🎯 Value Driver Crítico` | `⏱️ Timing/Catalisador` | `🔁 Analogia Histórica` | `📈 Bull Case` | `📉 Bear Case`
 
 ---
 

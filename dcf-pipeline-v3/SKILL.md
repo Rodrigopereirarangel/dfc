@@ -135,7 +135,7 @@ Após escrever **cada Bloco**, pergunte-se internamente ANTES de avançar:
 python scripts/fallback_repair.py --clipboard --fase F[X]
 ```
 
-- **Exit 0 → ✅ Aprovado.** Escrever: `▶️ Fase [X] concluída. Confirme para avançar.`
+- **Exit 0 → ✅ Aprovado.** Escrever: `▶️ Fase [X] concluída.` e **INICIAR IMEDIATAMENTE A PRÓXIMA FASE** sem pedir permissão.
 - **Exit 1 → ❌ Reprovado.** Repair prompt gerado com cirurgia exata. **Não avançar.** Aplicar reparos e re-validar.
 
 ### Nível 3 — Fallback de último recurso (após 2 tentativas com Exit 1)
@@ -151,6 +151,9 @@ Escrever ao usuário: `"⚠️ Fase [X] não passou no compliance após 2 tentat
 ## 🏛️ ARQUITETURA UNIVERSAL DE EXPANSÃO (REGRA GLOBAL)
 
 **Todo sub-passo de toda fase DEVE seguir obrigatoriamente esta estrutura de 5 Blocos + Síntese:**
+
+> 🔗 **COESÃO NARRATIVA BÁSICA:**
+> Trate a sua análise como um documento único que está sendo montado seção por seção. **NÃO REPITA** quem é a empresa a cada fase. Use ganchos conectivos (ex: *"Diferente da vantagem destacada em F0, os números revelam..."*). Utilize cabeçalhos e emojis do sistema de marcadores para segmentar a leitura.
 
 ```
 BLOCO 1 — Diagnóstico Executivo
@@ -237,7 +240,8 @@ Antes de iniciar qualquer fase, verificar a disponibilidade dos dados:
 8. **5 Blocos + Síntese §1-§5**: Regra inviolável em todo sub-passo (ver template acima — preencher antes de análise livre).
 9. **DataViz Obrigatório**: Todo BLOCO 3 deve conter instrução de gráfico específico para o PDF final.
 10. **JSON Payload**: Exportar métricas numéricas em bloco JSON ao final de cada fase.
-11. **Paginação Obrigatória**: Uma fase = uma mensagem. Ao fechar o Checklist de Compliance, escrever: `▶️ Fase [X] concluída. Confirme para avançar para Fase [X+1] ou ajuste premissas.` e aguardar resposta antes de continuar.
+11. **Paginação Automática**: Após validar o Checklist de Compliance sem falhas (Exit 0 do script), **NÃO PARE**. Inicie `▶️ Fase [X+1]` automaticamente e sem interregnos até obter o relatório master completo. O único ponto provável de parada legítima ou humana é o GATE 5A.
+12. **Markdown Master Permanente**: Tudo que você compuser deve estar formatado para eventualmente compor integralmente o PDF. Não jogue o texto fora. O PDF exportará a NARRATIVA COMPLETA de todas as Fases da 0 à 8 utilizando a formatação rica em Markdown + JSONs.
 
 ---
 

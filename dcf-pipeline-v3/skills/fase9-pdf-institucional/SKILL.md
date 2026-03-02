@@ -36,12 +36,12 @@ Consolidar toda a análise gerada nas Fases 0 a 8 e entregar um **Arquivo PDF de
 - Top 3 Riscos e Top 3 Catalisadores
 
 ### Corpo do Relatório (Páginas 3-N)
-Uma seção por Fase (0→8), incluindo:
-- Tabelas diagnósticas do BLOCO 1 de cada passo
-- Narrativas de destaque do BLOCO 2 (blockquotes formatados)
-- Gráficos do BLOCO 3 (gerados pelo script)
-- Síntese §1-§5 de cada fase em caixa destacada
-- Analogia Histórica (BLOCO 5) em caixa de nota lateral
+Uma seção contínua para as Fases (0→8). **O Relatório não é um agregado de tabelas soltas; é um Research Paper coeso.** Você DEVE incluir:
+- **Toda a Narrativa Analítica** produzida ao longo das fases. (Use cabeçalhos 🧱 fortes e emojis para quebrar a leitura).
+- Tabelas diagnósticas do BLOCO 1 de cada passo.
+- Gráficos do BLOCO 3 (gerados pelo script).
+- Síntese §1-§5 de cada fase em caixa destacada.
+- Analogia Histórica (BLOCO 5) em caixa de nota lateral.
 
 ### Rodapé Padrão em Cada Página
 - Ticker | Data | "Análise Fundamentalista — DCF Pipeline v4.0"
@@ -111,7 +111,7 @@ PALETA = {
 
 **Comando (via Playwright / motor HTML):**
 ```bash
-# 1. Salve o output compilado das fases 0-8 em arquivo Markdown (ex: output_payloads/XXXX3_report.md)
+# 1. Certifique-se de que TODO O TEXTO RICO E NARRATIVA produzidos das Fases 0 a 8 foi compilado e salvo no arquivo `output_payloads/[TICKER]_report.md`. Não abrevie o texto ao escrevê-lo no arquivo.
 # 2. Rode o script:
 
 python scripts/generate_pdf.py \

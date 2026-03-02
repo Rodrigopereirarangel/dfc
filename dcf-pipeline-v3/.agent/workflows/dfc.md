@@ -15,6 +15,11 @@ description: Roda o DCF Pipeline v4.0 completo para um ticker — /dfc [TICKER]
 
 Executa o DCF Pipeline v4.0 em sequência completa para o ticker informado, do enquadramento estratégico até o PDF institucional. Cada fase entrega os **5 Blocos Institucionais + Síntese §1–§5 + DataViz + JSON Payload**.
 
+> 🧠 **REGRA DE OURO — FLUXO CONTÍNUO E INTEGRAÇÃO DE NARRATIVA:**
+> 1. **Execução Automática:** Salvo impedimento grave (Exit 1 no fallback ou GATE reprovado), **NÃO PARE** para perguntar se o usuário quer continuar. Após confirmar `Exit 0`, inicie a próxima fase imediatamente.
+> 2. **Integração Coesa:** Trate cada fase como o próximo capítulo de um único Relatório Institucional. Não repita informações (como a descrição básica da empresa) nas fases subsequentes. Conecte as ideias, citando as descobertas das fases anteriores. Se houver discrepância entre premissas, explique-as no texto.
+> 3. **Leitura Segmentada e Estética:** Faça uso criterioso de formatação rica. Use listas (`-`), sub-cabeçalhos (`###`), negritos vitais, e introduza emojis estratégicos para estruturar visualmente a leitura (ex: 💡 Insight, ⚠️ Risco, 🚀 Oportunidade, ⚖️ Trade-off, 📉 Queda, 📈 Crescimento).
+
 ---
 
 ## Passos
@@ -62,7 +67,7 @@ NUNCA escreva análise antes deste banner. NUNCA comprima fases numa única resp
 > 1. Preencha o template de 5 Blocos célula a célula (ver SKILL.md raiz — seção TEMPLATE OBRIGATÓRIO)
 > 2. Após cada Bloco, execute o auto-check da tabela de critérios mínimos (FALLBACK Nível 1)
 > 3. Ao fechar a fase, rode: `python scripts/fallback_repair.py --clipboard --fase F0`
-> 4. Se Exit 1 → aplique reparos listados e re-valide. Se Exit 0 → escreva `▶️ Fase 0 concluída.`
+> 4. Se Exit 1 → aplique reparos listados e re-valide. Se Exit 0 → **CONTINUE IMEDIATAMENTE** para a próxima fase.
 
 **Passos desta fase:**
 - Passo 0.1: 5 Forças Porter + Nota de Durabilidade do Moat
@@ -142,7 +147,7 @@ NUNCA escreva análise antes deste banner. NUNCA comprima fases numa única resp
 
 > ⚠️ **PARADA OBRIGATÓRIA:**  
 > Se **GATE = ❗ REPROVADO** → NÃO prosseguir. Reportar o bloco com erro e aguardar correção antes de continuar.  
-> Se **GATE = ✅ APROVADO** → continuar para a Fase 5.
+> Se **GATE = ✅ APROVADO** → **CONTINUE IMEDIATAMENTE** para a Fase 5.
 
 - **Exportar JSON_PAYLOAD F5A_GATE**
 
@@ -203,8 +208,8 @@ NUNCA escreva análise antes deste banner. NUNCA comprima fases numa única resp
 **Resumo (Não substitui a leitura):**
 
 **Como o PDF Institucional V4 usa Playwright renderizando Markdown Rico:**
-A análise que você estruturou até a Fase 8 DEVE SER salva em um arquivo de Markdown consolidado primeiro: `output_payloads/[TICKER]_report.md`.
-Use o `output-dcf-completo.md` preenchido como base desse arquivo salvo.
+A análise de todas as fases da Fase 0 à Fase 8 DEVE SER salva em um arquivo de Markdown consolidado: `output_payloads/[TICKER]_report.md`.
+Use o `output-dcf-completo.md` como base, e certifique-se de que o arquivo final contém **TODO o texto narrativo, análises de todos os Blocos e Sínteses** que você gerou, segmentados com Títulos e formatação clara com emojis. **NÃO OMITA A NARRATIVA**.
 Depois, execute:
 
 ```bash
