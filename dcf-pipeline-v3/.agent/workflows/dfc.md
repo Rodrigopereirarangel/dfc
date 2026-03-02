@@ -6,8 +6,8 @@ description: Roda o DCF Pipeline v4.0 completo para um ticker — /dfc [TICKER]
 
 ## Uso
 ```
-`/dfc PSSA3` (Modo Autônomo — Padrão)
-`/dfc ITUB4 manual` (Modo Manual com pausas)
+`/dfc PSSA3` (Modo Autônomo com Macro-Checkpoints — Padrão)
+`/dfc ITUB4 manual` (Modo Manual com pausas em cada fase)
 `/dfc VALE3`
 ```
 
@@ -16,8 +16,8 @@ description: Roda o DCF Pipeline v4.0 completo para um ticker — /dfc [TICKER]
 Executa o DCF Pipeline v4.0 em sequência completa para o ticker informado, do enquadramento estratégico até o PDF institucional. Cada fase entrega os **5 Blocos Institucionais + Síntese §1–§5 + DataViz + JSON Payload**.
 
 > 🧠 **REGRA DE OURO — FLUXO CONTÍNUO E INTEGRAÇÃO DE NARRATIVA:**
-> 1. **Modo Autônomo:** Se chamado com `/dfc [TICKER]`, **NÃO PARE** para perguntar se o usuário quer continuar. Após confirmar `Exit 0`, inicie a próxima fase imediatamente e **continue gerando o texto**.
-> 2. **Modo Manual:** Se chamado com `/dfc [TICKER] manual`, você deve paurar e exibir "Aguardando confirmação do usuário para avançar" após o banner da fase.
+> 1. **Modo Autônomo com Macro-Checkpoints (Padrão):** O comando `/dfc [TICKER]` executará a análise em fluxo contínuo. Sua ÚNICA restrição é que **VOCÊ DEVE PAUSAR OBRIGATORIAMENTE EM 3 MACRO-CHECKPOINTS** (fim das Fases 2.5, 5 e 8) para apresentar as escolhas A/B dos "Trade-offs" e aguardar a escolha do usuário antes de continuar. Fora desses 3 pontos (ou em caso de erro), **NÃO PARE** e continue gerando o texto imediatamente na mesma resposta.
+> 2. **Modo Manual:** Se chamado com `/dfc [TICKER] manual`, você deve paurar e exibir "Aguardando confirmação do usuário para avançar" após o banner de roda Fase.
 > 3. **Integração Coesa:** Trate cada fase como o próximo capítulo de um único Relatório Institucional. Não repita informações (como a descrição básica da empresa) nas fases subsequentes. Conecte as ideias, citando as descobertas das fases anteriores. Se houver discrepância entre premissas, explique-as no texto.
 > 4. **Leitura Segmentada e Estética:** Faça uso criterioso de formatação rica. Use listas (`-`), sub-cabeçalhos (`###`), negritos vitais, e introduza emojis estratégicos para estruturar visualmente a leitura (ex: 💡 Insight, ⚠️ Risco, 🚀 Oportunidade, ⚖️ Trade-off, 📉 Queda, 📈 Crescimento).
 
@@ -68,7 +68,7 @@ NUNCA escreva análise antes deste banner. NUNCA comprima fases numa única resp
 > 1. Preencha o template de 5 Blocos célula a célula (ver SKILL.md raiz — seção TEMPLATE OBRIGATÓRIO)
 > 2. Após cada Bloco, execute o auto-check da tabela de critérios mínimos (FALLBACK Nível 1)
 > 3. Ao fechar a fase, rode: `python scripts/fallback_repair.py --clipboard --fase F0`
-> 4. Se Exit 1 → aplique reparos listados e re-valide. Se Exit 0 → **MODO AUTÔNOMO: GERAR A PRÓXIMA FASE NA MESMA RESPOSTA!** Não pare de escrever. **MODO MANUAL: parar e pedir confirmação.**
+> 4. Se Exit 1 → aplique reparos listados e re-valide. Se Exit 0 → **MACRO-CHECKPOINT MODE: GERAR A PRÓXIMA FASE NA MESMA RESPOSTA!** Não pare de escrever, exceto se estiver no Checkpoint Alpha, Beta ou Final.
 
 **Passos desta fase:**
 - Passo 0.1: 5 Forças Porter + Nota de Durabilidade do Moat

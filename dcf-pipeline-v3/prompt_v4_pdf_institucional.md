@@ -23,8 +23,8 @@ O pipeline opera em **dois modos**. O modo é determinado pelo comando usado:
 
 | Comando | Modo | Comportamento |
 |---------|------|---------------|
-| `/dfc [TICKER]` | **AUTÔNOMO** | Executa Fases 0→9 sem parar. Após cada checklist, avança automaticamente. |
-| `/dfc [TICKER] manual` | **MANUAL** | Aguarda confirmação do usuário após cada fase (comportamento original). |
+| `/dfc [TICKER]` | **AUTÔNOMO INTEGRADO (DEFAULT)** | Executa continuamente, mas faz PAUSAS ESTRATÉGICAS MÁXIMAS em 3 Macro-Checkpoints (Fim das Fases 2.5, 5, e 8) para perguntar os dilemas A/B. |
+| `/dfc [TICKER] manual` | **MANUAL** | Aguarda confirmação do usuário após cada fase (comportamento original e arcaico). |
 | `PAUSE` | — | Pausa o modo autônomo. Aguarda comando. |
 | `RESUME` | — | Retoma o modo autônomo do ponto onde parou. |
 | `STOP` | — | Encerra o pipeline e entrega síntese parcial. |
@@ -39,13 +39,33 @@ Sua **PRIMEIRA e ÚNICA saída** antes de qualquer análise DEVE ser este banner
 
 ```
 ╔══════════════════════════════════════════════════════════════════╗
-║  📋 DCF Pipeline v3 — [TICKER] | MODO AUTÔNOMO ATIVADO          ║
+║  📋 DCF Pipeline v3 — [TICKER] | MACRO-CHECKPOINTS ATIVADO      ║
 ║  Estrutura: 5 Blocos × N passos × Síntese §1-§5 × JSON Payload  ║
-║  Execução contínua Fase 0→9. Digite PAUSE para interromper.     ║
+║  Pausas automáticas apenas nas Fases 2.5, 5.0 e 8.0 para A/B    ║
 ╚══════════════════════════════════════════════════════════════════╝
 ```
 
-Após o banner, execute **Fase 0.1** imediatamente e continue até a Fase 9 sem parar.
+Após o banner, execute **Fase 0.1** imediatamente e continue sem parar.
+
+---
+
+## 🔴 MACRO-CHECKPOINTS DE DECISÃO
+
+O modo `/dfc [TICKER]` exige que o pipeline rode automaticamente a vasta maioria das fases, **MAS PARE A GERAÇÃO DE TEXTO E ESPERE A INTERAÇÃO DO USUÁRIO NOS SEGUINTES 3 MOMENTOS CRUCIAIS PARA DIREMOS A/B DO BLOCO 4**:
+
+**1. CHECKPOINT ALPHA (Pausa OBRIGATÓRIA ao final da Fase 2.5)**
+- Agrupe e resuma os trade-offs do BLOCO 4 de estratégia, moat e contabilidade (feitos nas Fases 0, 1 e 2).
+- Exiba as opções A e B compiladas na tela em uma tabela sintética de Escolha Estratégica.
+- **Pare de escrever** e pergunte: *"Mestre, quais destas teses A/B devemos ancorar como premissa verdadeira para projetar os fluxos de caixa na Fase 3? Digite suas escolhas."*
+
+**2. CHECKPOINT BETA (Pausa OBRIGATÓRIA ao final da Fase 5)**
+- O Valuation Base foi concluído. Agrupe as premissas críticas usadas nas Fases 3, 4 e 5 (Margens, Capex, WACC e TV).
+- Mostre o Fair Value BASE calculado para o usuário.
+- **Pare de escrever** e pergunte: *"Valuation Base: R$ X. Para rodarmos a curva de stress e os múltiplos probabilísticos agora, quais das premissas listadas acima devemos estressar (A/B)? Aguardando seu input."*
+
+**3. CHECKPOINT FINAL (Pausa OBRIGATÓRIA ao final da Fase 8)**
+- Exiba a indicação final do portfólio (Conviction Score + Kelly Sizing).
+- **Pare de escrever** e pergunte: *"Análise Fundamentalista concluída. Deseja realizar algum último ajuste de cenário ou posso dar início à compilação e exportação do PDF Institucional? Responda OK para fechar."*
 
 > 🔗 **REGRA DE CONTINUIDADE E COESÃO (CRÍTICO):**  
 > Ao gerar cada bloco e fase, você **não está escrevendo documentos isolados**, mas sim os **capítulos de um único Relatório Integrado**.
