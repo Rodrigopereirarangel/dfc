@@ -6,9 +6,9 @@ description: Roda o DCF Pipeline v4.0 completo para um ticker — /dfc [TICKER]
 
 ## Uso
 ```
-/dfc PSSA3
-/dfc ITUB4
-/dfc VALE3
+`/dfc PSSA3` (Modo Autônomo — Padrão)
+`/dfc ITUB4 manual` (Modo Manual com pausas)
+`/dfc VALE3`
 ```
 
 ## O que este workflow faz
@@ -16,9 +16,10 @@ description: Roda o DCF Pipeline v4.0 completo para um ticker — /dfc [TICKER]
 Executa o DCF Pipeline v4.0 em sequência completa para o ticker informado, do enquadramento estratégico até o PDF institucional. Cada fase entrega os **5 Blocos Institucionais + Síntese §1–§5 + DataViz + JSON Payload**.
 
 > 🧠 **REGRA DE OURO — FLUXO CONTÍNUO E INTEGRAÇÃO DE NARRATIVA:**
-> 1. **Execução Automática:** Salvo impedimento grave (Exit 1 no fallback ou GATE reprovado), **NÃO PARE** para perguntar se o usuário quer continuar. Após confirmar `Exit 0`, inicie a próxima fase imediatamente.
-> 2. **Integração Coesa:** Trate cada fase como o próximo capítulo de um único Relatório Institucional. Não repita informações (como a descrição básica da empresa) nas fases subsequentes. Conecte as ideias, citando as descobertas das fases anteriores. Se houver discrepância entre premissas, explique-as no texto.
-> 3. **Leitura Segmentada e Estética:** Faça uso criterioso de formatação rica. Use listas (`-`), sub-cabeçalhos (`###`), negritos vitais, e introduza emojis estratégicos para estruturar visualmente a leitura (ex: 💡 Insight, ⚠️ Risco, 🚀 Oportunidade, ⚖️ Trade-off, 📉 Queda, 📈 Crescimento).
+> 1. **Modo Autônomo:** Se chamado com `/dfc [TICKER]`, **NÃO PARE** para perguntar se o usuário quer continuar. Após confirmar `Exit 0`, inicie a próxima fase imediatamente e **continue gerando o texto**.
+> 2. **Modo Manual:** Se chamado com `/dfc [TICKER] manual`, você deve paurar e exibir "Aguardando confirmação do usuário para avançar" após o banner da fase.
+> 3. **Integração Coesa:** Trate cada fase como o próximo capítulo de um único Relatório Institucional. Não repita informações (como a descrição básica da empresa) nas fases subsequentes. Conecte as ideias, citando as descobertas das fases anteriores. Se houver discrepância entre premissas, explique-as no texto.
+> 4. **Leitura Segmentada e Estética:** Faça uso criterioso de formatação rica. Use listas (`-`), sub-cabeçalhos (`###`), negritos vitais, e introduza emojis estratégicos para estruturar visualmente a leitura (ex: 💡 Insight, ⚠️ Risco, 🚀 Oportunidade, ⚖️ Trade-off, 📉 Queda, 📈 Crescimento).
 
 ---
 
@@ -67,7 +68,7 @@ NUNCA escreva análise antes deste banner. NUNCA comprima fases numa única resp
 > 1. Preencha o template de 5 Blocos célula a célula (ver SKILL.md raiz — seção TEMPLATE OBRIGATÓRIO)
 > 2. Após cada Bloco, execute o auto-check da tabela de critérios mínimos (FALLBACK Nível 1)
 > 3. Ao fechar a fase, rode: `python scripts/fallback_repair.py --clipboard --fase F0`
-> 4. Se Exit 1 → aplique reparos listados e re-valide. Se Exit 0 → **GERAR A PRÓXIMA FASE NA MESMA RESPOSTA!** Não pare de escrever. Não peça para o usuário confirmar.
+> 4. Se Exit 1 → aplique reparos listados e re-valide. Se Exit 0 → **MODO AUTÔNOMO: GERAR A PRÓXIMA FASE NA MESMA RESPOSTA!** Não pare de escrever. **MODO MANUAL: parar e pedir confirmação.**
 
 **Passos desta fase:**
 - Passo 0.1: 5 Forças Porter + Nota de Durabilidade do Moat
@@ -147,7 +148,7 @@ NUNCA escreva análise antes deste banner. NUNCA comprima fases numa única resp
 
 > ⚠️ **PARADA OBRIGATÓRIA:**  
 > Se **GATE = ❗ REPROVADO** → NÃO prosseguir. Reportar o bloco com erro e aguardar correção antes de continuar.  
-> Se **GATE = ✅ APROVADO** → **GERAR A FASE 5 NA MESMA RESPOSTA!** Não pare de escrever.
+> Se **GATE = ✅ APROVADO** → **MODO AUTÔNOMO: GERAR A FASE 5 NA MESMA RESPOSTA!** Não pare de escrever. **MODO MANUAL: parar.**
 
 - **Exportar JSON_PAYLOAD F5A_GATE**
 
