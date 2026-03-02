@@ -1,25 +1,16 @@
 {
   "mcpServers": {
     "fetch": {
-      "command": "uvx",
-      "args": [
-        "mcp-server-fetch"
-      ]
+      "command": "cmd.exe",
+      "args": ["/c", "uvx", "mcp-server-fetch"]
     },
     "sqlite": {
-      "command": "uvx",
-      "args": [
-        "mcp-server-sqlite",
-        "--db-path",
-        "C:/Users/T-Gamer/Documents/GitHub/dfc/dcf-pipeline-v3/dcf_database.db"
-      ]
+      "command": "cmd.exe",
+      "args": ["/c", "uvx", "mcp-server-sqlite", "--db-path", "C:/Users/T-Gamer/Documents/GitHub/dfc/dcf-pipeline-v3/dcf_database.db"]
     },
     "memory": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-memory"
-      ]
+      "command": "cmd.exe",
+      "args": ["/c", "npx", "-y", "@modelcontextprotocol/server-memory"]
     }
   }
 }
