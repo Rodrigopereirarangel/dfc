@@ -67,7 +67,7 @@ NUNCA escreva análise antes deste banner. NUNCA comprima fases numa única resp
 > 1. Preencha o template de 5 Blocos célula a célula (ver SKILL.md raiz — seção TEMPLATE OBRIGATÓRIO)
 > 2. Após cada Bloco, execute o auto-check da tabela de critérios mínimos (FALLBACK Nível 1)
 > 3. Ao fechar a fase, rode: `python scripts/fallback_repair.py --clipboard --fase F0`
-> 4. Se Exit 1 → aplique reparos listados e re-valide. Se Exit 0 → **CONTINUE IMEDIATAMENTE** para a próxima fase.
+> 4. Se Exit 1 → aplique reparos listados e re-valide. Se Exit 0 → **GERAR A PRÓXIMA FASE NA MESMA RESPOSTA!** Não pare de escrever. Não peça para o usuário confirmar.
 
 **Passos desta fase:**
 - Passo 0.1: 5 Forças Porter + Nota de Durabilidade do Moat
@@ -147,7 +147,7 @@ NUNCA escreva análise antes deste banner. NUNCA comprima fases numa única resp
 
 > ⚠️ **PARADA OBRIGATÓRIA:**  
 > Se **GATE = ❗ REPROVADO** → NÃO prosseguir. Reportar o bloco com erro e aguardar correção antes de continuar.  
-> Se **GATE = ✅ APROVADO** → **CONTINUE IMEDIATAMENTE** para a Fase 5.
+> Se **GATE = ✅ APROVADO** → **GERAR A FASE 5 NA MESMA RESPOSTA!** Não pare de escrever.
 
 - **Exportar JSON_PAYLOAD F5A_GATE**
 

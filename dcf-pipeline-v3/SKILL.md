@@ -56,7 +56,7 @@ NUNCA escreva análise livre antes de completar os 5 Blocos do passo atual.
 
 💡 **Insight não óbvio:** [observação contraintuitiva com dado de suporte]
 
-> 📊 **Instrução DataViz:** Tipo: [gráfico] | Eixo X: [variável] | Eixo Y: [variável] | Paleta: [cores hex] | Destaque: [elemento]
+<!-- 📊 Instrução DataViz: Tipo: [gráfico] | Eixo X: [variável] | Eixo Y: [variável] | Paleta: [cores hex] | Destaque: [elemento] -->
 
 **BLOCO 4 — Dilema Analítico / Trade-off**
 | Opção | Vantagem | Custo | Histórico da empresa | Escolha ótima |
@@ -135,7 +135,7 @@ Após escrever **cada Bloco**, pergunte-se internamente ANTES de avançar:
 python scripts/fallback_repair.py --clipboard --fase F[X]
 ```
 
-- **Exit 0 → ✅ Aprovado.** Escrever: `▶️ Fase [X] concluída.` e **INICIAR IMEDIATAMENTE A PRÓXIMA FASE** sem pedir permissão.
+- **Exit 0 → ✅ Aprovado.** Escrever: `▶️ Fase [X] concluída.` e **GERAR O TEXTO DA PRÓXIMA FASE NA SUA MESMA RESPOSTA ATUAL**. Não interrompa a geração de texto. Se a sua resposta atingir o limite de tamanho, encerre com "🛑 LIMITE DE TOKENS. DIGITE 'Continue' PARA A PRÓXIMA FASE."
 - **Exit 1 → ❌ Reprovado.** Repair prompt gerado com cirurgia exata. **Não avançar.** Aplicar reparos e re-validar.
 
 ### Nível 3 — Fallback de último recurso (após 2 tentativas com Exit 1)
@@ -165,8 +165,8 @@ BLOCO 2 — Narrativa Analítica por Vetor
 
 BLOCO 3 — Impacto Quantitativo + Instrução DataViz
   → Tabela de cenários (impacto em R$/ação ou % ROE)
-  → Instrução DataViz: tipo de gráfico + paleta + eixos
   → 💡 Insight não óbvio
+  → Instrução DataViz: (COLOQUE DENTRO DE UM COMENTÁRIO HTML `<!-- 📊 Instrução DataViz: ... -->` para não poluir o PDF final longo)
 
 BLOCO 4 — Dilema Analítico / Trade-off
   → Tabela: opção | vantagem | custo
@@ -237,10 +237,10 @@ Antes de iniciar qualquer fase, verificar a disponibilidade dos dados:
    - 🟠 **ATENÇÃO**: Investigue, documente e justifique com dado.
 6. **Prior Bayesiano** (P01): Partir sempre da média do setor como prior. Ajustar pela evidência da empresa.
 7. **Outside View First** (L.27, Tetlock): Base rates antes de inside view.
-8. **5 Blocos + Síntese §1-§5**: Regra inviolável em todo sub-passo (ver template acima — preencher antes de análise livre).
+8. **5 Blocos + Síntese §1-§5**: Regra inviolável em todo sub-passo (ver template acima — preencher antes de análise livre). **ESTRITAMENTE PROIBIDO EM QUALQUER FASE** inventar blocos gráficos, placares de "Resumo", "Painel de Status", acumuladores de valor, ou qualquer tabela livre. Restrinja-se APENAS E ESTRITAMENTE ao texto narrativo e às tabelas exigidas pelo Template.
 9. **DataViz Obrigatório**: Todo BLOCO 3 deve conter instrução de gráfico específico para o PDF final.
 10. **JSON Payload**: Exportar métricas numéricas em bloco JSON ao final de cada fase.
-11. **Paginação Automática**: Após validar o Checklist de Compliance sem falhas (Exit 0 do script), **NÃO PARE**. Inicie `▶️ Fase [X+1]` automaticamente e sem interregnos até obter o relatório master completo. O único ponto provável de parada legítima ou humana é o GATE 5A.
+11. **Paginação Automática Violenta**: Após validar o Checklist de Compliance sem falhas (Exit 0 do script), **NÃO ENCERRE A MENSAGEM**. Você deve imediatamente escrever o título da `Fase [X+1]` e continuar gerando os 5 Blocos da próxima fase **dentro da mesma resposta**. Seu objetivo é despejar todas as fases em um único fôlego. O único ponto restrito de parada humana é o GATE 5A.
 12. **Markdown Master Permanente**: Tudo que você compuser deve estar formatado para eventualmente compor integralmente o PDF. Não jogue o texto fora. O PDF exportará a NARRATIVA COMPLETA de todas as Fases da 0 à 8 utilizando a formatação rica em Markdown + JSONs.
 
 ---
