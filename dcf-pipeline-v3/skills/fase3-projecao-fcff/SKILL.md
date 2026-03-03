@@ -34,11 +34,11 @@ Para cada vertical: qual componente está crescendo (volume ou preço)? É suste
 
 **BLOCO 3 — Cenários de Crescimento + DataViz:**
 
-| Cenário | CAGR Receita 2026–2030 | Lucro 2028E | Fair Value |
+| Cenário | CAGR Receita 2026–2030 | Receita 2030E | Premissa Diferencial |
 |---|---|---|---|
-| Bear | X% | R$X bi | R$X/ação |
-| Base | X% | R$X bi | R$X/ação |
-| Bull | X% | R$X bi | R$X/ação |
+| Bear | X% | R$X bi | [premissa] |
+| Base | X% | R$X bi | [premissa] |
+| Bull | X% | R$X bi | [premissa] |
 
 > **📊 Instrução DataViz — Gráfico de Área Receita e Margem (estilo Goldman Sachs):**
 > Gráfico combinado linha + área por ano:
@@ -142,17 +142,25 @@ O float de prêmios inflaciona o caixa operacional. Explicar o mecanismo e por q
 
 **BLOCO 3 — Sensibilidade do FCFF + DataViz:**
 
-| Se [premissa] variar X pp | Impacto no FCFF 2026E | Impacto no Fair Value |
+| Se [premissa] variar X pp | Impacto no FCFF 2026E | Impacto na Margem FCFF |
 |---|---|---|
-| Sinistralidade +1pp | −R$Xmi | −R$X/ação |
-| Selic −100bps | −R$Xmi | −R$X/ação |
+| Sinistralidade +1pp | −R$Xmi | −X pp |
+| Selic −100bps | −R$Xmi | −X pp |
 
-> **📊 Instrução DataViz — Gráfico de Barras FCFF Projetado vs LPA:**
-> Gráfico de barras duplas por ano (2025A-2030E):
+**BLOCO 3.2 — Matriz de Projeções (Múltiplas Curvas FCFF):**
+Analise a matriz de 3 projeções distintas para o FCFF de longo prazo, fornecendo valores tanto para o marco de 5 anos (2030E) quanto de 10 anos (2035E):
+
+| Método de Projeção | FCFF 2026E | FCFF 5 Anos (2030E) | FCFF 10 Anos (2035E) | Justificativa Analítica |
+|---|---|---|---|---|
+| 1. Bottom-up Operacional (Base) | R$X | R$X | R$X | Nossa tese decomposta |
+| 2. Extrapolação Histórica (5/10A) | R$X | R$X | R$X | Trendline mantida |
+| 3. Consenso / Guidance | R$X | R$X | R$X | Expectativa mkt / mgmt |
+
+> **📊 Instrução DataViz — Gráfico de Barras FCFF Projetado vs LPA (5 vs 10 Anos):**
+> Gráfico de barras duplas por ano (Cenário de 10 anos: 2026E-2035E):
 > - **Barra esquerda (Azul Marinho):** FCFF (R$mi).
 > - **Barra direita (Âmbar #CBA052):** Lucro Recorrente (R$mi).
-> - **Gap entre as barras** = reinvestimento necessário. Anotar % no topo.
-> - Hachura nos anos projetados.
+> - **Marco temporal (Linha pontilhada):** Indicador visual separando o período curto (Ano 1-5) do período longo (Ano 6-10) demonstrando o fade de crescimento.
 
 **BLOCO 4 — Consistência Interna das Projeções:**
 O crescimento do lucro é consistente com o crescimento do BV? `g = ROE × (1 − payout)`.
@@ -165,7 +173,7 @@ Empresa cujas projeções de FCFF foram sistematicamente otimistas. O que o dado
 ║  📌 SÍNTESE INSTITUCIONAL — Fase 3 Completa                     ║
 ╚══════════════════════════════════════════════════════════════════╝
 §1 Quais são os FCFF projetados e sua qualidade analítica?
-§2 Impacto de cada premissa-chave no fair value?
+§2 Qual a divergência entre nossa curva Bottom-up e o Consenso?
 §3 Alta / Moderada / Baixa confiança nas projeções?
 §4 Que KPIs trimestrais confirmarão ou refutarão as projeções?
 §5 O mercado está embutindo premissas de crescimento realistas?
@@ -181,12 +189,28 @@ Empresa cujas projeções de FCFF foram sistematicamente otimistas. O que o dado
 <!-- JSON_PAYLOAD
 {
   "fase": "F3_COMPLETA",
-  "fcff_projetado": [
+  "fcff_projetado_base_5_anos": [
     {"ano": 2026, "fcff": 0, "lucro_recorrente": 0, "lpa": 0.0},
     {"ano": 2027, "fcff": 0, "lucro_recorrente": 0, "lpa": 0.0},
     {"ano": 2028, "fcff": 0, "lucro_recorrente": 0, "lpa": 0.0},
     {"ano": 2029, "fcff": 0, "lucro_recorrente": 0, "lpa": 0.0},
     {"ano": 2030, "fcff": 0, "lucro_recorrente": 0, "lpa": 0.0}
+  ],
+  "fcff_projetado_base_10_anos": [
+    {"ano": 2031, "fcff": 0, "lucro_recorrente": 0, "lpa": 0.0},
+    {"ano": 2032, "fcff": 0, "lucro_recorrente": 0, "lpa": 0.0},
+    {"ano": 2033, "fcff": 0, "lucro_recorrente": 0, "lpa": 0.0},
+    {"ano": 2034, "fcff": 0, "lucro_recorrente": 0, "lpa": 0.0},
+    {"ano": 2035, "fcff": 0, "lucro_recorrente": 0, "lpa": 0.0}
+  ],
+  "fcff_10y_cagr": 0.0,
+  "fcff_projetado_historico": [
+    {"ano_5": 2030, "fcff": 0},
+    {"ano_10": 2035, "fcff": 0}
+  ],
+  "fcff_projetado_consenso": [
+    {"ano_5": 2030, "fcff": 0},
+    {"ano_10": 2035, "fcff": 0}
   ],
   "cagr_receita_2026_2030": 0.0,
   "margem_ebit_terminal_e": 0.0

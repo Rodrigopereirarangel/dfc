@@ -22,12 +22,12 @@ description: |
 
 **BLOCO 1 — Painel do Terminal Value:**
 
-| Método | g terminal | ROE/ROIC terminal | COE/WACC | TV por ação | TV/EV total |
+| Método | g terminal | ROE/ROIC terminal | COE/WACC | TV (R$ bi) | TV/EV total |
 |---|---|---|---|---|---|
-| McKinsey CV | X% | X% | X% | R$X | X% |
-| Gordon Growth | X% | — | X% | R$X | X% |
-| P/VP model | X% | X% | X% | R$X | X% |
-| EPV (floor) | 0% | — | X% | R$X | X% |
+| McKinsey CV | X% | X% | X% | R$X bi | X% |
+| Gordon Growth | X% | — | X% | R$X bi | X% |
+| P/VP model | X% | X% | X% | R$X bi | X% |
+| EPV (floor) | 0% | — | X% | R$X bi | X% |
 
 **BLOCO 2 — O Paradoxo do Crescimento Terminal:**
 "Se o ROIC no terminal convergir para o COE, qualquer investimento novo vale exatamente zero — crescimento sem rentabilidade acima do custo de capital é o equivalente corporativo de girar em falso."
@@ -42,15 +42,15 @@ Desdobrar para o caso específico: o g terminal de X% é justificado dado o ROE 
 | g terminal vs PIB nominal BR LT | g=X% vs PIBn=X% | ✅/🟠 |
 | ROIC terminal vs COE | ROIC=X% vs COE=X%, spread=Xpp | ✅/🟠 |
 | P/VP terminal vs histórico | X× vs histórico X–X× | ✅/🟠 |
-| EPV como floor | R$X vs preço atual R$X | ✅/❗ |
+| EPV como floor | R$X bi vs EV atual R$X bi | ✅/❗ |
 
 > **📊 Instrução DataViz — Comparação de Métodos de Terminal Value (Bar Chart):**
 > Gráfico de barras horizontais lado a lado:
-> - **Eixo X:** R$/ação de Terminal Value.
+> - **Eixo X:** R$ bilhões de Terminal Value.
 > - **Cada barra:** um método (McKinsey CV, Gordon, P/VP, EPV).
 > - **Cores:** azul marinho (método principal), cinzas degradê (alternativos), vermelho (EPV como floor mínimo).
 > - **Linha vertical âmbar:** EV atual como referência.
-> - Rótulo com R$/ação no extremo de cada barra. Ordenar do maior para o menor.
+> - Rótulo com R$ bilhões no extremo de cada barra. Ordenar do maior para o menor.
 
 **BLOCO 4 — Comparação P/VP Terminal com Histórico:**
 A empresa negociou com que P/VP em: (a) auge de ciclo, (b) normalização, (c) crise. O P/VP terminal de X× é historicamente sustentável?
@@ -80,10 +80,10 @@ Caso onde TV > 80% do EV e o ativo decepcionou. O sanity check teria revelado?
 <!-- JSON_PAYLOAD
 {
   "fase": "F5_COMPLETA",
-  "tv_mckinsey_por_acao": 0.0,
-  "tv_gordon_por_acao": 0.0,
-  "tv_pvp_por_acao": 0.0,
-  "epv_por_acao": 0.0,
+  "tv_mckinsey_bi": 0.0,
+  "tv_gordon_bi": 0.0,
+  "tv_pvp_bi": 0.0,
+  "epv_bi": 0.0,
   "tv_ev_pct": 0.0,
   "g_terminal": 0.0,
   "roic_terminal": 0.0,

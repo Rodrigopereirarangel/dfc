@@ -35,13 +35,13 @@ Consolidar toda a análise gerada nas Fases 0 a 8 e entregar um **Arquivo PDF de
 - Kelly Sizing e Recomendação de Posição
 - Top 3 Riscos e Top 3 Catalisadores
 
-### Corpo do Relatório (Páginas 3-N)
-Uma seção contínua para as Fases (0→8). **O Relatório não é um agregado de tabelas soltas; é um Research Paper coeso.** Você DEVE incluir:
-- **Toda a Narrativa Analítica** produzida ao longo das fases. (Use cabeçalhos 🧱 fortes e emojis para quebrar a leitura).
-- Tabelas diagnósticas do BLOCO 1 de cada passo.
-- Gráficos do BLOCO 3 (gerados pelo script).
-- Síntese §1-§5 de cada fase em caixa destacada.
-- Analogia Histórica (BLOCO 5) em caixa de nota lateral.
+### Corpo do Relatório (Páginas 3 a 5 — Síntese Magna de Investimento)
+Em vez de tentar transcrever o chat inteiro (o que excede sua memória de contexto), redija uma **Síntese Magna / Executive Summary profundamente detalhada (alvo: ~3 páginas completas)**. Mergulhe a fundo nos seguintes pilares de tese, sem poupar tokens em argumentação analítica:
+- **Tese de Qualidade e Fosso (F0 e F1):** Disseque as vantagens competitivas, a resiliência do modelo de negócio frente aos pares, e a qualidade intrínseca do lucro normalizado que você encontrou.
+- **Microeconomia e Drivers (F2 e F2.5):** Aprofunde-se no período de vantagem competitiva (CAP), no Unit Economics, e como o Management tem alocado capital (Track Record).
+- **Projeções e Crescimento (F3):** Descreva a trajetória baseada nos múltiplos métodos (Bottom-Up vs Consenso), detalhando onde o mercado está errando na precificação das margens e do crescimento de Receita/FCFF.
+- **Valuation e Retorno (F4, F5, F6):** Explique detalhadamente o risco embutido (WACC) e fundamente qual foi o ponto exato da Triangulação Central (Football Field) que originou o Preço Justo apontado.
+- **Assimetrias e Riscos Caudais (F7 e F8):** Explore as fragilidades reveladas na simulação de Monte Carlo/Via Negativa e descreva o Risco/Retorno assimétrico encontrado para justificar a Recomendação.
 
 ### Rodapé Padrão em Cada Página
 - Ticker | Data | "Análise Fundamentalista — DCF Pipeline v4.0"
@@ -111,8 +111,9 @@ PALETA = {
 
 **Comando (via Playwright / motor HTML):**
 ```bash
-# 1. Certifique-se de que TODO O TEXTO RICO E NARRATIVA produzidos das Fases 0 a 8 foi compilado e salvo no arquivo `output_payloads/[TICKER]_report.md`. Não abrevie o texto ao escrevê-lo no arquivo.
-# 2. Rode o script:
+# 1. Escreva a "Síntese Magna / Executive Summary" baseada nos passos acima.
+# 2. Salve seu texto executivo no arquivo `output_payloads/[TICKER]_report.md`.
+# 3. Rode o script gerador do PDF final:
 
 python scripts/generate_pdf.py \
     --ticker XXXX3 \

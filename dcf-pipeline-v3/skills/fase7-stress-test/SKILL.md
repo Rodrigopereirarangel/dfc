@@ -108,78 +108,18 @@ Caso onde o sell-side inteiro compartilhou o mesmo viés. Quando e como o mercad
 
 ```
 ╔══════════════════════════════════════════════════════════════════╗
-║  📌 SÍNTESE INSTITUCIONAL — Passo 7.2                           ║
-╚══════════════════════════════════════════════════════════════════╝
-```
-
----
-
-## Passo 7.3 — Validação Cruzada — Triangulação + QMJ
-
-**Ação:**
-1. Reverse DCF final: premissas implícitas no Fair Value são razoáveis?
-2. EPV vs. DCF: se EPV > DCF → mercado precifica destruição via growth.
-3. Residual Income Model (Penman).
-4. P/VP=1 teste Penman.
-5. Múltiplos implícitos: Fair Value implica P/E e EV/EBITDA de quanto?
-6. Quality Minus Junk score (QMJ).
-
-**BLOCO 1 — Tabela de Triangulação Completa:**
-
-| Método | Fair Value | Pressuposto Central | Limitação |
-|---|---|---|---|
-| P/VP × ROE (principal) | R$X | ROE X%, g X%, COE X% | ROE terminal |
-| DDM Gordon | R$X | Ke X%, g X%, DPA X% | Crescimento retido |
-| EPV Greenwald | R$X | Zero growth perpétuo | Floor conservador |
-| P/L peers hist. | R$X | X× LPA 2026E | Assume rerating |
-| Reverse DCF (implied) | R$X | Premissas atuais mkt | O que mkt paga |
-| Residual Income | R$X | ROE X%, BV X% | Contábil |
-
-**BLOCO 2 — Convergência e Divergência:**
-3+ métodos convergem em torno de R$X–X. Métodos divergentes: por quê? O que revela sobre sensibilidade do ativo?
-
-**BLOCO 3 — QMJ Score + DataViz:**
-
-| Dimensão QMJ | Score | Evidência |
-|---|---|---|
-| Rentabilidade (ROE, ROIC, margem) | X/10 | [dado] |
-| Crescimento (CAGR receita, lucro) | X/10 | [dado] |
-| Segurança (leverage, cobertura) | X/10 | [dado] |
-| Payout (DY, payout ratio) | X/10 | [dado] |
-| **QMJ Total** | **X/10** | |
-
-> **📊 Instrução DataViz — Football Field Valuation (Barras Horizontais Rigorosas):**
-> Gráfico de barras horizontais sobrepostas (padrão sell-side internacional):
-> - **Eixo X:** R$/ação (range: Distress ao Bull extremo).
-> - **Cada barra horizontal** = um método de valuation (DCF Base, Múltiplos Históricos, EPV, Sell-Side Consenso).
-> - **Largura da barra** = range min-max do método.
-> - **Traço central** = estimativa pontual de cada método.
-> - **Linha vertical âmbar (#CBA052):** nosso Expected Value.
-> - **Linha vertical cinza tracejada:** preço atual de mercado.
-> - Cores: azul escuro (DCF), cinza médio (múltiplos), vermelho suave (EPV floor), verde suave (Bull range).
-
-**BLOCO 4 — Convergência Final: Nossa Convicção de Preço:**
-Dado tudo o que vimos: qual é nossa melhor estimativa de fair value? Em qual range nos sentimos confortáveis?
-
-**BLOCO 5 — Analogia de Triangulação:**
-Caso onde múltiplos métodos convergiam para preço-alvo que se provou correto (ou errado). O que revelou?
-
-```
-╔══════════════════════════════════════════════════════════════════╗
 ║  📌 SÍNTESE INSTITUCIONAL — Fase 7 Completa                     ║
 ╚══════════════════════════════════════════════════════════════════╝
-§1 O stress test confirmou ou refutou a tese?
-§2 Quão robusto é o fair value frente a vieses e tail risks?
-§3 Os múltiplos métodos convergem? Em qual range?
-§4 Qual KPI monitorar para o pior cenário?
-§5 O mercado está ciente dos fat tails desta empresa?
+§1 O stress test via Monte Carlo refletiu as assimetrias conhecidas?
+§2 Quão robusto é o case frente aos vieses cognitivos mapeados?
+§3 Qual é o tail risk mais preocupante, mesmo de baixa probabilidade?
+§4 Que KPIs trimestrais monitorar para o pior cenário?
+§5 O mercado está ciente da Via Negativa (o que daria errado)?
 ```
 
 **Referências:**
 - **Livro 89** (Antifrágil, Taleb): Via Negativa.
-- **P53** (QMJ, Asness Frazzini): quality factor scoring.
 - **P52** (Common Errors in DCF): checklist final.
-- **Livro 09** (Greenwald): EPV, triangulação.
 - **Livro 62** (Kahneman): anchoring, overconfidence.
 
 **JSON Payload ao final da Fase 7:**
@@ -187,12 +127,6 @@ Caso onde múltiplos métodos convergiam para preço-alvo que se provou correto 
 <!-- JSON_PAYLOAD
 {
   "fase": "F7_COMPLETA",
-  "qmj_score": 0.0,
-  "triangulacao": [
-    {"metodo": "DCF Base", "fv_min": 0.0, "fv_ponto": 0.0, "fv_max": 0.0},
-    {"metodo": "EPV", "fv_min": 0.0, "fv_ponto": 0.0, "fv_max": 0.0},
-    {"metodo": "Multiplos Historicos", "fv_min": 0.0, "fv_ponto": 0.0, "fv_max": 0.0}
-  ],
   "vieses_identificados": [],
   "condicoes_invalidacao": [
     {"descricao": "", "probabilidade": 0.0, "severidade": ""}

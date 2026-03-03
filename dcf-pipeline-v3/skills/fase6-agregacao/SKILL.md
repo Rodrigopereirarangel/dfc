@@ -135,28 +135,75 @@ Ativo onde a tabela teria revelado zona de risco elevado. O que aconteceu?
 
 ---
 
-## Passo 6.4 — Comparação Institucional (Sell-Side / Consenso)
+## Passo 6.4 — A Grande Triangulação (Valuation Engine)
 
 **Ação:**
-1. Buscar target prices e projeções-chave de múltiplas casas.
-2. Comparar fair value e projeções do nosso modelo vs. consenso.
-3. Avaliar onde concordamos (para não agir) e onde divergimos (oportunidade de alpha).
+1. Reunir **todos** os métodos de avaliação no mesmo quadro comparativo.
+2. DCF Base (FCFF via Fase 3).
+3. EPV vs DCF: o mercado precifica destruição via growth?
+4. Residual Income Model (Penman).
+5. Múltiplos implícitos vs Histórico.
+6. Comparação Institucional (Sell-Side / Consenso).
+7. Quality Minus Junk score (QMJ).
 
-**Referências:**
-- **Livro 13** (Damodaran): bridge EV → Equity.
-- **Livro 87** (McKinsey, Cap. 10): From Enterprise to Equity.
-- **P20** (SBC): diluição futura.
+**BLOCO 1 — Tabela de Triangulação Completa:**
+
+| Método | Fair Value | Pressuposto Central | Limitação |
+|---|---|---|---|
+| DCF Base (FCFF Operacional) | R$X | FCFF curva Base (Fase 3) | Sensibilidade da margem |
+| P/VP × ROE (Penman) | R$X | ROE X%, g X%, COE X% | ROE terminal |
+| DDM Gordon | R$X | Ke X%, g X%, DPA X% | Crescimento retido |
+| EPV Greenwald | R$X | Zero growth perpétuo | Floor conservador |
+| P/L peers hist. | R$X | X× LPA 2026E | Assume rerating |
+| Reverse DCF (implied) | R$X | Premissas atuais mkt | O que mkt paga |
+| Consenso Sell-Side | R$X | Múltiplas teses médias | Efeito manada |
+
+**BLOCO 2 — Convergência e Divergência:**
+No mínimo 3 métodos convergem em torno de R$X–X? Quais métodos divergem fortemente? O que essa divergência revela sobre a sensibilidade do ativo neste momento? (Ex: "A enorme distância entre nosso DCF e o EPV mostra que a tese depende >60% de crescimento futuro").
+
+**BLOCO 3 — Score QMJ + Valuation Football Field (DataViz):**
+
+| Dimensão QMJ (Quality Minus Junk) | Score | Evidência |
+|---|---|---|
+| Rentabilidade (ROE, ROIC, margem) | X/10 | [dado] |
+| Crescimento (CAGR receita, lucro) | X/10 | [dado] |
+| Segurança (leverage, cobertura) | X/10 | [dado] |
+| Payout (DY, payout ratio) | X/10 | [dado] |
+| **QMJ Total** | **X/10** | |
+
+> **📊 Instrução DataViz — Football Field Valuation (Barras Horizontais Rigorosas):**
+> Gráfico de barras horizontais sobrepostas (padrão sell-side internacional):
+> - **Eixo X:** R$/ação (range: Distress ao Bull extremo).
+> - **Cada barra horizontal** = um método de valuation (DCF Base, Múltiplos Históricos, EPV, Sell-Side Consenso, Residual Income).
+> - **Largura da barra** = range min-max do método.
+> - **Traço central** = estimativa pontual de cada método.
+> - **Linha vertical âmbar (#CBA052):** nosso Expected Value (calculado no Passo 6.1).
+> - **Linha vertical cinza tracejada:** preço atual de mercado.
+> - Cores: azul escuro (DCF), cinza médio (múltiplos), vermelho suave (EPV floor), verde suave (Bull range).
+
+**BLOCO 4 — Convergência Final: Nossa Convicção de Preço:**
+Dado o quadro completo da Grande Triangulação: qual é nossa restrita e conservadora estimativa de fair value pontual? Em qual range nos sentimos confortáveis para alocar capital de terceiros?
+
+**BLOCO 5 — Divergência Institucional (Oportunidade ou Alerta?):**
+A diferença entre nosso EV/Fair Value e o consenso Wall Street é sinal de alpha (nosso edge via pesquisa) ou sinal de que estamos cometendo um erro primário?
 
 ```
 ╔══════════════════════════════════════════════════════════════════╗
 ║  📌 SÍNTESE INSTITUCIONAL — Fase 6 Completa                     ║
 ╚══════════════════════════════════════════════════════════════════╝
-§1 Qual o Expected Value e a assimetria de risco/retorno?
-§2 A margem de segurança é adequada ao moat identificado na Fase 0?
-§3 Alta / Moderada / Baixa confiança no range de fair value?
-§4 Qual região do heatmap monitorar nos próximos trimestres?
-§5 A diferença entre nosso EV e o consenso é oportunidade ou sinal de alerta?
+§1 Qual o Expected Value e a assimetria de risco/retorno na Árvore de Cenários?
+§2 A margem de segurança no Heatmap 7x7 é adequada ao moat (Fase 0)?
+§3 Na Triangulação, existe convergência clara para apoiar o valuation?
+§4 O EV atual representa uma oportunidade anticonsenso ou value trap?
+§5 Qual KPI monitorar prioritariamente nos próximos 2-3 trimestres?
 ```
+
+**Referências:**
+- **Livro 13** (Damodaran): bridge EV → Equity.
+- **Livro 87** (McKinsey, Cap. 10): From Enterprise to Equity.
+- **P53** (QMJ, Asness Frazzini): quality factor scoring.
+- **Livro 09** (Greenwald): EPV, triangulação.
+- **P20** (SBC): diluição futura.
 
 **JSON Payload ao final da Fase 6:**
 ```json
@@ -172,6 +219,7 @@ Ativo onde a tabela teria revelado zona de risco elevado. O que aconteceu?
   "razao_upside_downside": 0.0,
   "kelly_implicito": 0.0,
   "erp_implicito": 0.0,
+  "qmj_score": 0.0,
   "cenarios": [
     {"nome": "Distress", "prob": 0, "fv": 0.0},
     {"nome": "Bear", "prob": 0, "fv": 0.0},
@@ -182,7 +230,13 @@ Ativo onde a tabela teria revelado zona de risco elevado. O que aconteceu?
     "eixo_x_coe": [0,0,0,0,0,0,0],
     "eixo_y_g": [0,0,0,0,0,0,0],
     "valores": []
-  }
+  },
+  "triangulacao": [
+    {"metodo": "DCF Base", "fv_min": 0.0, "fv_ponto": 0.0, "fv_max": 0.0},
+    {"metodo": "EPV", "fv_min": 0.0, "fv_ponto": 0.0, "fv_max": 0.0},
+    {"metodo": "Multiplos Historicos", "fv_min": 0.0, "fv_ponto": 0.0, "fv_max": 0.0},
+    {"metodo": "Consenso Sell-Side", "fv_min": 0.0, "fv_ponto": 0.0, "fv_max": 0.0}
+  ]
 }
 -->
 ```

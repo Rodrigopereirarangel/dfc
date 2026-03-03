@@ -56,7 +56,11 @@ NUNCA escreva análise livre antes de completar os 5 Blocos do passo atual.
 
 💡 **Insight não óbvio:** [observação contraintuitiva com dado de suporte]
 
-<!-- 📊 Instrução DataViz: Tipo: [gráfico] | Eixo X: [variável] | Eixo Y: [variável] | Paleta: [cores hex] | Destaque: [elemento] -->
+<!-- 📊 Instrução DataViz:
+1. Salve o JSON_PAYLOAD da fase num arquivo temporário `payload_FX.json`
+2. Rode no terminal oculto: `python scripts/render_inline_dataviz.py --payload payload_FX.json --output /caminho/do/seu/projeto/dcf-pipeline-v3/grafico_FX.html --ticker [TICKER]`
+3. Imprima no chat o link: `👉 [Abrir Dashboard Interativo desta Fase (Plotly)](file:///caminho/absoluto/grafico_FX.html)`
+-->
 
 **BLOCO 4 — Dilema Analítico / Trade-off**
 | Opção | Vantagem | Custo | Histórico da empresa | Escolha ótima |
@@ -166,7 +170,7 @@ BLOCO 2 — Narrativa Analítica por Vetor
 BLOCO 3 — Impacto Quantitativo + Instrução DataViz
   → Tabela de cenários (impacto em R$/ação ou % ROE)
   → 💡 Insight não óbvio
-  → Instrução DataViz: (COLOQUE DENTRO DE UM COMENTÁRIO HTML `<!-- 📊 Instrução DataViz: ... -->` para não poluir o PDF final longo)
+  → Executar script Plotly ocultamente e exibir o link HTML Absoluto do Gráfico gerado para o usuário clicar.
 
 BLOCO 4 — Dilema Analítico / Trade-off
   → Tabela: opção | vantagem | custo
@@ -238,7 +242,7 @@ Antes de iniciar qualquer fase, verificar a disponibilidade dos dados:
 6. **Prior Bayesiano** (P01): Partir sempre da média do setor como prior. Ajustar pela evidência da empresa.
 7. **Outside View First** (L.27, Tetlock): Base rates antes de inside view.
 8. **5 Blocos + Síntese §1-§5**: Regra inviolável em todo sub-passo (ver template acima — preencher antes de análise livre). **ESTRITAMENTE PROIBIDO EM QUALQUER FASE** inventar blocos gráficos, placares de "Resumo", "Painel de Status", acumuladores de valor, ou qualquer tabela livre. Restrinja-se APENAS E ESTRITAMENTE ao texto narrativo e às tabelas exigidas pelo Template.
-9. **DataViz Obrigatório**: Todo BLOCO 3 deve conter instrução de gráfico específico para o PDF final.
+9. **DataViz Interativo Obrigatório**: Todo BLOCO 3 deve rodar silenciosamente o `scripts/render_inline_dataviz.py` e gerar um HTML, exibindo estritamente um link absoluto clicável no Chat `[Ver Gráfico Interativo Aqui](file:///c:/caminho/...)`.
 10. **JSON Payload**: Exportar métricas numéricas em bloco JSON ao final de cada fase.
 11. **Paginação Automática Violenta**: Após validar o Checklist de Compliance sem falhas (Exit 0 do script), **NÃO ENCERRE A MENSAGEM**. Você deve imediatamente escrever o título da `Fase [X+1]` e continuar gerando os 5 Blocos da próxima fase **dentro da mesma resposta**. Seu objetivo é despejar todas as fases em um único fôlego. O único ponto restrito de parada humana é o GATE 5A.
 12. **Markdown Master Permanente**: Tudo que você compuser deve estar formatado para eventualmente compor integralmente o PDF. Não jogue o texto fora. O PDF exportará a NARRATIVA COMPLETA de todas as Fases da 0 à 8 utilizando a formatação rica em Markdown + JSONs.
@@ -277,8 +281,8 @@ O pipeline executa as fases **sequencialmente**. Cada fase possui uma sub-skill 
 | 4 | Taxa de Desconto Dinâmica (WACC) | `skills/fase4-wacc/SKILL.md` | "WACC", "custo de capital", "beta" |
 | 5A | ⭐ Auditoria 360° (GATE) | `skills/fase5a-auditoria360/SKILL.md` | "auditoria 360", "conferir modelo" |
 | 5 | Valor Terminal | `skills/fase5-terminal-value/SKILL.md` | "terminal value", "perpetuidade" |
-| 6 | Agregação, Cenários & Bridge | `skills/fase6-agregacao/SKILL.md` | "cenários", "fair value", "preço justo" |
-| 7 | Stress Test & Validação Cruzada | `skills/fase7-stress-test/SKILL.md` | "stress test", "triangulação", "vieses" |
+| 6 | Valuation Engine & Cenários | `skills/fase6-agregacao/SKILL.md` | "cenários", "fair value", "preço justo", "triangulação" |
+| 7 | Pure Stress Test & Vieses | `skills/fase7-stress-test/SKILL.md` | "stress test", "validação", "vieses" |
 | 8 | Decisão: Conviction & Sizing | `skills/fase8-decisao/SKILL.md` | "conviction", "sizing", "Kelly" |
 | **9** | **📄 Empacotamento Institucional — PDF** | **`skills/fase9-pdf-institucional/SKILL.md`** | **"gerar PDF", "relatório final", "initiation report"** |
 
@@ -298,11 +302,10 @@ O pipeline executa as fases **sequencialmente**. Cada fase possui uma sub-skill 
 - [ ] Projeções são bottom-up por drivers operacionais (Fase 3)?
 - [ ] O WACC reflete o risco real + teste Penman growth→risk (Fase 4)?
 - [ ] **Passei pela Auditoria 360° sem ❗ pendentes (Fase 5A)?**
-- [ ] O Terminal Value não é absurdo e testei com Gordon + Exit + EPV + Penman (Fase 5)?
-- [ ] Extraí ERP implícito e Custo de Capital Real implícito (Fase 6)?
-- [ ] Comparei Fair Value com casas de análise institucionais (Fase 6)?
-- [ ] Validei com ≥ 3 métodos + QMJ + P/VP=1 (Passo 7.3)?
-- [ ] Auditorei meus vieses + via negativa curto/médio/longo prazo (Passo 7.2)?
+- [ ] O Terminal Value não é absurdo e testei com Gordon + EPV + Penman (Fase 5)?
+- [ ] Extraí ERP implícito e comparei Valuation via Grande Triangulação Central (Fase 6)?
+- [ ] Comparei Fair Value com casas de análise institucionais e Sell-Side (Fase 6)?
+- [ ] Auditorei meus vieses + via negativa curto/médio/longo prazo via Monte Carlo (Fase 7)?
 - [ ] O sizing reflete incerteza + assimetria Antifrágil (Passo 8.2)?
 - [ ] **Todos os 5 Blocos + Síntese §1-§5 presentes em cada sub-passo?**
 - [ ] **JSON Payload exportado ao final de cada fase para o gerador PDF?**
