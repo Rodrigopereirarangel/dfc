@@ -1,7 +1,18 @@
-# Requirements — DCF Pipeline v3 Scripts
+# Requirements — DCF Pipeline v4.0 Scripts
 # Python >= 3.10
 
+# Data & Calculations
 yfinance>=0.2.0
 numpy>=1.24
 scipy>=1.10
 pandas>=2.0
+
+# Charts & Visualization
+plotly>=5.18
+matplotlib>=3.7
+seaborn>=0.12
+
+# PDF Generation
+markdown>=3.5
+beautifulsoup4>=4.12
+playwright>=1.40

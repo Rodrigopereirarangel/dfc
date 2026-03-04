@@ -33,7 +33,7 @@ def main():
         run_cmd(f"{sys.executable} -m pip install -r {req_file}")
     else:
         # Fallback
-        packages = ["markdown", "beautifulsoup4", "playwright", "matplotlib", "seaborn", "numpy", "pandas", "yfinance"]
+        packages = ["markdown", "beautifulsoup4", "playwright", "matplotlib", "seaborn", "numpy", "pandas", "yfinance", "plotly", "scipy"]
         run_cmd(f"{sys.executable} -m pip install {' '.join(packages)}")
 
     # 1.5 Instalar Chromium interno

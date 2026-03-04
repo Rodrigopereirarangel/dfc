@@ -54,7 +54,7 @@ Exibir banner:
 
 ```
 ╔══════════════════════════════════════════════════════════════════╗
-║  📋 DCF Pipeline v3 — [TICKER] | Template ativo                 ║
+║  📋 DCF Pipeline v4.0 — [TICKER] | Template ativo               ║
 ║  Estrutura: 5 Blocos × N passos × Síntese §1-§5 × JSON Payload  ║
 ║  Fallback: validate → repair → re-validate antes de avançar      ║
 ╚══════════════════════════════════════════════════════════════════╝

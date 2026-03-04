@@ -73,29 +73,37 @@ Empresa: [nome] | Mercado: [país/setor] | Período: [anos] | Resultado: [desfec
 
 ---
 
-## CHECKLIST OBRIGATÓRIO — AO FINAL DE CADA FASE
+## CHECKLIST OBRIGATÓRIO — AO FINAL DE CADA FASE (COMPUTAÇÃO INTERNA SILENCIOSA)
 
-Transcrever literalmente com [V] (Verdadeiro) ou [F] (Falso) ANTES de avançar:
+Ao finalizar cada fase, valide **internamente** os critérios abaixo (Tree of Thoughts). **NÃO imprima a lista no chat** — isso polui a leitura do usuário.
 
-```text
-[CHECKLIST DE COMPLIANCE DO AGENTE — FASE X]
-[V/F] BLOCO 1 entregue com tabela snapshot (status/tendência/impacto)
-[V/F] BLOCO 2 entregue com ≥2 blockquotes Claim→Evidence→Implication
-[V/F] BLOCO 3 entregue com tabela cenários + instrução DataViz + 💡 insight
-[V/F] BLOCO 4 entregue com tabela de trade-offs e julgamento explícito
-[V/F] BLOCO 5 entregue com analogia histórica NOMEADA (empresa, período, resultado)
-[V/F] SÍNTESE §1-§5 entregue no box ╔╗ formatado com respostas completas
-[V/F] JSON_PAYLOAD exportado com campos numéricos PREENCHIDOS (não zeros)
+**Critérios de validação interna:**
+- BLOCO 1 com tabela snapshot (≥3 linhas, colunas Status e Tendência preenchidas)?
+- BLOCO 2 com **≥2** blockquotes no formato `Claim: X. Evidence: Y. Implication: Z.`?
+- BLOCO 3 com tabela cenários + instrução DataViz + 💡 insight não óbvio?
+- BLOCO 4 com tabela de trade-offs + julgamento explícito fundamentado?
+- BLOCO 5 com analogia histórica NOMEADA (empresa real, período, resultado, lição)?
+- SÍNTESE §1-§5 no box ╔╗ com respostas completas (sem placeholders `[X]`)?
+- JSON_PAYLOAD com todos os campos numéricos PREENCHIDOS (nenhum zerado sem justificativa)?
+
+**Se qualquer critério falhar → DESCARTAR a resposta internamente e reescrever antes de enviar.**
+
+Após validação interna aprovada, imprimir **apenas esta linha** no chat:
+```
+✅ CHECKLIST DE COMPLIANCE OK. FASE [X] CONCLUÍDA.
 ```
 
-**Se qualquer linha for [F] → REESCREVER o bloco antes de avançar.**
+Para validação programática (debug):
+```bash
+python scripts/validate_compliance.py --clipboard --fase F[X]
+```
 
 ---
 
 ## REGRAS DE PAGINAÇÃO
 
-- **Uma fase = uma mensagem**
-- Ao fechar o CHECKLIST DE COMPLIANCE, escrever: `▶️ Fase [X] concluída. Confirme para avançar para Fase [X+1] ou ajuste premissas.`
+- **Modo Autônomo (padrão `/dfc`):** Após o `✅ CHECKLIST...`, continuar gerando a próxima fase **na mesma resposta**. Pausar **somente** nos 3 Macro-Checkpoints (fim de Fase 2.5, 5 e 8) e se `❗ GATE REPROVADO`.
+- **Modo Manual (`/dfc [TICKER] manual`):** Uma fase = uma mensagem. Ao fechar, perguntar: `👉 Fase [X] Concluída. Qual das Opções (A ou B) do Trade-Off acima você escolhe?`
 - **NUNCA** comprimir ou pular blocos para encurtar a resposta
 
 ---

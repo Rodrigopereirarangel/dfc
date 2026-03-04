@@ -43,8 +43,9 @@ PATTERNS = {
         "required": True,
     },
     "BLOCO_2_BLOCKQUOTE": {
-        "regex": r"^>\s+\*\*\[?Vetor|^>\s+\*\*Claim|^>\s+Claim\s*→",
-        "desc": "Blockquotes Claim→Evidence→Implication no BLOCO 2",
+        # Verificado via lógica customizada abaixo (requer count >= 2)
+        "regex": r"^>\s+(\*\*\[?Vetor|\*\*Claim|Claim[\s:→])",
+        "desc": "Blockquotes Claim→Evidence→Implication no BLOCO 2 (mín. 2)",
         "required": True,
     },
     "BLOCO_3": {
@@ -205,6 +206,19 @@ def validate_text(text: str, fase: str = "?") -> ValidationResult:
 
     for key, rule in PATTERNS.items():
         pattern = re.compile(rule["regex"], re.MULTILINE)
+
+        # BLOCO 2 blockquotes exige ≥2 ocorrências (não apenas existência)
+        if key == "BLOCO_2_BLOCKQUOTE":
+            matches = pattern.findall(text)
+            if len(matches) >= 2:
+                result.passed.append(rule["desc"])
+            else:
+                count = len(matches)
+                desc_with_count = f"{rule['desc']} — encontrado(s) {count}/2"
+                if rule["required"]:
+                    result.failed.append(desc_with_count)
+            continue
+
         found = pattern.search(text)
         if found:
             result.passed.append(rule["desc"])
