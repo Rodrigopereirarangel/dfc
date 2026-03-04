@@ -105,7 +105,8 @@ Use nas narrativas para criar ritmo visual: `✅ Oportunidade` | `🟠 Atenção
 
 💡 **Insight não óbvio:** [observação contraintuitiva com dado de suporte]
 
-<!-- 📊 Instrução DataViz: Tipo: [gráfico] | Eixo X: [variável] | Eixo Y: [variável] | Paleta: [cores hex] | Destaque: [elemento principal] -->
+> 📊 **Instrução DataViz:** Tipo: [gráfico] | Eixo X: [variável] | Eixo Y: [variável] | Paleta: [cores hex] | Destaque: [elemento principal]
+> *(Rodar `python scripts/render_inline_dataviz.py` e exibir link clicável)*
 
 **BLOCO 4 — Dilema Analítico / Trade-off**
 | Opção | Vantagem | Custo | Histórico da empresa | Escolha ótima |
@@ -128,25 +129,26 @@ Empresa: [nome real] | Mercado: [país/setor] | Período: [anos] | Resultado: [d
 
 ---
 
-## 🔴 CHECKLIST DE COMPLIANCE — AO FECHAR CADA FASE
+## 🔴 CHECKLIST DE COMPLIANCE — AO FECHAR CADA FASE (VALIDAÇÃO INTERNA SILENCIOSA)
 
-Imprima este checklist preenchido com **[V]** ou **[F]** antes de avançar:
+**NÃO imprima o checklist no chat.** Valide internamente (Tree of Thoughts) os critérios abaixo antes de avançar:
 
+- Executei TODOS os sub-passos desta fase (nenhum pulado)?
+- Entreguei os 5 Blocos completos em CADA sub-passo?
+- BLOCO 1: tabela com ≥3 métricas, Status e Tendência preenchidos?
+- BLOCO 2: ≥2 blockquotes no formato Claim→Evidence→Implication?
+- BLOCO 3: tabela cenários + instrução DataViz em blockquote (`> 📊`) + 💡 insight?
+- BLOCO 4: tabela trade-off com julgamento explícito?
+- BLOCO 5: analogia histórica com empresa NOMEADA + período + resultado?
+- Síntese §1-§5 respondida no box ╔╗ com conteúdo real (não placeholder)?
+- JSON_PAYLOAD exportado em bloco ` ```json ``` ` com valores numéricos preenchidos (não zeros)?
+
+**Se qualquer item falhar → DESCARTAR a resposta internamente e REESCREVER antes de avançar.**
+
+Após validação interna aprovada, exibir **apenas esta linha** no chat:
 ```
-[CHECKLIST DE COMPLIANCE — FASE X]
-[V/F] Executei TODOS os sub-passos desta fase (nenhum pulado).
-[V/F] Entreguei os 5 Blocos completos em CADA sub-passo.
-[V/F] BLOCO 1: tabela com ≥3 métricas, Status e Tendência preenchidos.
-[V/F] BLOCO 2: ≥2 blockquotes no formato Claim→Evidence→Implication.
-[V/F] BLOCO 3: tabela cenários + instrução DataViz oculta em HTML comment + 💡 insight.
-[V/F] BLOCO 4: tabela trade-off com julgamento explícito.
-[V/F] BLOCO 5: analogia histórica com empresa NOMEADA + período + resultado.
-[V/F] Síntese §1-§5 respondida no box ╔╗ com conteúdo real (não placeholder).
-[V/F] JSON_PAYLOAD exportado com valores numéricos preenchidos (não zeros).
-[V/F] Omiti quaisquer tabelas inventadas fora do template original (ex: Acumulador solto).
+✅ CHECKLIST DE COMPLIANCE OK. FASE [X] CONCLUÍDA.
 ```
-
-**Se qualquer item for [F] → REESCREVER o bloco antes de avançar.**
 
 Após checklist aprovado, exibir o banner de progresso e avançar:
 
@@ -160,7 +162,7 @@ Após checklist aprovado, exibir o banner de progresso e avançar:
 **Em modo AUTÔNOMO: GERAR O TEXTO DA PRÓXIMA FASE NA SUA MESMA RESPOSTA ATUAL. NÃO PARE A GERAÇÃO DE TEXTO!**
 **Em modo MANUAL (`/dfc [TICKER] manual`): aguardar confirmação do usuário.**
 
-> 🚫 **REGRA ESTRITA DE COMPLIANCE VISUAL (EM TODAS AS FASES):** NUNCA crie painéis de resumo soltos, placares, visores de "Acumulador" extra, ou qualquer tabela/gráfico texto no final ou início de uma fase que não seja a estrita tabela do Bloco 1, 3 ou 4. Você deve gerar APENAS os 5 blocos, a Síntese em texto rico e o JSON. Sem enfeites extras. Oculte instruções descritivas de gráficos (DataViz) em comentários HTML.
+> 🚫 **REGRA ESTRITA DE COMPLIANCE VISUAL (EM TODAS AS FASES):** NUNCA crie painéis de resumo soltos, placares, visores de "Acumulador" extra, ou qualquer tabela/gráfico texto no final ou início de uma fase que não seja a estrita tabela do Bloco 1, 3 ou 4. Você deve gerar APENAS os 5 blocos, a Síntese em texto rico e o JSON. Sem enfeites extras. Instruções DataViz devem estar em blockquote (`> 📊 **Instrução DataViz:**`), NUNCA em comentários HTML.
 
 ---
 
@@ -243,7 +245,7 @@ Se você tiver acesso às ferramentas MCP (Servidores Instalados), você DEVE at
 
 ## 📋 JSON PAYLOAD — FORMATO MÍNIMO POR FASE
 
-Ao final de cada fase, exportar na taxonomia correspondente e ESTRITAMENTE sem envolver em blocos de código markdown (`` ` ``). Exporte **apenas o comentário HTML puro**:
+Ao final de cada fase, exportar na taxonomia correspondente em bloco de código markdown ` ```json ` (NUNCA em comentário HTML):
 
 ```json
 {
@@ -278,11 +280,11 @@ Ao final de cada fase, exportar na taxonomia correspondente e ESTRITAMENTE sem e
 Se Claude omitir qualquer um dos itens abaixo, é **falha crítica**:
 - ❌ Análise livre sem ter completado os 5 Blocos primeiro
 - ❌ Tabela do BLOCO 1 com campos vazios ou substituída por texto
-- ❌ BLOCO 3 exibir DataViz fora de comentário HTML
+- ❌ BLOCO 3 exibir instrução DataViz sem o blockquote `> 📊 **Instrução DataViz:**`
 - ❌ BLOCO 5 com analogia genérica sem empresa nomeada
 - ❌ Síntese §1-§5 com placeholders ou respostas vazias
 - ❌ Tabelas Extras (inventar Acumuladores e Placares não previstos na regra)
-- ❌ Avançar para próxima fase sem checklist [V/F] impresso
+- ❌ Avançar para próxima fase sem validação interna de compliance + linha `✅ CHECKLIST DE COMPLIANCE OK. FASE [X] CONCLUÍDA.`
 - ❌ Avançar da Fase 4 para Fase 5 sem passar pela Fase 5A (GATE)
 - ❌ Comprimir múltiplas fases em uma única mensagem
 - ❌ Em modo autônomo: parar a escrita voluntariamente antes do prompt limit

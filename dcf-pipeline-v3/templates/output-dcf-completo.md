@@ -59,13 +59,13 @@
 📌 Síntese §1–§5: [...]
 
 ```json
-```json F0_P01 aqui -->
+{ "placeholder": "F0_P01" }
 ```
 
 ### Passo 0.2 — Reverse DCF + MEROI
 > [5 Blocos + Síntese]
 ```json
-```json F0_P02 aqui -->
+{ "placeholder": "F0_P02" }
 ```
 
 ### Passo 0.3 — Sentimento de Mercado
@@ -75,7 +75,7 @@
 > [5 Blocos + Síntese]
 
 ```json
-```json F0_COMPLETA aqui -->
+{ "placeholder": "F0_COMPLETA" }
 ```
 
 ---
@@ -93,7 +93,7 @@
 > **BLOCO 3** — 📊 Gráfico de Linhas Históricas
 
 ```json
-```json F1_COMPLETA aqui -->
+{ "placeholder": "F1_COMPLETA" }
 ```
 
 ---
@@ -113,7 +113,7 @@
 > **BLOCO 3** — 📊 Tornado Chart Horizontal (barras simétricas ±1σ)
 
 ```json
-```json F2_COMPLETA aqui -->
+{ "placeholder": "F2_COMPLETA" }
 ```
 
 ---
@@ -130,7 +130,7 @@
 > **BLOCO 3** — 📊 S-Curves de Ramp-up por Projeto
 
 ```json
-```json F25_COMPLETA aqui -->
+{ "placeholder": "F25_COMPLETA" }
 ```
 
 ---
@@ -144,7 +144,7 @@
 > **BLOCO 3** — 📊 Barras Duplas FCFF vs Lucro Recorrente por ano
 
 ```json
-```json F3_COMPLETA aqui -->
+{ "placeholder": "F3_COMPLETA" }
 ```
 
 ---
@@ -158,7 +158,7 @@
 > **BLOCO 3** — 📊 Waterfall de Decomposição do COE (Rf + ERP + Beta + Prêmios)
 
 ```json
-```json F4_COMPLETA aqui -->
+{ "placeholder": "F4_COMPLETA" }
 ```
 
 ---
@@ -179,7 +179,7 @@
 > **📊 Painel Semáforo:** Tabela com células coloridas por status
 
 ```json
-```json F5A_GATE aqui -->
+{ "placeholder": "F5A_GATE" }
 ```
 
 ---
@@ -198,7 +198,7 @@
 > **📊 Bar Chart Comparativo de Métodos de TV**
 
 ```json
-```json F5_COMPLETA aqui -->
+{ "placeholder": "F5_COMPLETA" }
 ```
 
 ---
@@ -219,7 +219,7 @@
 > **📊 Bar Chart Cenários com Expected Value**
 
 ```json
-```json F6_COMPLETA aqui -->
+{ "placeholder": "F6_COMPLETA" }
 ```
 
 ---
@@ -238,7 +238,7 @@
 > **📊 Monte Carlo KDE** com P5/P50/P95 e preço atual
 
 ```json
-```json F7_COMPLETA aqui -->
+{ "placeholder": "F7_COMPLETA" }
 ```
 
 ---
@@ -249,7 +249,7 @@
 > **📊 Timeline de Catalisadores** (gantt dos próximos 8 tri)
 
 ```json
-```json F8_COMPLETA aqui -->
+{ "placeholder": "F8_COMPLETA" }
 ```
 
 ---

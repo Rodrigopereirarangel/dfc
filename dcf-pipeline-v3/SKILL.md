@@ -56,11 +56,8 @@ NUNCA escreva análise livre antes de completar os 5 Blocos do passo atual.
 
 💡 **Insight não óbvio:** [observação contraintuitiva com dado de suporte]
 
-<!-- 📊 Instrução DataViz:
-1. Salve o JSON_PAYLOAD da fase num arquivo temporário `payload_FX.json`
-2. Rode no terminal oculto: `python scripts/render_inline_dataviz.py --payload payload_FX.json --output /caminho/do/seu/projeto/dcf-pipeline-v3/grafico_FX.html --ticker [TICKER]`
-3. Imprima no chat o link: `👉 [Abrir Dashboard Interativo desta Fase (Plotly)](file:///caminho/absoluto/grafico_FX.html)`
--->
+> 📊 **Instrução DataViz:** [tipo de gráfico] | Eixo X: [variável] | Eixo Y: [variável] | Paleta: [hex cores] | Destaque: [elemento principal]
+> *(Rodar: `python scripts/render_inline_dataviz.py --payload payload_FX.json --output output_payloads/grafico_FX.html --ticker [TICKER]` e exibir link: `👉 [Abrir Dashboard Interativo](file:///caminho/absoluto/grafico_FX.html)`)*
 
 **BLOCO 4 — Dilema Analítico / Trade-off**
 | Opção | Vantagem | Custo | Histórico da empresa | Escolha ótima |
