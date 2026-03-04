@@ -75,7 +75,7 @@ Empresa do setor (nomeada) que enfrentou dinâmica competitiva análoga. Períod
 
 **JSON Payload ao final do Passo 0.1:**
 ```json
-<!-- JSON_PAYLOAD
+```json
 {
   "fase": "F0_P01",
   "forças_porter": {
@@ -88,7 +88,7 @@ Empresa do setor (nomeada) que enfrentou dinâmica competitiva análoga. Períod
   "nota_durabilidade_moat": 0,
   "tipo_moat": "Switching Costs / Escala / Network / Intangível / Custo"
 }
--->
+```
 ```
 
 ---
@@ -151,7 +151,7 @@ Ativo similar que exibia premissas implícitas análogas. O que aconteceu quando
 
 **JSON Payload ao final do Passo 0.2:**
 ```json
-<!-- JSON_PAYLOAD
+```json
 {
   "fase": "F0_P02",
   "preco_atual": 0,
@@ -161,7 +161,7 @@ Ativo similar que exibia premissas implícitas análogas. O que aconteceu quando
   "erp_implicito": 0,
   "diagnostico_mercado": "Otimista / Justo / Pessimista"
 }
--->
+```
 ```
 
 ---
@@ -272,7 +272,7 @@ Empresa que falhou pela razão mais provável de falha desta. O que o pre-mortem
 
 **JSON Payload ao final da Fase 0:**
 ```json
-<!-- JSON_PAYLOAD
+```json
 {
   "fase": "F0_COMPLETA",
   "nota_durabilidade_moat": 0,
@@ -284,7 +284,7 @@ Empresa que falhou pela razão mais provável de falha desta. O que o pre-mortem
   "drivers_criticos": ["driver1", "driver2", "driver3"],
   "pontos_de_falha_graves": ["falha1", "falha2"]
 }
--->
+```
 ```
 
 ---
@@ -300,7 +300,7 @@ Antes de passar para a próxima fase, o Agente AI DEVE verificar e imprimir este
 [V/F] Eu entreguei os 5 Blocos (Diagnóstico / Narrativa / DataViz / Trade-off / Analogia) em CADA sub-passo.
 [V/F] Eu incluí a instrução DataViz específica (tipo de gráfico + paleta + eixos) no BLOCO 3 de cada passo.
 [V/F] Eu apresentei a Síntese Institucional (§1 a §5) PREENCHIDA em cada box.
-[V/F] Eu fechei a resposta gerando o bloco <!-- JSON_PAYLOAD --> com campos numéricos preenchidos.
+[V/F] Eu fechei a resposta gerando o bloco ```json com campos numéricos preenchidos.
 ```
 
 **Se qualquer item for [F]:** PARE. Não avance. Corrija a sua resposta e reentregue antes de prosseguir.

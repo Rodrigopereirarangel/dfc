@@ -80,7 +80,7 @@ Empresa do setor que passou por ajuste contábil relevante. O M-Score teria sina
 
 **JSON Payload ao final do Passo 1.1:**
 ```json
-<!-- JSON_PAYLOAD
+```json
 {
   "fase": "F1_P11",
   "beneish_mscore": 0.0,
@@ -95,7 +95,7 @@ Empresa do setor que passou por ajuste contábil relevante. O M-Score teria sina
     {"label": "Lucro Normalizado", "valor": 0}
   ]
 }
--->
+```
 ```
 
 ---
@@ -168,7 +168,7 @@ Empresa mal avaliada por o mercado não normalizar corretamente. O que foi ignor
 
 **JSON Payload ao final do Passo 1.2:**
 ```json
-<!-- JSON_PAYLOAD
+```json
 {
   "fase": "F1_P12",
   "roae_reportado": 0.0,
@@ -184,7 +184,7 @@ Empresa mal avaliada por o mercado não normalizar corretamente. O que foi ignor
   "dupont_giro": 0.0,
   "dupont_leverage": 0.0
 }
--->
+```
 ```
 
 ---
@@ -245,7 +245,7 @@ Empresa com padrão histórico similar. A análise do histórico teria sido pred
 
 **JSON Payload ao final da Fase 1:**
 ```json
-<!-- JSON_PAYLOAD
+```json
 {
   "fase": "F1_COMPLETA",
   "lucro_normalizado": 0,
@@ -257,7 +257,7 @@ Empresa com padrão histórico similar. A análise do histórico teria sido pred
   "receita_5a": [0,0,0,0,0],
   "margem_ebit_5a": [0.0,0.0,0.0,0.0,0.0]
 }
--->
+```
 ```
 
 ---
@@ -273,7 +273,7 @@ Antes de passar para a próxima fase, o Agente AI DEVE verificar e imprimir este
 [V/F] Eu entreguei os 5 Blocos (Diagnóstico / Narrativa / DataViz / Trade-off / Analogia) em CADA sub-passo.
 [V/F] Eu incluí a instrução DataViz específica (tipo de gráfico + paleta + eixos) no BLOCO 3 de cada passo.
 [V/F] Eu apresentei a Síntese Institucional (§1 a §5) PREENCHIDA em cada box.
-[V/F] Eu fechei a resposta gerando o bloco <!-- JSON_PAYLOAD --> com campos numéricos preenchidos.
+[V/F] Eu fechei a resposta gerando o bloco ```json com campos numéricos preenchidos.
 ```
 
 **Se qualquer item for [F]:** PARE. Não avance. Corrija a sua resposta e reentregue antes de prosseguir.

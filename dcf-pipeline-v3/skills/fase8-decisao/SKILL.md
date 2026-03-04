@@ -137,7 +137,7 @@ Caso onde o Kelly indicou não investir e o investidor ignorou. O que aconteceu?
 
 **JSON Payload ao final da Fase 8:**
 ```json
-<!-- JSON_PAYLOAD
+```json
 {
   "fase": "F8_COMPLETA",
   "conviction_score": 0.0,
@@ -157,7 +157,7 @@ Caso onde o Kelly indicou não investir e o investidor ignorou. O que aconteceu?
     {"descricao": "", "direcao": "Bull/Bear", "probabilidade": 0.0, "impacto_acao": 0.0}
   ]
 }
--->
+```
 ```
 
 ---
@@ -173,7 +173,7 @@ Antes de passar para a próxima fase, o Agente AI DEVE verificar e imprimir este
 [V/F] Eu entreguei os 5 Blocos (Diagnóstico / Narrativa / DataViz / Trade-off / Analogia) em CADA sub-passo.
 [V/F] Eu incluí a instrução DataViz específica (tipo de gráfico + paleta + eixos) no BLOCO 3 de cada passo.
 [V/F] Eu apresentei a Síntese Institucional (§1 a §5) ao final desta fase.
-[V/F] Eu fechei a resposta gerando o bloco <!-- JSON_PAYLOAD --> com a taxonomia exata desta fase.
+[V/F] Eu fechei a resposta gerando o bloco ```json com a taxonomia exata desta fase.
 ```
 
 **Se qualquer item for (F):** PARE. Não avance. Corrija a sua resposta e reentregue antes de prosseguir para a próxima fase.

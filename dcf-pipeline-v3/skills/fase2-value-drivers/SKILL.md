@@ -236,7 +236,7 @@ Caso onde o mercado ignorou o driver principal até ser tarde demais.
 
 **JSON Payload ao final da Fase 2:**
 ```json
-<!-- JSON_PAYLOAD
+```json
 {
   "fase": "F2_COMPLETA",
   "roic_atual": 0.0,
@@ -251,7 +251,7 @@ Caso onde o mercado ignorou o driver principal até ser tarde demais.
     {"rank": 3, "driver": "", "impacto_positivo": 0.0, "impacto_negativo": 0.0}
   ]
 }
--->
+```
 ```
 
 ---
@@ -267,7 +267,7 @@ Antes de passar para a próxima fase, o Agente AI DEVE verificar e imprimir este
 [V/F] Eu entreguei os 5 Blocos (Diagnóstico / Narrativa / DataViz / Trade-off / Analogia) em CADA sub-passo.
 [V/F] Eu incluí a instrução DataViz específica (tipo de gráfico + paleta + eixos) no BLOCO 3 de cada passo.
 [V/F] Eu apresentei a Síntese Institucional (§1 a §5) ao final desta fase.
-[V/F] Eu fechei a resposta gerando o bloco <!-- JSON_PAYLOAD --> com a taxonomia exata desta fase.
+[V/F] Eu fechei a resposta gerando o bloco ```json com a taxonomia exata desta fase.
 ```
 
 **Se qualquer item for (F):** PARE. Não avance. Corrija a sua resposta e reentregue antes de prosseguir para a próxima fase.

@@ -130,17 +130,17 @@ Adicione exatamente:
     "§3 na Síntese Institucional": "🔧 **FALLBACK — §3 AUSENTE DA SÍNTESE:** Adicione '§3 Nível de confiança: [FATO / INFERÊNCIA / HIPÓTESE] — justificativa?'",
     "§4 na Síntese Institucional": "🔧 **FALLBACK — §4 AUSENTE DA SÍNTESE:** Adicione '§4 Perguntas abertas que este passo abre para as próximas fases?'",
     "§5 na Síntese Institucional": "🔧 **FALLBACK — §5 AUSENTE DA SÍNTESE:** Adicione '§5 Assimetria de informação identificada (o que o mercado não vê)?'",
-    "Bloco <!-- JSON_PAYLOAD --> exportado": """
+    "Bloco ```json exportado": """
 🔧 **FALLBACK — JSON_PAYLOAD AUSENTE**
 Adicione ao final da fase:
-<!-- JSON_PAYLOAD
+```json
 {
   "fase": "[FX_PY]",
   "metrica_principal": 0.0,
   "metrica_2": 0.0,
   "metrica_3": 0.0
 }
--->
+```
 ⚠️ Substitua os 0.0 pelos valores reais da análise.
 """,
     "CHECKLIST DE COMPLIANCE DO AGENTE": """

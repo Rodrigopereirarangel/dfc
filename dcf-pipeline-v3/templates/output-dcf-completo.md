@@ -59,13 +59,13 @@
 📌 Síntese §1–§5: [...]
 
 ```json
-<!-- JSON_PAYLOAD F0_P01 aqui -->
+```json F0_P01 aqui -->
 ```
 
 ### Passo 0.2 — Reverse DCF + MEROI
 > [5 Blocos + Síntese]
 ```json
-<!-- JSON_PAYLOAD F0_P02 aqui -->
+```json F0_P02 aqui -->
 ```
 
 ### Passo 0.3 — Sentimento de Mercado
@@ -75,7 +75,7 @@
 > [5 Blocos + Síntese]
 
 ```json
-<!-- JSON_PAYLOAD F0_COMPLETA aqui -->
+```json F0_COMPLETA aqui -->
 ```
 
 ---
@@ -93,7 +93,7 @@
 > **BLOCO 3** — 📊 Gráfico de Linhas Históricas
 
 ```json
-<!-- JSON_PAYLOAD F1_COMPLETA aqui -->
+```json F1_COMPLETA aqui -->
 ```
 
 ---
@@ -113,7 +113,7 @@
 > **BLOCO 3** — 📊 Tornado Chart Horizontal (barras simétricas ±1σ)
 
 ```json
-<!-- JSON_PAYLOAD F2_COMPLETA aqui -->
+```json F2_COMPLETA aqui -->
 ```
 
 ---
@@ -130,7 +130,7 @@
 > **BLOCO 3** — 📊 S-Curves de Ramp-up por Projeto
 
 ```json
-<!-- JSON_PAYLOAD F25_COMPLETA aqui -->
+```json F25_COMPLETA aqui -->
 ```
 
 ---
@@ -144,7 +144,7 @@
 > **BLOCO 3** — 📊 Barras Duplas FCFF vs Lucro Recorrente por ano
 
 ```json
-<!-- JSON_PAYLOAD F3_COMPLETA aqui -->
+```json F3_COMPLETA aqui -->
 ```
 
 ---
@@ -158,7 +158,7 @@
 > **BLOCO 3** — 📊 Waterfall de Decomposição do COE (Rf + ERP + Beta + Prêmios)
 
 ```json
-<!-- JSON_PAYLOAD F4_COMPLETA aqui -->
+```json F4_COMPLETA aqui -->
 ```
 
 ---
@@ -179,7 +179,7 @@
 > **📊 Painel Semáforo:** Tabela com células coloridas por status
 
 ```json
-<!-- JSON_PAYLOAD F5A_GATE aqui -->
+```json F5A_GATE aqui -->
 ```
 
 ---
@@ -198,7 +198,7 @@
 > **📊 Bar Chart Comparativo de Métodos de TV**
 
 ```json
-<!-- JSON_PAYLOAD F5_COMPLETA aqui -->
+```json F5_COMPLETA aqui -->
 ```
 
 ---
@@ -219,7 +219,7 @@
 > **📊 Bar Chart Cenários com Expected Value**
 
 ```json
-<!-- JSON_PAYLOAD F6_COMPLETA aqui -->
+```json F6_COMPLETA aqui -->
 ```
 
 ---
@@ -238,7 +238,7 @@
 > **📊 Monte Carlo KDE** com P5/P50/P95 e preço atual
 
 ```json
-<!-- JSON_PAYLOAD F7_COMPLETA aqui -->
+```json F7_COMPLETA aqui -->
 ```
 
 ---
@@ -249,7 +249,7 @@
 > **📊 Timeline de Catalisadores** (gantt dos próximos 8 tri)
 
 ```json
-<!-- JSON_PAYLOAD F8_COMPLETA aqui -->
+```json F8_COMPLETA aqui -->
 ```
 
 ---

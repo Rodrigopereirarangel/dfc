@@ -103,8 +103,8 @@ PATTERNS = {
         "required": True,
     },
     "JSON_PAYLOAD": {
-        "regex": r"<!--\s*JSON_PAYLOAD",
-        "desc": "Bloco <!-- JSON_PAYLOAD --> exportado",
+        "regex": r"```json",
+        "desc": "Bloco ```json exportado",
         "required": True,
     },
     "CHECKLIST": {
@@ -212,7 +212,7 @@ def validate_text(text: str, fase: str = "?") -> ValidationResult:
             result.failed.append(rule["desc"])
 
     # Verificação extra: JSON_PAYLOAD deve ter campos numéricos
-    json_match = re.search(r"<!--\s*JSON_PAYLOAD\s*(\{.*?\})\s*-->", text, re.DOTALL)
+    json_match = re.search(r"```json\s*(\{.*?\})\s*```", text, re.DOTALL)
     if json_match:
         try:
             payload = json.loads(json_match.group(1))

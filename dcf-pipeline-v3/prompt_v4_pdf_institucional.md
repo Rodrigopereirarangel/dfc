@@ -245,7 +245,7 @@ Se você tiver acesso às ferramentas MCP (Servidores Instalados), você DEVE at
 
 Ao final de cada fase, exportar na taxonomia correspondente e ESTRITAMENTE sem envolver em blocos de código markdown (`` ` ``). Exporte **apenas o comentário HTML puro**:
 
-<!-- JSON_PAYLOAD
+```json
 {
   "fase": "FX_COMPLETA",
   "ticker": "XXXX3",
@@ -253,7 +253,7 @@ Ao final de cada fase, exportar na taxonomia correspondente e ESTRITAMENTE sem e
   "alerta": "❗/🟠/✅",
   "nota": "observação relevante"
 }
--->
+```
 
 ---
 

@@ -61,14 +61,14 @@ Empresa: [nome] | Mercado: [país/setor] | Período: [anos] | Resultado: [desfec
 §4 Perguntas abertas que esta análise abre para as próximas fases?
 §5 Assimetria de informação identificada (o que o mercado não vê)?
 
-<!-- JSON_PAYLOAD
+```json
 {
   "fase": "FX_PY",
   "metrica_principal": 0,
   "metrica_2": 0,
   "metrica_3": 0
 }
--->
+```
 ```
 
 ---

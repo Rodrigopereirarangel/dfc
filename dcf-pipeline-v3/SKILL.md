@@ -81,35 +81,35 @@ Empresa: [nome real] | Mercado: [país/setor] | Período: [anos] | Resultado: [d
 §4 Perguntas abertas que este passo abre para as próximas fases?
 §5 Assimetria de informação identificada (o que o mercado não vê)?
 
-<!-- JSON_PAYLOAD
+```json
 {
   "fase": "FX_PY",
   "metrica_1": 0,
   "metrica_2": 0,
   "metrica_3": 0
 }
--->
+```
 ```
 
 ---
 
-## ✅ CHECKLIST DE COMPLIANCE DO AGENTE (OBRIGATÓRIO PREENCHER)
+## ✅ CHECKLIST DE COMPLIANCE DO AGENTE (COMPUTAÇÃO INTERNA SILENCIOSA)
 
-Ao finalizar CADA FASE, transcrever com **[V]** (Verdadeiro) ou **[F]** (Falso):
+Ao finalizar CADA FASE, você deve validar **INTERNAMENTE** o checklist abaixo e, **NO CHAT**, imprimir **APENAS UM AVISO CURTO DE UMA LINHA OBRIGATÓRIA**: `✅ CHECKLIST DE COMPLIANCE OK. FASE X CONCLUÍDA.`
 
-```text
-[CHECKLIST DE COMPLIANCE DO AGENTE — FASE X]
-[V/F] Eu instanciei o template acima e preenchi cada campo antes de escrever análise livre.
-[V/F] BLOCO 1 entregue com tabela snapshot (status + tendência em CADA linha).
-[V/F] BLOCO 2 entregue com ≥2 blockquotes no formato Claim→Evidence→Implication.
-[V/F] BLOCO 3 entregue com tabela de cenários + instrução DataViz + 💡 insight.
-[V/F] BLOCO 4 entregue com tabela de trade-offs e julgamento explícito.
-[V/F] BLOCO 5 entregue com analogia histórica NOMEADA (empresa + período + resultado).
-[V/F] SÍNTESE §1-§5 entregue no box ╔╗ com respostas COMPLETAS (não placeholder).
-[V/F] JSON_PAYLOAD exportado com campos numéricos PREENCHIDOS (não zeros).
-```
+**Você NÃO deve imprimir a lista com [V] ou [F] no chat**, pois polui a tela do usuário. Faça a validação na sua *Tree Of Thoughts* silenciosamente:
 
-**Se qualquer item for [F]: DESCARTE a resposta e reescreva o bloco antes de avançar.**
+*(Checklist Mental)*
+1. Instanciei o template acima preenchedo 100%?
+2. BLOCO 1 com tabela snapshot?
+3. BLOCO 2 com ≥2 blockquotes Claim→Evidence→Implication?
+4. BLOCO 3 com tabela + instrução DataViz + 💡 insight?
+5. BLOCO 4 entregue com tabela de trade-offs + PERGUNTA finalizada ao usuário (esperando resposta dele antes de continuar)?
+6. BLOCO 5 entregue com analogia histórica NOMEADA?
+7. SÍNTESE §1-§5 entregue no box ╔╗ com respostas COMPLETAS?
+8. Bloco ```json PAYLOAD exportado com campos numéricos PREENCHIDOS reais?
+
+**Se você reprovar em qualquer item internamente: DESCARTE a sua resposta autônoma e reescreva antes de enviá-la ao usuário.**
 
 Validar programaticamente: `python scripts/validate_compliance.py --clipboard --fase FX`
 
@@ -189,11 +189,11 @@ BLOCO 5 — Analogia Histórica Documentada
 ╚══════════════════════════════════════════════════════════════════╝
 ```
 
-> ⚠️ **Regra de Ouro — JSON Payload Export:** Ao final de CADA fase, exportar um bloco `<!-- JSON_PAYLOAD -->` com as métricas-chave numéricas da fase. O script `scripts/generate_pdf.py` consumirá estes dados diretamente para gerar os gráficos, sem NLP sobre a narrativa.
+> ⚠️ **Regra de Ouro — JSON Payload Export:** Ao final de CADA fase, exportar um bloco ````json` com as métricas-chave numéricas da fase. O script `scripts/generate_pdf.py` consumirá estes dados diretamente para gerar os gráficos, sem NLP sobre a narrativa.
 
 Exemplo de payload mínimo ao final de cada fase:
 ```json
-<!-- JSON_PAYLOAD
+```json
 {
   "fase": "F1",
   "roae": 22.7,
@@ -202,18 +202,19 @@ Exemplo de payload mínimo ao final de cada fase:
   "ajustes": -380,
   "lucro_normalizado": 3820
 }
--->
+```
 ```
 
 ---
 
-## HIERARQUIA DE DADOS (OBRIGATÓRIA)
+## HIERARQUIA DE DADOS (OBRIGATÓRIA) E REGRA TTM (TRAVERSAL)
 
-1. **PRIORIDADE MÁXIMA**: ITR (Informações Trimestrais) e DFP oficiais da CVM/RI da empresa.
-2. **PRIORIDADE SECUNDÁRIA**: StatusInvest, Morningstar ou APIs via MCP (para histórico >10 anos).
-3. **DADOS DE MERCADO**: yfinance (Yahoo Finance) para cotações live, beta, volume, short interest e sentimento.
+1. **PRIORIDADE MÁXIMA MUNDIAL (TTM):** TTM (Trailing Twelve Months) a partir do último ITR Trimestral disponível. **SE VOCÊ OBSERVAR DADOS DO 3T DE 2025 (OU POSTERIOR), PROIBIDO CALCULAR EM CIMA DO ANO FECHADO DE 2024.** Sempre incorpore o "Trimestre Mais Recente Disponível" nas margens e volumes para garantir a tese LTV mais acurada.
+2. **PRIORIDADE OFICIAL:** ITR (Informações Trimestrais) e DFP oficiais da CVM/RI da empresa.
+3. **PRIORIDADE SECUNDÁRIA:** StatusInvest, Morningstar ou APIs via MCP (para histórico >10 anos).
+4. **DADOS DE MERCADO:** yfinance (Yahoo Finance) para cotações live, beta, volume, short interest.
 
-> ⚠️ **NUNCA** usar dados de agregadores como fonte primária para DRE, BP ou DFC. Sempre validar contra ITR/DFP oficial.
+> ⚠️ **NUNCA** usar agregadores secundários para basear balanços se eles colidirem com os ITRs frescos e dinâmicos de meses mais recentes.
 
 ## PROTOCOLO DE AQUISIÇÃO DE DADOS
 
@@ -244,7 +245,7 @@ Antes de iniciar qualquer fase, verificar a disponibilidade dos dados:
 8. **5 Blocos + Síntese §1-§5**: Regra inviolável em todo sub-passo (ver template acima — preencher antes de análise livre). **ESTRITAMENTE PROIBIDO EM QUALQUER FASE** inventar blocos gráficos, placares de "Resumo", "Painel de Status", acumuladores de valor, ou qualquer tabela livre. Restrinja-se APENAS E ESTRITAMENTE ao texto narrativo e às tabelas exigidas pelo Template.
 9. **DataViz Interativo Obrigatório**: Todo BLOCO 3 deve rodar silenciosamente o `scripts/render_inline_dataviz.py` e gerar um HTML, exibindo estritamente um link absoluto clicável no Chat `[Ver Gráfico Interativo Aqui](file:///c:/caminho/...)`.
 10. **JSON Payload**: Exportar métricas numéricas em bloco JSON ao final de cada fase.
-11. **Paginação Automática Violenta**: Após validar o Checklist de Compliance sem falhas (Exit 0 do script), **NÃO ENCERRE A MENSAGEM**. Você deve imediatamente escrever o título da `Fase [X+1]` e continuar gerando os 5 Blocos da próxima fase **dentro da mesma resposta**. Seu objetivo é despejar todas as fases em um único fôlego. O único ponto restrito de parada humana é o GATE 5A.
+11. **Paginação Interativa (Obrigatória):** O Agente **NÃO DEVE** rodar todas as fases de uma vez. No final de CADA FASE, você deve parar de gerar o texto e perguntar ao usuário qual das OPÇÕES ele escolhe no BLOCO 4 (Trade-off). Você deve terminar a mensagem dizendo: `"👉 Fase X Concluída. Para iniciarmos a Fase Y, qual das Opções (A ou B) do Trade-Off acima você escolhe para levarmos como premissa?"`. Aguarde o prompt do usuário com a resposta antes de rodar a próxima fase incorporando aquela premissa.
 12. **Markdown Master Permanente**: Tudo que você compuser deve estar formatado para eventualmente compor integralmente o PDF. Não jogue o texto fora. O PDF exportará a NARRATIVA COMPLETA de todas as Fases da 0 à 8 utilizando a formatação rica em Markdown + JSONs.
 
 ---

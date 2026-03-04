@@ -90,7 +90,7 @@ Caso documentado onde erro de modelagem (chain check, WACC circular) gerou valua
 
 **JSON Payload ao final da Fase 5A:**
 ```json
-<!-- JSON_PAYLOAD
+```json
 {
   "fase": "F5A_GATE",
   "gate_aprovado": true,
@@ -101,7 +101,7 @@ Caso documentado onde erro de modelagem (chain check, WACC circular) gerou valua
     {"premissa": "g terminal", "modelo": 0.0, "base_rate": 0.0, "desvio": 0.0}
   ]
 }
--->
+```
 ```
 
 ---
@@ -117,7 +117,7 @@ Antes de passar para a próxima fase, o Agente AI DEVE verificar e imprimir este
 [V/F] Eu entreguei os 5 Blocos (Diagnóstico / Narrativa / DataViz / Trade-off / Analogia) em CADA sub-passo.
 [V/F] Eu incluí a instrução DataViz específica (tipo de gráfico + paleta + eixos) no BLOCO 3 de cada passo.
 [V/F] Eu apresentei a Síntese Institucional (§1 a §5) ao final desta fase.
-[V/F] Eu fechei a resposta gerando o bloco <!-- JSON_PAYLOAD --> com a taxonomia exata desta fase.
+[V/F] Eu fechei a resposta gerando o bloco ```json com a taxonomia exata desta fase.
 ```
 
 **Se qualquer item for (F):** PARE. Não avance. Corrija a sua resposta e reentregue antes de prosseguir para a próxima fase.

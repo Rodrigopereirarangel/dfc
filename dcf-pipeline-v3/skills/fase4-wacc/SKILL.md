@@ -133,7 +133,7 @@ Ciclo de juros baixos (2012-2021) → mercado usou COE de 10-11%. O que acontece
 
 **JSON Payload ao final da Fase 4:**
 ```json
-<!-- JSON_PAYLOAD
+```json
 {
   "fase": "F4_COMPLETA",
   "rf_real_ntnb": 0.0,
@@ -149,7 +149,7 @@ Ciclo de juros baixos (2012-2021) → mercado usou COE de 10-11%. O que acontece
   "g_projetado": 0.0,
   "penman_threshold": 0.0
 }
--->
+```
 ```
 
 ---
@@ -165,7 +165,7 @@ Antes de passar para a próxima fase, o Agente AI DEVE verificar e imprimir este
 [V/F] Eu entreguei os 5 Blocos (Diagnóstico / Narrativa / DataViz / Trade-off / Analogia) em CADA sub-passo.
 [V/F] Eu incluí a instrução DataViz específica (tipo de gráfico + paleta + eixos) no BLOCO 3 de cada passo.
 [V/F] Eu apresentei a Síntese Institucional (§1 a §5) ao final desta fase.
-[V/F] Eu fechei a resposta gerando o bloco <!-- JSON_PAYLOAD --> com a taxonomia exata desta fase.
+[V/F] Eu fechei a resposta gerando o bloco ```json com a taxonomia exata desta fase.
 ```
 
 **Se qualquer item for (F):** PARE. Não avance. Corrija a sua resposta e reentregue antes de prosseguir para a próxima fase.
