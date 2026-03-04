@@ -173,8 +173,7 @@ BLOCO 4 — Dilema Analítico / Trade-off
   → Tabela: opção | vantagem | custo
   → Julgamento explícito fundamentado
 
-BLOCO 5 — Analogia Histórica Documentada
-  → Empresa + mercado + período + resultado + lição
+
 ```
 
 ```
@@ -186,7 +185,7 @@ BLOCO 5 — Analogia Histórica Documentada
 ╚══════════════════════════════════════════════════════════════════╝
 ```
 
-> ⚠️ **Regra de Ouro — JSON Payload Export:** Ao final de CADA fase, exportar um bloco ````json` com as métricas-chave numéricas da fase. O script `scripts/generate_pdf.py` consumirá estes dados diretamente para gerar os gráficos, sem NLP sobre a narrativa.
+> ⚠️ **Regra de Ouro — JSON Payload Export:** Ao final de CADA fase, exportar um bloco ````json` com as métricas-chave numéricas da fase. O script `scripts/generate_pdf.py` consumirá estes dados diretamente para gerar os gráficos, sem NLP sobre a narrativa. O json nao precisa sair no output. pode ficar invisivel , apenas para controle interno.
 
 Exemplo de payload mínimo ao final de cada fase:
 ```json
@@ -241,7 +240,7 @@ Antes de iniciar qualquer fase, verificar a disponibilidade dos dados:
 7. **Outside View First** (L.27, Tetlock): Base rates antes de inside view.
 8. **5 Blocos + Síntese §1-§5**: Regra inviolável em todo sub-passo (ver template acima — preencher antes de análise livre). **ESTRITAMENTE PROIBIDO EM QUALQUER FASE** inventar blocos gráficos, placares de "Resumo", "Painel de Status", acumuladores de valor, ou qualquer tabela livre. Restrinja-se APENAS E ESTRITAMENTE ao texto narrativo e às tabelas exigidas pelo Template.
 9. **DataViz Interativo Obrigatório**: Todo BLOCO 3 deve rodar silenciosamente o `scripts/render_inline_dataviz.py` e gerar um HTML, exibindo estritamente um link absoluto clicável no Chat `[Ver Gráfico Interativo Aqui](file:///c:/caminho/...)`.
-10. **JSON Payload**: Exportar métricas numéricas em bloco JSON ao final de cada fase.
+10. **JSON Payload**: Exportar métricas numéricas em bloco JSON ao final de cada fase. Não quero que apareça, so interno.
 11. **Paginação Interativa (Obrigatória):** O Agente **NÃO DEVE** rodar todas as fases de uma vez. No final de CADA FASE, você deve parar de gerar o texto e perguntar ao usuário qual das OPÇÕES ele escolhe no BLOCO 4 (Trade-off). Você deve terminar a mensagem dizendo: `"👉 Fase X Concluída. Para iniciarmos a Fase Y, qual das Opções (A ou B) do Trade-Off acima você escolhe para levarmos como premissa?"`. Aguarde o prompt do usuário com a resposta antes de rodar a próxima fase incorporando aquela premissa.
 12. **Markdown Master Permanente**: Tudo que você compuser deve estar formatado para eventualmente compor integralmente o PDF. Não jogue o texto fora. O PDF exportará a NARRATIVA COMPLETA de todas as Fases da 0 à 8 utilizando a formatação rica em Markdown + JSONs.
 
